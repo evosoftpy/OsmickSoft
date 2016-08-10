@@ -106,3 +106,7 @@ C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuest
 C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
 C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
