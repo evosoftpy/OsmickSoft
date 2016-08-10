@@ -325,11 +325,11 @@ Public Class Venta
         suma = 0
 
         If DataGridView1.CurrentCellAddress.X = 2 Then
-            If IsNumeric(DataGridView1.Item(2, curen).Value) Then
+            If IsNumeric(DataGridView1.Item(3, curen).Value) Then
 
             Else
                 MsgBox("Ingrese un precio unitario numerico")
-                DataGridView1.Item(2, curen).Value = ""
+                DataGridView1.Item(3, curen).Value = ""
             End If
         End If
 
@@ -345,7 +345,8 @@ Public Class Venta
                 If cod = DataSet1.Tables("stock").Rows(i).Item("codigo") Or cod = DataSet1.Tables("stock").Rows(i).Item("codigo_barras") Then
 
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    DataGridView1.Item(2, curen).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                    DataGridView1.Item(2, curen).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                    DataGridView1.Item(3, curen).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
                     idproducto = DataSet1.Tables("stock").Rows(i).Item("id_stock")
                     ban_exist_product = 1
                 End If
@@ -358,14 +359,14 @@ Public Class Venta
 
         End If
 
-        If DataGridView1.Item(3, curen).Value = "" Then
+        If DataGridView1.Item(4, curen).Value = "" Then
 
         Else
             cantidad_product = cantidad_producto_disponible(idproducto)
             For i = 0 To DataGridView1.RowCount - 1
                 If DataGridView1.Item(0, i).Value IsNot "" Then
                     If DataGridView1.Item(0, i).Value = 0 Then
-                        suma = suma + DataGridView1.Item(4, i).Value
+                        suma = suma + DataGridView1.Item(5, i).Value
                         text_sub_total.Text = Puntos(suma.ToString)
                         iva = suma * 0.1
                         text_iva.Text = Puntos(iva.ToString)
@@ -383,30 +384,30 @@ Public Class Venta
 
             Next
 
-            If IsNumeric(DataGridView1.Item(3, curen).Value) = False Then
+            If IsNumeric(DataGridView1.Item(4, curen).Value) = False Then
                 MsgBox("Ingrese numero")
-                DataGridView1.Item(3, curen).Value = ""
+                DataGridView1.Item(4, curen).Value = ""
             Else
 
-                If cantidad_product - DataGridView1.Item(3, curen).Value < 0 Then
+                If cantidad_product - DataGridView1.Item(4, curen).Value < 0 Then
                     Dim mensaje As String
                     MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
 
 
                     DataGridView1.CurrentCell.Value = 0
 
-                    If cantidad_product - DataGridView1.Item(3, curen).Value < 2 Then
+                    If cantidad_product - DataGridView1.Item(4, curen).Value < 2 Then
                         mensaje = "Producto " + DataGridView1.Item(1, curen).Value.ToString + " sobra  " + cantidad_product.ToString
                         EnvioMail(mensaje)
                     End If
 
                 End If
-                If IsNumeric(DataGridView1.Item(2, curen).Value) Then
-                    DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
+                If IsNumeric(DataGridView1.Item(3, curen).Value) Then
+                    DataGridView1.Item(5, curen).Value = DataGridView1.Item(4, curen).Value * DataGridView1.Item(3, curen).Value
                     suma = 0
                     For i = 0 To DataGridView1.RowCount - 1
-                        If DataGridView1.Item(4, i).Value IsNot "" Then
-                            suma = suma + DataGridView1.Item(4, i).Value
+                        If DataGridView1.Item(5, i).Value IsNot "" Then
+                            suma = suma + DataGridView1.Item(5, i).Value
                             text_sub_total.Text = Puntos(suma.ToString)
                             iva = suma * 0.1
                             text_iva.Text = Puntos(iva.ToString)
@@ -417,7 +418,7 @@ Public Class Venta
                     Next
                 Else
                     MsgBox("Ingrese un precio unitario numerico")
-                    DataGridView1.Item(2, curen).Value = ""
+                    DataGridView1.Item(3, curen).Value = ""
                 End If
             End If
         End If
@@ -480,8 +481,9 @@ Public Class Venta
 
                     DataGridView1.Item(0, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("codigo")
                     DataGridView1.Item(1, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("nombre")
-                    DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
-                    DataGridView1.Item(3, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
+                    DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("descripcion")
+                    DataGridView1.Item(3, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
+                    DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
 
                     cont = cont + 1
                 End If
@@ -587,8 +589,9 @@ Public Class Venta
 
                     DataGridView1.Item(0, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("codigo")
                     DataGridView1.Item(1, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("nombre")
-                    DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
-                    DataGridView1.Item(3, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
+                    DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("descripcion")
+                    DataGridView1.Item(3, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
+                    DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
 
                     cont = cont + 1
                 End If
@@ -676,8 +679,9 @@ Public Class Venta
 
                     DataGridView1.Item(0, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("codigo")
                     DataGridView1.Item(1, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("nombre")
-                    DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
-                    DataGridView1.Item(3, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
+                    DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("descripcion")
+                    DataGridView1.Item(3, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
+                    DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
 
                     cont = cont + 1
                 End If
@@ -793,8 +797,6 @@ Public Class Venta
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim factura As String
-
-
         factura = n_factura_textbox.Text
         Dim i As Integer
 
@@ -810,6 +812,11 @@ Public Class Venta
     End Sub
 
     Private Sub text_ruc_venta_TextChanged(sender As Object, e As EventArgs) Handles text_ruc_venta.TextChanged
+
+    End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        MsgBox("holi " + DataGridView1.CurrentRow.Index.ToString)
 
     End Sub
 End Class
