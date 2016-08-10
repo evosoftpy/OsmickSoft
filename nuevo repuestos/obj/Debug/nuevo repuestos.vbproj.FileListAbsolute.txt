@@ -1,0 +1,108 @@
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+C:\Users\gp_75\Source\Repos\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+E:\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+E:\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+E:\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+E:\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+C:\Users\gp_75\Desktop\nuevo repuestos(manoli beta)\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+C:\Users\gp_75\Desktop\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+D:\Documentos\Dropbox\Evosoft\Repuestos\Mostrar\con mail\nuevo repuestos\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+C:\Users\Gabriel\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
