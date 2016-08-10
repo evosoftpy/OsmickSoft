@@ -17,6 +17,7 @@ Public Class Form1
     Dim sell As New Venta
     Dim client As New Cliente
     Dim prov As New Proveedor
+    Dim informe As New Informes
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
@@ -43,6 +44,7 @@ Public Class Form1
         sell.MdiParent = Me
         sell.StartPosition = FormStartPosition.CenterScreen
 
+        Informes.Show()
 
         sell.Show()
 
@@ -102,6 +104,14 @@ Public Class Form1
 
     Private Sub Button5_Click(sender As Object, e As EventArgs)
 
+
+    End Sub
+
+    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
+        informe.MdiParent = Me
+        informe.StartPosition = FormStartPosition.CenterScreen
+
+        informe.Show()
 
     End Sub
 End Class
