@@ -10,6 +10,8 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
+        consultas.Start()
+        avisos.Start()
 
     End Sub
 
@@ -104,4 +106,56 @@ Public Class Form1
 
 
     End Sub
+
+    Private Sub avisos_Tick(sender As Object, e As EventArgs) Handles avisos.Tick
+        Dim dia As Date
+        dia = Date.Now
+
+        Try
+            If dia.DayOfWeek.ToString = "Wednesday" Then
+                MsgBox("Es miercoles")
+            End If
+        Catch ex As Exception
+        End Try
+
+        avisos.Stop()
+        avisos.Interval = 3600000
+        avisos.Start()
+    End Sub
+
+    Private Sub consultas_Tick(sender As Object, e As EventArgs) Handles consultas.Tick
+
+
+        Try
+            'verificar si hay consultar en el correo
+        Catch ex As Exception
+        End Try
+
+        consultas.Stop()
+        consultas.Interval = 600000
+        consultas.Start()
+    End Sub
+
+    Function buscarStockBajo()
+        Dim stock As String
+        Dim cod As String
+        Dim codigos As List(Of String)
+        Dim i, n As Integer
+        n = DataSet1.Tables("stock").Rows.Count
+        Try
+            For i = 0 To n
+                cod = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                If codigos.Exists(cod) Then
+
+                End If
+            Next
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+        Return stock
+    End Function
 End Class

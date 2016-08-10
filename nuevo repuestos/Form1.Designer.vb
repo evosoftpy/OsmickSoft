@@ -31,6 +31,8 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.avisos = New System.Windows.Forms.Timer(Me.components)
+        Me.consultas = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -95,6 +97,14 @@ Partial Class Form1
         Me.Button4.Text = "Proveedores"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'avisos
+        '
+        Me.avisos.Interval = 3600000
+        '
+        'consultas
+        '
+        Me.consultas.Interval = 600000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -123,4 +133,6 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents avisos As Timer
+    Friend WithEvents consultas As Timer
 End Class
