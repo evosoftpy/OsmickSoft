@@ -125,3 +125,4 @@ C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_rep
 C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
 C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Informes.resources

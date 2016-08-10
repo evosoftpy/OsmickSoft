@@ -121,6 +121,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="herramientas.vb" />
+    <Compile Include="Informes.Designer.vb">
+      <DependentUpon>Informes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Informes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="moduloDatos.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes.resx">
+      <DependentUpon>Informes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
