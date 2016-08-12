@@ -13,22 +13,20 @@ Public Class Form1
 
     End Sub
 
-    Dim stock As New Form2
-    Dim sell As New Venta
-    Dim client As New Cliente
-    Dim prov As New Proveedor
-    Dim informe As New Informes
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        stock.Hide()
-        sell.Hide()
-        client.Hide()
-        prov.Hide()
+        form_manager.stock.Hide()
+        form_manager.sell.Hide()
+        form_manager.client.Hide()
+        form_manager.prov.Hide()
+        form_manager.product.Hide()
 
 
-        stock.MdiParent = Me
-        stock.StartPosition = FormStartPosition.CenterScreen
+
+        form_manager.stock.MdiParent = Me
+        form_manager.stock.StartPosition = FormStartPosition.CenterScreen
 
 
         stock.Show()
@@ -36,42 +34,46 @@ Public Class Form1
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        stock.Hide()
-        sell.Hide()
-        client.Hide()
-        prov.Hide()
+        form_manager.stock.Hide()
+        form_manager.sell.Hide()
+        form_manager.client.Hide()
+        form_manager.prov.Hide()
 
-        sell.MdiParent = Me
-        sell.StartPosition = FormStartPosition.CenterScreen
 
-        Informes.Show()
+        form_manager.sell.MdiParent = Me
+        form_manager.sell.Show()
 
-        sell.Show()
+        form_manager.product.MdiParent = Me
+        form_manager.product.Show()
+
+
+
 
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        stock.Hide()
-        sell.Hide()
-        client.Hide()
-        prov.Hide()
+        form_manager.stock.Hide()
+        form_manager.sell.Hide()
+        form_manager.client.Hide()
+        form_manager.prov.Hide()
+        form_manager.product.Hide()
 
-        client.MdiParent = Me
-        client.StartPosition = FormStartPosition.CenterScreen
+        form_manager.client.MdiParent = Me
+        form_manager.client.StartPosition = FormStartPosition.CenterScreen
 
-        client.Show()
+        form_manager.client.Show()
 
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        stock.Hide()
-        sell.Hide()
-        client.Hide()
-        prov.Hide()
-
-        prov.MdiParent = Me
-        prov.StartPosition = FormStartPosition.CenterScreen
-        prov.Show()
+        form_manager.stock.Hide()
+        form_manager.sell.Hide()
+        form_manager.client.Hide()
+        form_manager.prov.Hide()
+        form_manager.product.Hide()
+        form_manager.prov.MdiParent = Me
+        form_manager.prov.StartPosition = FormStartPosition.CenterScreen
+        form_manager.prov.Show()
 
     End Sub
 
@@ -108,10 +110,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
-        informe.MdiParent = Me
-        informe.StartPosition = FormStartPosition.CenterScreen
-
-        informe.Show()
+        form_manager.informe.MdiParent = Me
+        form_manager.informe.StartPosition = FormStartPosition.CenterScreen
+        form_manager.product.Hide()
+        form_manager.informe.Show()
 
     End Sub
 End Class
