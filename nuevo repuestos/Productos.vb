@@ -1,4 +1,4 @@
-﻿Public Class Form3
+﻿Public Class Productos
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
 
@@ -89,6 +89,41 @@
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+
+    End Sub
+
+    Private Sub DataGridViewStock_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewStock.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridViewStock_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewStock.CellClick
+
+    End Sub
+
+    Private Sub DataGridViewStock_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewStock.CellDoubleClick
+
+        Dim index As Integer
+        index = DataGridViewStock.CurrentRow.Index
+        Dim j As Integer
+
+
+        Dim i As Integer
+
+        form_manager.sell.DataGridView1.Rows.Add()
+        j = form_manager.sell.DataGridView1.Rows.Count - 2
+
+
+        form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(0, index).Value
+        form_manager.sell.DataGridView1.Item(1, j).Value = DataGridViewStock.Item(2, index).Value
+        form_manager.sell.DataGridView1.Item(2, j).Value = DataGridViewStock.Item(3, index).Value
+        form_manager.sell.DataGridView1.Item(3, j).Value = DataGridViewStock.Item(4, index).Value
+        form_manager.sell.DataGridView1.Focus()
+        form_manager.sell.DataGridView1.Focus()
+        form_manager.sell.DataGridView1.CurrentCell = form_manager.sell.DataGridView1.Item(4, j)
+
+
+
+
 
     End Sub
 End Class

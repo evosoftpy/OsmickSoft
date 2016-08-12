@@ -40,6 +40,12 @@ Partial Class Venta
         Me.label_subtotal = New System.Windows.Forms.Label()
         Me.venta_guardar = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Punit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TextBox17 = New System.Windows.Forms.TextBox()
         Me.label_fecha = New System.Windows.Forms.Label()
         Me.TextBox16 = New System.Windows.Forms.TextBox()
@@ -82,12 +88,6 @@ Partial Class Venta
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Punit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -252,6 +252,41 @@ Partial Class Venta
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(644, 236)
         Me.DataGridView1.TabIndex = 58
+        '
+        'Codigo
+        '
+        Me.Codigo.Frozen = True
+        Me.Codigo.HeaderText = "Codigo"
+        Me.Codigo.Name = "Codigo"
+        '
+        'Producto
+        '
+        Me.Producto.Frozen = True
+        Me.Producto.HeaderText = "Producto"
+        Me.Producto.Name = "Producto"
+        Me.Producto.ReadOnly = True
+        '
+        'Descripcion
+        '
+        Me.Descripcion.HeaderText = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
+        '
+        'Punit
+        '
+        Me.Punit.HeaderText = "P/unid"
+        Me.Punit.Name = "Punit"
+        Me.Punit.ReadOnly = True
+        '
+        'cant
+        '
+        Me.cant.HeaderText = "Cant"
+        Me.cant.Name = "cant"
+        '
+        'Importe
+        '
+        Me.Importe.HeaderText = "Importe"
+        Me.Importe.Name = "Importe"
+        Me.Importe.ReadOnly = True
         '
         'TextBox17
         '
@@ -528,45 +563,9 @@ Partial Class Venta
         Me.DataGridViewTextBoxColumn22.HeaderText = "factura_venta"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         '
-        'Codigo
-        '
-        Me.Codigo.Frozen = True
-        Me.Codigo.HeaderText = "Codigo"
-        Me.Codigo.Name = "Codigo"
-        '
-        'Producto
-        '
-        Me.Producto.Frozen = True
-        Me.Producto.HeaderText = "Producto"
-        Me.Producto.Name = "Producto"
-        Me.Producto.ReadOnly = True
-        '
-        'Descripcion
-        '
-        Me.Descripcion.HeaderText = "Descripcion"
-        Me.Descripcion.Name = "Descripcion"
-        '
-        'Punit
-        '
-        Me.Punit.HeaderText = "P/unid"
-        Me.Punit.Name = "Punit"
-        Me.Punit.ReadOnly = True
-        '
-        'cant
-        '
-        Me.cant.HeaderText = "Cant"
-        Me.cant.Name = "cant"
-        '
-        'Importe
-        '
-        Me.Importe.HeaderText = "Importe"
-        Me.Importe.Name = "Importe"
-        Me.Importe.ReadOnly = True
-        '
         'Venta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(660, 506)
         Me.ControlBox = False
         Me.Controls.Add(Me.VentaDataGridView)
@@ -596,8 +595,9 @@ Partial Class Venta
         Me.Controls.Add(Me.label_venta_cliente)
         Me.Controls.Add(Me.text_ruc_venta)
         Me.Controls.Add(Me.label_ruc)
+        Me.Location = New System.Drawing.Point(610, 100)
         Me.Name = "Venta"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Venta"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
