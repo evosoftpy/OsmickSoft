@@ -128,6 +128,9 @@ Public Class Form1
 
         Try
             'verificar si hay consultar en el correo
+            If GetMails("evosoftpy@gmail.com", "pr1nt3f3", "cpaezpy@gmail.com") Then
+
+            End If
         Catch ex As Exception
         End Try
 
@@ -136,26 +139,34 @@ Public Class Form1
         consultas.Start()
     End Sub
 
-    Function buscarStockBajo()
-        Dim stock As String
-        Dim cod As String
-        Dim codigos As List(Of String)
-        Dim i, n As Integer
-        n = DataSet1.Tables("stock").Rows.Count
+
+
+    Private Function GetMails(mail As String, clave As String, consultor As String)
+        Dim client As OpenPop.Pop3.Pop3Client = New OpenPop.Pop3.Pop3Client()
+        'Dim allMessages As List(Of OpenPop.Mime.Message) = New List(Of OpenPop.Mime.Message)(messageCount)
+
+        'For count As Integer = 1 To messageCount
+        'Try
+        ' allMessages.Add(client.GetMessage(count))
+        ' Catch ex As OpenPop.Pop3.Exceptions.PopServerException
+        'allMessages.Add(Nothing)
+        'End Try
+        ' Next
+
+        Dim subj, from As String
         Try
-            For i = 0 To n
-                cod = DataSet1.Tables("stock").Rows(i).Item("codigo")
-                If codigos.Exists(cod) Then
+            client.Connect("pop.gmail.com", 995, True)
+            client.Authenticate(mail, clave)
 
-                End If
-            Next
-
-
+            Dim messageCount As Integer = client.GetMessageCount()
+            subj = client.GetMessage(messageCount).Headers.Subject
+            from = client.GetMessage(messageCount).Headers.From.Address
+            If subj = "consulta stock" And from = consultor Then
+                Return True
+            End If
         Catch ex As Exception
-
+            MsgBox("Error al conectarse con el servidor")
         End Try
-
-
-        Return stock
+        Return False
     End Function
 End Class
