@@ -144,3 +144,6 @@ C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\n
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
+C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
+C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources

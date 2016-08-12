@@ -88,6 +88,12 @@
     <Compile Include="Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="confAvisos.Designer.vb">
+      <DependentUpon>confAvisos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="confAvisos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="crearClientes.Designer.vb">
       <DependentUpon>crearClientes.vb</DependentUpon>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confAvisos.resx">
+      <DependentUpon>confAvisos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearClientes.resx">
       <DependentUpon>crearClientes.vb</DependentUpon>

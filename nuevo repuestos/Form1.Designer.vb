@@ -33,6 +33,7 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.avisos = New System.Windows.Forms.Timer(Me.components)
         Me.consultas = New System.Windows.Forms.Timer(Me.components)
+        Me.Buttoncorreo = New System.Windows.Forms.Button()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -103,13 +104,23 @@ Partial Class Form1
         '
         'consultas
         '
-        Me.consultas.Interval = 600000
+        Me.consultas.Interval = 2000
+        '
+        'Buttoncorreo
+        '
+        Me.Buttoncorreo.Location = New System.Drawing.Point(619, 6)
+        Me.Buttoncorreo.Name = "Buttoncorreo"
+        Me.Buttoncorreo.Size = New System.Drawing.Size(145, 23)
+        Me.Buttoncorreo.TabIndex = 6
+        Me.Buttoncorreo.Text = "Configurar correo"
+        Me.Buttoncorreo.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1221, 566)
+        Me.Controls.Add(Me.Buttoncorreo)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
@@ -135,4 +146,5 @@ Partial Class Form1
     Friend WithEvents Button4 As Button
     Friend WithEvents avisos As Timer
     Friend WithEvents consultas As Timer
+    Friend WithEvents Buttoncorreo As Button
 End Class
