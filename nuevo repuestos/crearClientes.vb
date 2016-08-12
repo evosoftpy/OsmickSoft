@@ -34,6 +34,9 @@
                     newCliente("numero_cliente") = clienteNcTxt.Text.ToString
                     newCliente("ruc_cliente") = clienteRucTxt.Text.ToString
 
+
+
+
                     DataSet1.Tables("cliente").Rows.Add(newCliente)
 
                     Validate()
@@ -44,9 +47,12 @@
                     clienteApTxt.Text = ""
                     clienteNcTxt.Text = ""
                     clienteRucTxt.Text = ""
+                    form_manager.sell.update_cache()
+                    form_manager.client.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
                     Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
                     Me.Hide()
+
                 Else
                     MsgBox("El cliente ya existe")
                 End If
@@ -54,6 +60,7 @@
                 MsgBox("Favor complete con el Nombre o el apellido y el RUC como minimo")
 
             End If
+
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

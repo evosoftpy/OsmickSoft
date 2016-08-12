@@ -25,7 +25,7 @@
             clienteRucTxt.Text = ""
 
             '   f1.Show()
-
+            form_manager.client.ClienteTableAdapter.Fill(DataSet1.cliente)
             Me.Hide()
         Catch ex As Exception
             MsgBox("Error durante la edicion")
