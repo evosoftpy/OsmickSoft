@@ -23,6 +23,8 @@ Public Class Form1
         form_manager.client.Hide()
         form_manager.prov.Hide()
         form_manager.product.Hide()
+        form_manager.informe.Hide()
+
         ProgressBar1.Value = 70
 
 
@@ -46,6 +48,7 @@ Public Class Form1
         form_manager.sell.Hide()
         form_manager.client.Hide()
         form_manager.prov.Hide()
+        form_manager.informe.Hide()
 
 
         form_manager.sell.MdiParent = Me
@@ -73,6 +76,7 @@ Public Class Form1
         form_manager.client.Hide()
         form_manager.prov.Hide()
         form_manager.product.Hide()
+        form_manager.informe.Hide()
         ProgressBar1.Value = 70
         form_manager.client.MdiParent = Me
         form_manager.client.StartPosition = FormStartPosition.CenterScreen
@@ -91,6 +95,7 @@ Public Class Form1
         form_manager.sell.Hide()
         form_manager.client.Hide()
         form_manager.prov.Hide()
+        form_manager.informe.Hide()
         form_manager.product.Hide()
         ProgressBar1.Value = 70
         form_manager.prov.MdiParent = Me
@@ -138,6 +143,14 @@ Public Class Form1
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
         ProgressBar1.Value = 30
+
+        form_manager.stock.Hide()
+        form_manager.sell.Hide()
+        form_manager.client.Hide()
+        form_manager.prov.Hide()
+        form_manager.product.Hide()
+        form_manager.stock.Hide()
+
         form_manager.informe.MdiParent = Me
         form_manager.informe.StartPosition = FormStartPosition.CenterScreen
         form_manager.product.Hide()

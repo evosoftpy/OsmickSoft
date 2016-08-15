@@ -92,7 +92,7 @@ Partial Class Informes
         '
         Me.informe_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.informe_ventas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Codigo, Me.Producto, Me.Descripcion, Me.vendida, Me.Comprada, Me.P_Compra, Me.P_Venta, Me.Ganancia})
-        Me.informe_ventas.Location = New System.Drawing.Point(32, 36)
+        Me.informe_ventas.Location = New System.Drawing.Point(165, 12)
         Me.informe_ventas.Name = "informe_ventas"
         Me.informe_ventas.Size = New System.Drawing.Size(845, 396)
         Me.informe_ventas.TabIndex = 0
@@ -303,10 +303,11 @@ Partial Class Informes
         Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
         Me.StockDataGridView.DataSource = Me.StockBindingSource
-        Me.StockDataGridView.Location = New System.Drawing.Point(1004, 96)
+        Me.StockDataGridView.Location = New System.Drawing.Point(1080, 96)
         Me.StockDataGridView.Name = "StockDataGridView"
         Me.StockDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.StockDataGridView.TabIndex = 2
+        Me.StockDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -355,10 +356,11 @@ Partial Class Informes
         Me.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.VentaDataGridView.DataSource = Me.VentaBindingSource
-        Me.VentaDataGridView.Location = New System.Drawing.Point(1004, 332)
+        Me.VentaDataGridView.Location = New System.Drawing.Point(1080, 332)
         Me.VentaDataGridView.Name = "VentaDataGridView"
         Me.VentaDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.VentaDataGridView.TabIndex = 3
+        Me.VentaDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn7
         '
@@ -401,10 +403,11 @@ Partial Class Informes
         Me.IngresoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.IngresoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17})
         Me.IngresoDataGridView.DataSource = Me.IngresoBindingSource
-        Me.IngresoDataGridView.Location = New System.Drawing.Point(1321, 96)
+        Me.IngresoDataGridView.Location = New System.Drawing.Point(1397, 96)
         Me.IngresoDataGridView.Name = "IngresoDataGridView"
         Me.IngresoDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.IngresoDataGridView.TabIndex = 4
+        Me.IngresoDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn12
         '
@@ -444,7 +447,7 @@ Partial Class Informes
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(32, 457)
+        Me.Button1.Location = New System.Drawing.Point(12, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(133, 23)
         Me.Button1.TabIndex = 5
@@ -453,9 +456,9 @@ Partial Class Informes
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(171, 457)
+        Me.Button2.Location = New System.Drawing.Point(12, 41)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(115, 23)
+        Me.Button2.Size = New System.Drawing.Size(133, 23)
         Me.Button2.TabIndex = 6
         Me.Button2.Text = "Productos en falta"
         Me.Button2.UseVisualStyleBackColor = True
@@ -464,7 +467,7 @@ Partial Class Informes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(901, 494)
+        Me.ClientSize = New System.Drawing.Size(1029, 494)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
