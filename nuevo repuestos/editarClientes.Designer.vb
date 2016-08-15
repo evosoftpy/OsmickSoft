@@ -36,8 +36,8 @@ Partial Class editarClientes
         Me.clienteNcTxt = New System.Windows.Forms.TextBox()
         Me.DataSet1 = New nuevo_repuestos.DataSet1()
         Me.ClienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ClienteTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.clienteTableAdapter()
         Me.TableAdapterManager = New nuevo_repuestos.DataSet1TableAdapters.TableAdapterManager()
+        Me.ClienteTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.clienteTableAdapter()
         Me.ClienteDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -161,19 +161,21 @@ Partial Class editarClientes
         Me.ClienteBindingSource.DataMember = "cliente"
         Me.ClienteBindingSource.DataSource = Me.DataSet1
         '
-        'ClienteTableAdapter
-        '
-        Me.ClienteTableAdapter.ClearBeforeFill = True
-        '
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.clienteTableAdapter = Me.ClienteTableAdapter
+        Me.TableAdapterManager.clienteTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.ingreso_proveedorTableAdapter = Nothing
         Me.TableAdapterManager.ingresoTableAdapter = Nothing
         Me.TableAdapterManager.proveedorTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = nuevo_repuestos.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.ventaTableAdapter = Nothing
+        '
+        'ClienteTableAdapter
+        '
+        Me.ClienteTableAdapter.ClearBeforeFill = True
         '
         'ClienteDataGridView
         '
@@ -181,13 +183,10 @@ Partial Class editarClientes
         Me.ClienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
-        Me.ClienteDataGridView.Location = New System.Drawing.Point(482, 15)
-        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ClienteDataGridView.Location = New System.Drawing.Point(445, 11)
         Me.ClienteDataGridView.Name = "ClienteDataGridView"
-        Me.ClienteDataGridView.RowTemplate.Height = 24
-        Me.ClienteDataGridView.Size = New System.Drawing.Size(225, 179)
-        Me.ClienteDataGridView.TabIndex = 20
-        Me.ClienteDataGridView.Visible = False
+        Me.ClienteDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ClienteDataGridView.TabIndex = 19
         '
         'DataGridViewTextBoxColumn1
         '
@@ -223,10 +222,10 @@ Partial Class editarClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(431, 226)
+        Me.ClientSize = New System.Drawing.Size(435, 216)
         Me.Controls.Add(Me.ClienteDataGridView)
         Me.Controls.Add(Me.clienteAgreGroup)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "editarClientes"
         Me.Text = "editarClientes"
         Me.clienteAgreGroup.ResumeLayout(False)
@@ -251,8 +250,8 @@ Partial Class editarClientes
     Friend WithEvents clienteNcTxt As TextBox
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents ClienteBindingSource As BindingSource
-    Friend WithEvents ClienteTableAdapter As DataSet1TableAdapters.clienteTableAdapter
     Friend WithEvents TableAdapterManager As DataSet1TableAdapters.TableAdapterManager
+    Friend WithEvents ClienteTableAdapter As DataSet1TableAdapters.clienteTableAdapter
     Friend WithEvents ClienteDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
