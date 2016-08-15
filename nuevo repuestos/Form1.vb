@@ -8,6 +8,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet1.cliente' table. You can move, or remove it, as needed.
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
@@ -160,6 +162,17 @@ Public Class Form1
     End Sub
 
     Private Sub ProgressBar1_Click(sender As Object, e As EventArgs) Handles ProgressBar1.Click
+
+    End Sub
+
+    Private Sub ClienteBindingSource_CurrentChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ClienteBindingNavigatorSaveItem_Click_1(sender As Object, e As EventArgs) Handles ClienteBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.ClienteBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DataSet1)
 
     End Sub
 End Class

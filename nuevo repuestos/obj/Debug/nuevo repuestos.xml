@@ -21,6 +21,11 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:nuevo_repuestos.DataSet1.ingreso_proveedorDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:nuevo_repuestos.DataSet1.proveedorDataTable">
 <summary>
 Represents the strongly named DataTable class.
@@ -42,6 +47,11 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:nuevo_repuestos.DataSet1.ingresoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:nuevo_repuestos.DataSet1.ingreso_proveedorRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -71,6 +81,11 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:nuevo_repuestos.DataSet1.ingreso_proveedorRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:nuevo_repuestos.DataSet1.proveedorRowChangeEvent">
 <summary>
 Row event argument class
@@ -92,6 +107,11 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:nuevo_repuestos.DataSet1TableAdapters.ingresoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:nuevo_repuestos.DataSet1TableAdapters.ingreso_proveedorTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
