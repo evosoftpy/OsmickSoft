@@ -44,12 +44,14 @@ Module moduloDatos
     End Sub
 
     Public Sub leerArchivo()
-        Dim objReader As New StreamReader("dataMail.conf")
+
         Dim sLine As String = ""
         Dim ban As Integer = 0
         'Dim arrText As New ArrayList()
         Try
+            Dim objReader As New StreamReader("dataMail.conf")
             Do
+
                 sLine = objReader.ReadLine()
                 If Not sLine Is Nothing Then
                     'arrText.Add(sLine)
@@ -70,7 +72,7 @@ Module moduloDatos
             objReader.Close()
             'MsgBox(correo + dia)
         Catch ex As Exception
-            objReader.Close()
+
         End Try
 
     End Sub
