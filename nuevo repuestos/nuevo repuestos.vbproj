@@ -47,6 +47,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpenPop, Version=2.0.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenPop.2.0.6.2\lib\net20\OpenPop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -82,6 +86,12 @@
       <DependentUpon>Cliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="confAvisos.Designer.vb">
+      <DependentUpon>confAvisos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="confAvisos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="crearClientes.Designer.vb">
@@ -179,6 +189,9 @@
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="confAvisos.resx">
+      <DependentUpon>confAvisos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="crearClientes.resx">
       <DependentUpon>crearClientes.vb</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +251,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

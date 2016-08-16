@@ -141,7 +141,6 @@ C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repue
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
-C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form3.resources
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Informes.resources
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
@@ -170,3 +169,8 @@ C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repu
 C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
 C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.info_p_falta.resources
+C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources
+C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.info_p_falta.resources
+C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Productos.resources
+C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
+C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
