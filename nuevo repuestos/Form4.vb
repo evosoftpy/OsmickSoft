@@ -1,5 +1,11 @@
-﻿Public Class Form4
+﻿Public Class info_p_falta
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
+        Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+        'TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
+        Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        'TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
+        Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
 
         'TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
         Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
@@ -65,6 +71,13 @@
             cantidad_en_stock = 0
         Next
         'MsgBox(string_salida)
+
+    End Sub
+
+    Private Sub IngresoBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles IngresoBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.IngresoBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DataSet1)
 
     End Sub
 End Class

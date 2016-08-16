@@ -52,7 +52,6 @@ Partial Class Informes
         Me.VentaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IngresoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.IngresoTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.ingresoTableAdapter()
         Me.IngresoDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -82,6 +81,7 @@ Partial Class Informes
         Me.DateTimePicker2gasto = New System.Windows.Forms.DateTimePicker()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.Label112 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.informe_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -312,15 +312,6 @@ Partial Class Informes
         Me.Button1.Text = "Mostrar Todo"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(12, 41)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(133, 23)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Productos en falta"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'IngresoTableAdapter
         '
         Me.IngresoTableAdapter.ClearBeforeFill = True
@@ -514,12 +505,22 @@ Partial Class Informes
         Me.Label112.TabIndex = 19
         Me.Label112.Text = "Desde"
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(12, 41)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(132, 23)
+        Me.Button3.TabIndex = 21
+        Me.Button3.Text = "Productos en falta"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Informes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1044, 467)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.DateTimePicker1gasto)
         Me.Controls.Add(Me.DateTimePicker2gasto)
         Me.Controls.Add(Me.Label111)
@@ -527,7 +528,6 @@ Partial Class Informes
         Me.Controls.Add(Me.VentaDataGridView)
         Me.Controls.Add(Me.StockDataGridView)
         Me.Controls.Add(Me.IngresoDataGridView)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StockBindingNavigator)
         Me.Controls.Add(Me.informe_ventas)
@@ -578,7 +578,6 @@ Partial Class Informes
     Friend WithEvents IngresoBindingSource As BindingSource
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents IngresoTableAdapter As DataSet1TableAdapters.ingresoTableAdapter
     Friend WithEvents IngresoDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
@@ -608,4 +607,5 @@ Partial Class Informes
     Friend WithEvents DateTimePicker2gasto As DateTimePicker
     Friend WithEvents Label111 As Label
     Friend WithEvents Label112 As Label
+    Friend WithEvents Button3 As Button
 End Class
