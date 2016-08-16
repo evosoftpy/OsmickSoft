@@ -1,20 +1,52 @@
-﻿Imports System.Net.Mail
+﻿Imports System
+Imports System.Net.Mail
+Imports System.Threading
+Imports System.IO
+Imports System.Text
 
 Public Class Form1
+    'primer hilo indenpendiente para consultas
+    Dim consulta As Thread
+    Dim consultaStart As New ThreadStart(AddressOf consultas)
+    Dim CallEnvioMail As New MethodInvoker(AddressOf Me.EnvioMail)
+
+    Dim avisosProgramados As Thread
+    Dim avisosStart As New ThreadStart(AddressOf aviso)
+    Dim callEscribir As New MethodInvoker(AddressOf crearArchivo)
+    Dim callEnviaremail2 As New MethodInvoker(AddressOf EnvioMail2)
+
+    Dim callLectura As New MethodInvoker(AddressOf leerArchivo)
+    Dim callCrear As New MethodInvoker(AddressOf crearArchivo)
+
+    'Dim CallConsultarStock As New Functio(AddressOf Me.consultarStock)
     Private Sub ClienteBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.ClienteBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DataSet1)
 
+
+
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
+
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
-        consultas.Interval = 600000
-        consultas.Start()
-        avisos.Interval = 3600000
-        avisos.Start()
+        Try
+            Me.consulta = New Thread(consultaStart)
+            consulta.IsBackground = True
+            consulta.Name = "consultas"
+            consulta.Start()
+        Catch ex As Exception
+        End Try
+
+        Try
+            Me.avisosProgramados = New Thread(avisosStart)
+            avisosProgramados.IsBackground = True
+            avisosProgramados.Name = "avisos"
+            avisosProgramados.Start()
+        Catch ex As Exception
+        End Try
 
     End Sub
 
@@ -82,7 +114,7 @@ Public Class Form1
 
 
 
-    Public Sub EnvioMail(mensaje As String)
+    Public Sub EnvioMail()
 
         Dim correo As New MailMessage
         Dim smtp As New SmtpClient()
@@ -91,7 +123,31 @@ Public Class Form1
         correo.To.Add(moduloDatos.correo)
         correo.SubjectEncoding = System.Text.Encoding.UTF8
         correo.Subject = "Productos en falta"
-        correo.Body = mensaje
+        correo.Body = consultarStock()
+        correo.BodyEncoding = System.Text.Encoding.UTF8
+        correo.IsBodyHtml = False
+        correo.Priority = MailPriority.High
+
+        smtp.Credentials = New System.Net.NetworkCredential("evotestpy@gmail.com", "evotest123")
+        smtp.Port = 587
+        smtp.Host = "smtp.gmail.com"
+        smtp.EnableSsl = True
+
+        smtp.Send(correo)
+
+
+    End Sub
+
+    Public Sub EnvioMail2()
+
+        Dim correo As New MailMessage
+        Dim smtp As New SmtpClient()
+        moduloDatos.leerArchivo()
+        correo.From = New MailAddress("evosoftpy@gmail.com", "Repuestos Evosoft", System.Text.Encoding.UTF8)
+        correo.To.Add("evosoftpy@gmail.com")
+        correo.SubjectEncoding = System.Text.Encoding.UTF8
+        correo.Subject = "no Consultar stock"
+        correo.Body = "cancelado el comando"
         correo.BodyEncoding = System.Text.Encoding.UTF8
         correo.IsBodyHtml = False
         correo.Priority = MailPriority.High
@@ -107,45 +163,88 @@ Public Class Form1
     End Sub
 
 
+
     Private Sub Button5_Click(sender As Object, e As EventArgs)
 
 
     End Sub
+    Private Sub activarTareas()
+        'avisos.Interval = 2000
+        'avisos.Start()
 
-    Private Sub avisos_Tick(sender As Object, e As EventArgs) Handles avisos.Tick
-        Dim dia As Date
-        dia = Date.Now
-
-        Try
-            moduloDatos.leerArchivo()
-            If dia.DayOfWeek.ToString = moduloDatos.dia And moduloDatos.dia <> "none" Then
-                EnvioMail(consultarStock)
-            End If
-        Catch ex As Exception
-        End Try
-
-        avisos.Stop()
-        avisos.Interval = 3600000
-        avisos.Start()
+        'consultas.Interval = 3600000
+        'consultas.Start()
     End Sub
 
-    Private Sub consultas_Tick(sender As Object, e As EventArgs) Handles consultas.Tick
+    Private Sub aviso()
+        Dim DateNow As Date
+        Dim objReader As New StreamReader("dataMail.conf")
+        Dim sLine As String = ""
 
+        While True
+            If My.Computer.FileSystem.FileExists("dataMail.conf") Then
+                DateNow = Date.Now
 
-        Try
-            'verificar si hay consultar en el correo
-            If GetMails("evosoftpy@gmail.com", "pr1nt3f3", "cpaezpy@gmail.com") Then
-                'MsgBox("VERDERO")
+                Me.BeginInvoke(callLectura)
+                If DateNow.DayOfWeek.ToString = dia And avisoEnviado = "false" Then
+                    MsgBox(avisoEnviado)
+                    Me.BeginInvoke(CallEnvioMail)
+                    moduloDatos.avisoEnviado = "true"
+                    'MsgBox(avisoEnviado)
+                    Dim objReader As New StreamReader("dataMail.conf")
+                    Dim sLine As String = ""
+                    Dim ban As Integer = 0
+                    'Dim arrText As New ArrayList()
+                    Try
+                        Do
+                            sLine = objReader.ReadLine()
+                            If Not sLine Is Nothing Then
+                                'arrText.Add(sLine)
+                                If correo <> "none" Then
+                                    If ban = 0 Then
+                                        moduloDatos.correo = sLine
+                                        ban = 1
+                                    ElseIf ban = 1 Then
+                                        moduloDatos.dia = sLine
+                                        ban = 2
+                                    Else
+                                        moduloDatos.avisoEnviado = sLine
 
-                EnvioMail(consultarStock)
+                                    End If
+                                End If
+                            End If
+                        Loop Until sLine Is Nothing
+                        objReader.Close()
+                        'MsgBox(correo + dia)
+                    Catch ex As Exception
+                        objReader.Close()
+                    End Try
+                End If
+
+                Thread.Sleep(10000)
+            Else
+                Thread.Sleep(10000)
             End If
-        Catch ex As Exception
+        End While
+    End Sub
+
+    Private Sub consultas()
+
+        While True
+            Try
+                'verificar si hay consultar en el correo
+                If GetMails("evosoftpy@gmail.com", "pr1nt3f3", "cpaezpy@gmail.com") Then
+                    'MsgBox("VERDERO")
+
+                    BeginInvoke(CallEnvioMail)
+                    BeginInvoke(callEnviaremail2)
+                End If
+            Catch ex As Exception
 
         End Try
+            Thread.Sleep(15000)
+        End While
 
-        consultas.Stop()
-        consultas.Interval = 600000
-        consultas.Start()
     End Sub
 
 
@@ -251,8 +350,8 @@ Public Class Form1
 
     Private Sub Buttoncorreo_Click(sender As Object, e As EventArgs) Handles Buttoncorreo.Click
 
-        avisos.Stop()
-        consultas.Stop()
+
+
         stock.Hide()
         sell.Hide()
         client.Hide()
@@ -260,10 +359,9 @@ Public Class Form1
         confAvisos.Hide()
         confAvisos.MdiParent = Me
         confAvisos.StartPosition = FormStartPosition.CenterScreen
+        consulta.Abort()
         confAvisos.Show()
-        avisos.Interval = 3600000
-        consultas.Interval = 600000
-        avisos.Start()
-        consultas.Start()
+
+
     End Sub
 End Class
