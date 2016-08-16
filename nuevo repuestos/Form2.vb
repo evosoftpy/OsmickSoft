@@ -7,6 +7,10 @@
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet1.ingreso_proveedor' table. You can move, or remove it, as needed.
+        Me.Ingreso_proveedorTableAdapter.Fill(Me.DataSet1.ingreso_proveedor)
+        'TODO: This line of code loads data into the 'DataSet1.cliente' table. You can move, or remove it, as needed.
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta' Puede moverla o quitarla según sea necesario.
         Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
@@ -15,7 +19,7 @@
         Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.ingreso' Puede moverla o quitarla según sea necesario.
         Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
-
+        TextBoxFecha.Text = Today()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonInsertarProducto.Click
@@ -219,19 +223,20 @@
                 If TextBoxCodigo.Text <> "" And DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
                     Dim nuevo_ingreso As DataRow = DataSet1.Tables("ingreso").NewRow()
 
-                    Dim cantidad_proveedores As Integer
-                    cantidad_proveedores = DataSet1.Tables("proveedor").Rows.Count
-                    For j = 0 To (cantidad_proveedores - 1)
-                        'Si el PROVEEDOR ingresado existe'
-                        If DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
-                            nuevo_ingreso("id_proveedor") = DataSet1.Tables("proveedor").Rows(j).Item("id_proveedor")
-                        End If
-                    Next
+                    'Dim cantidad_proveedores As Integer
+                    'cantidad_proveedores = DataSet1.Tables("proveedor").Rows.Count
+                    'For j = 0 To (cantidad_proveedores - 1)
+                    '    'Si el PROVEEDOR ingresado existe'
+                    '    If DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
+                    '        nuevo_ingreso("id_proveedor") = DataSet1.Tables("proveedor").Rows(j).Item("id_proveedor")
+                    '    End If
+                    'Next
 
                     nuevo_ingreso("id_stock") = DataSet1.Tables("stock").Rows(i).Item("id_stock")
                     nuevo_ingreso("cantidad") = TextBoxCantidad.Text
                     nuevo_ingreso("factura_compra") = TextBoxFactura.Text
                     nuevo_ingreso("precio_compra") = TextBoxPrecio.Text
+                    nuevo_ingreso("fecha_ingreso") = TextBoxFecha.Text
 
                     DataSet1.Tables("ingreso").Rows.Add(nuevo_ingreso)
 
@@ -262,6 +267,7 @@
                         nuevo_ingreso("cantidad") = TextBoxCantidad.Text
                         nuevo_ingreso("factura_compra") = TextBoxFactura.Text
                         nuevo_ingreso("precio_compra") = TextBoxPrecio.Text
+                        nuevo_ingreso("fecha_ingreso") = TextBoxFecha.Text
 
                         DataSet1.Tables("ingreso").Rows.Add(nuevo_ingreso)
 
@@ -671,7 +677,8 @@
 
         TextBoxCodigoDeBarras.Focus()
 
-
+        '''FECHA HOY
+        TextBoxFecha.Text = Today()
 
     End Sub
 
@@ -700,5 +707,22 @@
 
     Private Sub Button3_LostFocus(sender As Object, e As EventArgs) Handles Button3.LostFocus
         LabelModificarProducto.Hide()
+    End Sub
+
+    Private Sub TextBox1_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxFecha.TextChanged
+
+    End Sub
+
+    Private Sub TextBox1_LostFocus(sender As Object, e As EventArgs) Handles TextBoxFecha.LostFocus
+
+        LabelInsertarProducto.Hide()
+        If IsDate(TextBoxFecha.Text) = False Then
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese fecha válida"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            TextBoxFecha.Focus()
+        End If
+
     End Sub
 End Class

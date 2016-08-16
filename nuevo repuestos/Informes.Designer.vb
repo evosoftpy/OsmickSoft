@@ -78,6 +78,10 @@ Partial Class Informes
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateTimePicker1gasto = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2gasto = New System.Windows.Forms.DateTimePicker()
+        Me.Label111 = New System.Windows.Forms.Label()
+        Me.Label112 = New System.Windows.Forms.Label()
         CType(Me.informe_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -476,12 +480,50 @@ Partial Class Informes
         Me.DataGridViewTextBoxColumn20.HeaderText = "precio_venta"
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
         '
+        'DateTimePicker1gasto
+        '
+        Me.DateTimePicker1gasto.Location = New System.Drawing.Point(165, 414)
+        Me.DateTimePicker1gasto.Name = "DateTimePicker1gasto"
+        Me.DateTimePicker1gasto.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1gasto.TabIndex = 17
+        Me.DateTimePicker1gasto.Value = New Date(2016, 1, 1, 0, 0, 0, 0)
+        '
+        'DateTimePicker2gasto
+        '
+        Me.DateTimePicker2gasto.Location = New System.Drawing.Point(374, 414)
+        Me.DateTimePicker2gasto.Name = "DateTimePicker2gasto"
+        Me.DateTimePicker2gasto.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker2gasto.TabIndex = 18
+        Me.DateTimePicker2gasto.Value = New Date(2016, 7, 15, 0, 0, 0, 0)
+        '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.Location = New System.Drawing.Point(371, 447)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(35, 13)
+        Me.Label111.TabIndex = 20
+        Me.Label111.Text = "Hasta"
+        '
+        'Label112
+        '
+        Me.Label112.AutoSize = True
+        Me.Label112.Location = New System.Drawing.Point(167, 446)
+        Me.Label112.Name = "Label112"
+        Me.Label112.Size = New System.Drawing.Size(38, 13)
+        Me.Label112.TabIndex = 19
+        Me.Label112.Text = "Desde"
+        '
         'Informes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1044, 467)
         Me.ControlBox = False
+        Me.Controls.Add(Me.DateTimePicker1gasto)
+        Me.Controls.Add(Me.DateTimePicker2gasto)
+        Me.Controls.Add(Me.Label111)
+        Me.Controls.Add(Me.Label112)
         Me.Controls.Add(Me.VentaDataGridView)
         Me.Controls.Add(Me.StockDataGridView)
         Me.Controls.Add(Me.IngresoDataGridView)
@@ -562,4 +604,8 @@ Partial Class Informes
     Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents DateTimePicker1gasto As DateTimePicker
+    Friend WithEvents DateTimePicker2gasto As DateTimePicker
+    Friend WithEvents Label111 As Label
+    Friend WithEvents Label112 As Label
 End Class
