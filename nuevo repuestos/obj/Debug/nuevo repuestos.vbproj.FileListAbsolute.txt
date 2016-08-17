@@ -174,3 +174,6 @@ C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repue
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Productos.resources
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
 C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
+C:\Users\Gabriel\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources

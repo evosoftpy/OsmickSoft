@@ -146,7 +146,7 @@ Partial Class Form1
         '
         Me.ProgressBar1.Location = New System.Drawing.Point(12, 35)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(753, 2)
+        Me.ProgressBar1.Size = New System.Drawing.Size(904, 2)
         Me.ProgressBar1.TabIndex = 8
         '
         'Panel1
@@ -168,10 +168,11 @@ Partial Class Form1
         Me.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24})
         Me.VentaDataGridView.DataSource = Me.VentaBindingSource
-        Me.VentaDataGridView.Location = New System.Drawing.Point(206, 31)
+        Me.VentaDataGridView.Location = New System.Drawing.Point(972, -55)
         Me.VentaDataGridView.Name = "VentaDataGridView"
         Me.VentaDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.VentaDataGridView.TabIndex = 11
+        Me.VentaDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn18
         '
@@ -231,10 +232,11 @@ Partial Class Form1
         Me.IngresoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.IngresoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17})
         Me.IngresoDataGridView.DataSource = Me.IngresoBindingSource
-        Me.IngresoDataGridView.Location = New System.Drawing.Point(396, 57)
+        Me.IngresoDataGridView.Location = New System.Drawing.Point(666, -55)
         Me.IngresoDataGridView.Name = "IngresoDataGridView"
         Me.IngresoDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.IngresoDataGridView.TabIndex = 11
+        Me.IngresoDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn12
         '
@@ -283,10 +285,11 @@ Partial Class Form1
         Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.StockDataGridView.DataSource = Me.StockBindingSource
-        Me.StockDataGridView.Location = New System.Drawing.Point(547, 143)
+        Me.StockDataGridView.Location = New System.Drawing.Point(1162, 205)
         Me.StockDataGridView.Name = "StockDataGridView"
         Me.StockDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.StockDataGridView.TabIndex = 11
+        Me.StockDataGridView.Visible = False
         '
         'DataGridViewTextBoxColumn6
         '
@@ -335,7 +338,7 @@ Partial Class Form1
         Me.ClienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
-        Me.ClienteDataGridView.Location = New System.Drawing.Point(750, 205)
+        Me.ClienteDataGridView.Location = New System.Drawing.Point(1162, -35)
         Me.ClienteDataGridView.Name = "ClienteDataGridView"
         Me.ClienteDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.ClienteDataGridView.TabIndex = 11
@@ -422,8 +425,8 @@ Partial Class Form1
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
-        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem
@@ -541,7 +544,7 @@ Partial Class Form1
         Me.IsMdiContainer = True
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Menu principal"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         CType(Me.VentaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()

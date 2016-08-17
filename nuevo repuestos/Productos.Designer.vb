@@ -150,6 +150,7 @@ Partial Class Productos
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.clienteTableAdapter = Nothing
+        Me.TableAdapterManager.ingreso_proveedorTableAdapter = Nothing
         Me.TableAdapterManager.ingresoTableAdapter = Nothing
         Me.TableAdapterManager.proveedorTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Me.StockTableAdapter
@@ -329,7 +330,7 @@ Partial Class Productos
         Me.Location = New System.Drawing.Point(0, 100)
         Me.Name = "Productos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Form3"
+        Me.Text = "Productos"
         CType(Me.DataGridViewStock, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
