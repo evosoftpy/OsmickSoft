@@ -508,12 +508,13 @@ Partial Class Form1
         '
         'Buttoncorreo
         '
+        Me.Buttoncorreo.BackColor = System.Drawing.SystemColors.Control
         Me.Buttoncorreo.Location = New System.Drawing.Point(771, 6)
         Me.Buttoncorreo.Name = "Buttoncorreo"
         Me.Buttoncorreo.Size = New System.Drawing.Size(145, 23)
         Me.Buttoncorreo.TabIndex = 13
         Me.Buttoncorreo.Text = "Configurar correo"
-        Me.Buttoncorreo.UseVisualStyleBackColor = True
+        Me.Buttoncorreo.UseVisualStyleBackColor = False
         '
         'StockTableAdapter
         '

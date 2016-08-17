@@ -432,7 +432,6 @@ Public Class Form1
 
                     '''SI LA CANTIDAD DEL STOCK(i) ES INSUFICIENTE, LO EXPLICITA EN LA TABLA
 
-
                     If cantidad_en_stock <= 2 Then
                         ''MsgBox(DataSet1.Tables("stock").Rows(i).Item("nombre"))
                         'DataGridViewFalta.Rows.Add()
@@ -452,7 +451,7 @@ Public Class Form1
             End If
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Return string_salida
     End Function
