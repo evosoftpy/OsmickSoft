@@ -35,6 +35,7 @@ Public Class Form1
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
+
         moduloDatos.leerArchivo()
         Dim ruta As String = "dataMail.conf"
         Dim escritor As StreamWriter
@@ -455,4 +456,20 @@ Public Class Form1
         End Try
         Return string_salida
     End Function
+
+    Private Sub Buttoncorreo_Click(sender As Object, e As EventArgs) Handles Buttoncorreo.Click
+
+        ProgressBar1.Value = 30
+        form_manager.stock.Hide()
+        form_manager.sell.Hide()
+        form_manager.client.Hide()
+        form_manager.prov.Hide()
+        form_manager.product.Hide()
+        form_manager.informe.Hide()
+        ProgressBar1.Value = 70
+        config.MdiParent = Me
+        config.StartPosition = StartPosition.CenterScreen
+        config.Show()
+        ProgressBar1.Value = 100
+    End Sub
 End Class

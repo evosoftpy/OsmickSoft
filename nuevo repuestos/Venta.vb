@@ -17,6 +17,7 @@ Public Class Venta
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
+
     End Sub
 
     Public Function update_cache()
@@ -27,6 +28,8 @@ Public Class Venta
         Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
+
+
 
     End Function
 

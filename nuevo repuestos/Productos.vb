@@ -90,6 +90,8 @@
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
         Me.StockTableAdapter.Fill(Me.DataSet1.stock)
 
+
+
     End Sub
 
     Private Sub DataGridViewStock_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewStock.CellContentClick

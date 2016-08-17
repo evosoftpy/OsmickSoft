@@ -158,7 +158,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.ClienteDataGridView)
         Me.Panel1.Location = New System.Drawing.Point(0, 100)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1392, 630)
+        Me.Panel1.Size = New System.Drawing.Size(1920, 1080)
         Me.Panel1.TabIndex = 9
         Me.Panel1.Visible = False
         '
