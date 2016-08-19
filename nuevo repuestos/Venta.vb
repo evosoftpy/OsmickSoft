@@ -216,9 +216,9 @@ Public Class Venta
             For i = 0 To DataGridView1.RowCount - 1
 
                 If DataGridView1.Item(0, i).Value IsNot "" Then
-                    If DataGridView1.Item(3, i).Value IsNot Nothing Then
+                    If DataGridView1.Item(4, i).Value IsNot Nothing Then
 
-                        If DataGridView1.Item(3, i).Value.ToString = "" Then
+                        If DataGridView1.Item(4, i).Value.ToString = "" Then
 
                         Else
                             If DataGridView1.Item(3, i).Value IsNot "0" Then
@@ -234,7 +234,7 @@ Public Class Venta
                                 End If
                                 nueva_venta("id_cliente") = id_cliente
                                 nueva_venta("id_stock") = id_producto
-                                nueva_venta("cantidad_venta") = DataGridView1.Item(3, i).Value
+                                nueva_venta("cantidad_venta") = DataGridView1.Item(4, i).Value
                                 nueva_venta("factura_venta") = n_factura_textbox.Text
                                 nueva_venta("fecha_venta") = TextBox17.Text
                                 nueva_venta("precio_venta") = DataGridView1.Item(5, i).Value
