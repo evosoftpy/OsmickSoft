@@ -69,7 +69,7 @@ Partial Class editarProveedores
         Me.clienteBorBtn.Location = New System.Drawing.Point(283, 143)
         Me.clienteBorBtn.Name = "clienteBorBtn"
         Me.clienteBorBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteBorBtn.TabIndex = 12
+        Me.clienteBorBtn.TabIndex = 5
         Me.clienteBorBtn.Text = "Borrar"
         Me.clienteBorBtn.UseVisualStyleBackColor = True
         '
@@ -87,7 +87,7 @@ Partial Class editarProveedores
         Me.clienteNomTxt.Location = New System.Drawing.Point(119, 23)
         Me.clienteNomTxt.Name = "clienteNomTxt"
         Me.clienteNomTxt.Size = New System.Drawing.Size(272, 20)
-        Me.clienteNomTxt.TabIndex = 0
+        Me.clienteNomTxt.TabIndex = 1
         '
         'clienteApLb
         '
@@ -112,7 +112,7 @@ Partial Class editarProveedores
         Me.clienteEditarBtn.Location = New System.Drawing.Point(201, 144)
         Me.clienteEditarBtn.Name = "clienteEditarBtn"
         Me.clienteEditarBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteEditarBtn.TabIndex = 11
+        Me.clienteEditarBtn.TabIndex = 4
         Me.clienteEditarBtn.Text = "Editar"
         Me.clienteEditarBtn.UseVisualStyleBackColor = True
         '
@@ -121,14 +121,14 @@ Partial Class editarProveedores
         Me.clienteApTxt.Location = New System.Drawing.Point(119, 50)
         Me.clienteApTxt.Name = "clienteApTxt"
         Me.clienteApTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteApTxt.TabIndex = 8
+        Me.clienteApTxt.TabIndex = 2
         '
         'clienteRucTxt
         '
         Me.clienteRucTxt.Location = New System.Drawing.Point(119, 81)
         Me.clienteRucTxt.Name = "clienteRucTxt"
         Me.clienteRucTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteRucTxt.TabIndex = 10
+        Me.clienteRucTxt.TabIndex = 3
         '
         'DataSet1
         '
@@ -148,6 +148,7 @@ Partial Class editarProveedores
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.clienteTableAdapter = Nothing
+        Me.TableAdapterManager.ingreso_proveedorTableAdapter = Nothing
         Me.TableAdapterManager.ingresoTableAdapter = Nothing
         Me.TableAdapterManager.proveedorTableAdapter = Me.ProveedorTableAdapter
         Me.TableAdapterManager.stockTableAdapter = Nothing
@@ -161,7 +162,7 @@ Partial Class editarProveedores
         Me.ProveedorDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.ProveedorDataGridView.DataSource = Me.ProveedorBindingSource
         Me.ProveedorDataGridView.Location = New System.Drawing.Point(480, 15)
-        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ProveedorDataGridView.Name = "ProveedorDataGridView"
         Me.ProveedorDataGridView.RowTemplate.Height = 24
         Me.ProveedorDataGridView.Size = New System.Drawing.Size(225, 179)
@@ -199,7 +200,7 @@ Partial Class editarProveedores
         Me.ClientSize = New System.Drawing.Size(435, 211)
         Me.Controls.Add(Me.ProveedorDataGridView)
         Me.Controls.Add(Me.clienteAgreGroup)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "editarProveedores"
         Me.Text = "editarProveedores"
         Me.clienteAgreGroup.ResumeLayout(False)

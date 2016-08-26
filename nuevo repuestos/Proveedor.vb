@@ -14,7 +14,7 @@
         Dim j, cant1, cant2, cant3 As Integer
         Dim cad1, cad2, dato As String
         Dim ban As Boolean = False
-        Dim b As Boolean = False
+        Dim b As Integer = 1
         cad1 = clienteParTxt.Text.ToString
         cant1 = cad1.LongCount
         cant2 = DataSet1.Tables("proveedor").Rows.Count
@@ -33,15 +33,18 @@
                     End If
                 End If
                 If ban Then
-                    clienteNombreList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor"))
-                    clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
-                    clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
+                    clienteNombreList.Items.Clear()
+                    clienteApellidoList.Items.Clear()
+                    clienteNumeroList.Items.Clear()
                     ban = False
                 End If
-                If j = cant2 - 1 And b = False Then
-                    dato = "ruc_proveedor"
-                    b = True
-                    j = 0
+                If j = cant2 - 1 Then
+
+                    If b = 1 Then
+                        dato = "ruc_proveedor"
+                        b = 2
+                        j = 0
+                    End If
                 End If
             Next
         Else
@@ -77,7 +80,9 @@
 
                     Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
 
-                    refrescar()
+                    clienteNombreList.Items.Clear()
+                    clienteApellidoList.Items.Clear()
+                    clienteNumeroList.Items.Clear()
                 End If
             End If
         Else
@@ -85,49 +90,7 @@
         End If
     End Sub
 
-    Private Sub refrescar()
 
-
-        Dim t As New herramientas
-        Dim j, cant1, cant2, cant3 As Integer
-        Dim cad1, cad2, dato As String
-        Dim ban As Boolean = False
-        Dim b As Boolean = False
-
-
-        cad1 = clienteParTxt.Text.ToString
-        cant1 = cad1.LongCount
-        cant2 = DataSet1.Tables("proveedor").Rows.Count
-        dato = "nombre_proveedor"
-        clienteNombreList.Items.Clear()
-        clienteApellidoList.Items.Clear()
-        clienteNumeroList.Items.Clear()
-        ProveedorTableAdapter.Update(DataSet1.proveedor)
-        If cad1 <> "" Then
-            For j = 0 To cant2 - 1
-                cad2 = DataSet1.Tables("proveedor").Rows(j).Item(dato)
-
-                cant3 = cad2.LongCount
-                If cant1 <= cant3 Then
-                    If cad1 = cad2.Substring(0, cant1) Then
-                        ban = True
-                    End If
-                End If
-                If ban Then
-                    clienteNombreList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor"))
-                    clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
-                    clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
-
-                    ban = False
-                End If
-                If j = cant2 - 1 And b = False Then
-                    dato = "ruc_cliente"
-                    b = True
-                    j = 0
-                End If
-            Next
-        End If
-    End Sub
 
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
 
@@ -157,7 +120,12 @@
                             ProveedorBindingSource.EndEdit()
                             ProveedorTableAdapter.Update(DataSet1.proveedor)
                             ProveedorTableAdapter.Fill(DataSet1.proveedor)
-                            refrescar()
+
+                            clienteNombreList.Items.Remove(clienteNombreList.SelectedItem)
+                            clienteApellidoList.Items.Remove(clienteApellidoList.SelectedItem)
+                            clienteNumeroList.Items.Remove(clienteNumeroList.SelectedItem)
+
+
                         Catch ex As Exception
                             MsgBox("Error al borrar")
                         End Try
@@ -184,5 +152,26 @@
     Private Sub clienteNumeroList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles clienteNumeroList.SelectedIndexChanged
         clienteNombreList.SelectedIndex = clienteNumeroList.SelectedIndex
         clienteApellidoList.SelectedIndex = clienteNumeroList.SelectedIndex
+    End Sub
+
+    Private Sub clienteSalBtn_Click(sender As Object, e As EventArgs) Handles clienteSalBtn.Click
+        Me.Hide()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim j, can As Integer
+        can = DataSet1.Tables("proveedor").Rows.Count
+        clienteNombreList.Items.Clear()
+        clienteApellidoList.Items.Clear()
+        clienteNumeroList.Items.Clear()
+
+        ProveedorTableAdapter.Update(DataSet1.proveedor)
+
+        For j = 0 To can - 1
+            clienteNombreList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor"))
+            clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
+            clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
+        Next
+
     End Sub
 End Class
