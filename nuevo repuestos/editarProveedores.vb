@@ -38,7 +38,7 @@
             Validate()
             ProveedorBindingSource.EndEdit()
             ProveedorTableAdapter.Update(DataSet1.proveedor)
-            MsgBox("Cliente editado con exito")
+            MsgBox("Proveedor editado con exito")
 
             clienteNomTxt.Text = ""
             clienteApTxt.Text = ""

@@ -23,8 +23,9 @@
         Dim j, cant1, cant2, cant3 As Integer
         Dim cad1, cad2, dato As String
         Dim ban As Boolean = False
-        Dim b As Boolean = False
-        cad1 = clienteParTxt.Text.ToString
+        Dim b As Integer = 1
+        Dim c As Integer = 0
+        cad1 = clienteParTxt.Text
         cant1 = cad1.LongCount
         cant2 = DataSet1.Tables("cliente").Rows.Count
         dato = "nombre_cliente"
@@ -32,10 +33,11 @@
         clienteApellidoList.Items.Clear()
         clienteNumeroList.Items.Clear()
         clienteRucList.Items.Clear()
-        If cad1 <> "" Or cad1 <> "(nombre o apellido)" Then
+
+        If cad1 <> "" Then
             For j = 0 To cant2 - 1
                 cad2 = DataSet1.Tables("cliente").Rows(j).Item(dato)
-
+                MsgBox(cad2)
                 cant3 = cad2.LongCount
                 If cant1 <= cant3 Then
                     If cad1 = cad2.Substring(0, cant1) Then
@@ -49,14 +51,24 @@
                     clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
                     ban = False
                 End If
-                If j = cant2 - 1 And b = False Then
-                    dato = "apellido_cliente"
-                    b = True
-                    j = 0
+                If j = cant2 - 1 Then
+                    If b = 1 Then
+                        dato = "apellido_cliente"
+                        j = -1
+                        b = 2
+                    ElseIf b = 2 Then
+                        dato = "ruc_cliente"
+                        j = -1
+                        b = 3
+                    ElseIf b = 3 Then
+                        dato = "numero_cliente"
+                        j = -1
+                        b = 4
+                    End If
                 End If
             Next
         Else
-            MsgBox("Favor ingrese el parametro de busqueda")
+            MsgBox("favor ingrese el parametro de busqueda")
         End If
     End Sub
 
@@ -92,8 +104,6 @@
         'Dim ban As Integer = True
 
         i = clienteNombreList.SelectedIndex
-
-
         If i > -1 Then
 
             i = t.buscar_en_tablas(DataSet1, "cliente", "nombre_cliente", clienteNombreList.SelectedItem)
@@ -108,10 +118,14 @@
                     Dim f1 As New editarClientes
                     moduloDatos.i = k
                     f1.Show()
+                    clienteNombreList.Items.Clear()
+                    clienteApellidoList.Items.Clear()
+                    clienteNumeroList.Items.Clear()
+                    clienteRucList.Items.Clear()
                     'Me.Refresh()
                     'MsgBox("hola mundo")
 
-                    refrescar()
+                    'refrescar()
                 End If
             End If
         Else
@@ -146,8 +160,11 @@
                             ClienteBindingSource.EndEdit()
                             ClienteTableAdapter.Update(DataSet1.cliente)
                             ClienteTableAdapter.Fill(DataSet1.cliente)
+                            clienteNombreList.Items.Clear()
+                            clienteApellidoList.Items.Clear()
+                            clienteNumeroList.Items.Clear()
+                            clienteRucList.Items.Clear()
 
-                            refrescar()
                         Catch ex As Exception
                             MsgBox("Error al borrar")
                         End Try
@@ -159,49 +176,23 @@
             MsgBox("Por favor seleccione la opcion a editar antes realizando un click izquierdo sobre el mismo")
         End If
     End Sub
-    Private Sub refrescar()
 
 
-        Dim t As New herramientas
-        Dim j, cant1, cant2, cant3 As Integer
-        Dim cad1, cad2, dato As String
-        Dim ban As Boolean = False
-        Dim b As Boolean = False
-
-
-        cad1 = clienteParTxt.Text.ToString
-        cant1 = cad1.LongCount
-        cant2 = DataSet1.Tables("cliente").Rows.Count
-        dato = "nombre_cliente"
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim j, can As Integer
+        can = DataSet1.Tables("cliente").Rows.Count
         clienteNombreList.Items.Clear()
         clienteApellidoList.Items.Clear()
         clienteNumeroList.Items.Clear()
         clienteRucList.Items.Clear()
         ClienteTableAdapter.Update(DataSet1.cliente)
 
-        For j = 0 To cant2 - 1
-            cad2 = DataSet1.Tables("cliente").Rows(j).Item(dato)
-
-            cant3 = cad2.LongCount
-            If cant1 <= cant3 Then
-                If cad1 = cad2.Substring(0, cant1) Then
-                    ban = True
-                End If
-            End If
-            If ban Then
-                clienteNombreList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente"))
-                clienteApellidoList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente"))
-                clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
-                clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
-                ban = False
-            End If
-            If j = cant2 - 1 And b = False Then
-                dato = "apellido_cliente"
-                b = True
-                j = 0
-            End If
+        For j = 0 To can - 1
+            clienteNombreList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente"))
+            clienteApellidoList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente"))
+            clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
+            clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
         Next
+
     End Sub
-
-
 End Class

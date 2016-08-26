@@ -83,14 +83,14 @@ Partial Class crearClientes
         Me.clienteApTxt.Location = New System.Drawing.Point(119, 50)
         Me.clienteApTxt.Name = "clienteApTxt"
         Me.clienteApTxt.Size = New System.Drawing.Size(272, 20)
-        Me.clienteApTxt.TabIndex = 13
+        Me.clienteApTxt.TabIndex = 1
         '
         'clienteBorBtn
         '
         Me.clienteBorBtn.Location = New System.Drawing.Point(283, 143)
         Me.clienteBorBtn.Name = "clienteBorBtn"
         Me.clienteBorBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteBorBtn.TabIndex = 12
+        Me.clienteBorBtn.TabIndex = 5
         Me.clienteBorBtn.Text = "Borrar"
         Me.clienteBorBtn.UseVisualStyleBackColor = True
         '
@@ -133,7 +133,7 @@ Partial Class crearClientes
         Me.clienteCargarBtn.Location = New System.Drawing.Point(201, 144)
         Me.clienteCargarBtn.Name = "clienteCargarBtn"
         Me.clienteCargarBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteCargarBtn.TabIndex = 11
+        Me.clienteCargarBtn.TabIndex = 4
         Me.clienteCargarBtn.Text = "Agregar"
         Me.clienteCargarBtn.UseVisualStyleBackColor = True
         '
@@ -142,14 +142,14 @@ Partial Class crearClientes
         Me.clienteNcTxt.Location = New System.Drawing.Point(119, 76)
         Me.clienteNcTxt.Name = "clienteNcTxt"
         Me.clienteNcTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteNcTxt.TabIndex = 8
+        Me.clienteNcTxt.TabIndex = 2
         '
         'clienteRucTxt
         '
         Me.clienteRucTxt.Location = New System.Drawing.Point(119, 107)
         Me.clienteRucTxt.Name = "clienteRucTxt"
         Me.clienteRucTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteRucTxt.TabIndex = 10
+        Me.clienteRucTxt.TabIndex = 3
         '
         'DataSet1
         '

@@ -52,6 +52,7 @@ Partial Class Cliente
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.clientesBusGroup.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,6 +63,7 @@ Partial Class Cliente
         '
         'clientesBusGroup
         '
+        Me.clientesBusGroup.Controls.Add(Me.Button1)
         Me.clientesBusGroup.Controls.Add(Me.TableLayoutPanel1)
         Me.clientesBusGroup.Controls.Add(Me.clienteAgreBtn)
         Me.clientesBusGroup.Controls.Add(Me.clienteSalBtn)
@@ -81,7 +83,7 @@ Partial Class Cliente
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteRucList, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -101,7 +103,7 @@ Partial Class Cliente
         'clienteRucList
         '
         Me.clienteRucList.FormattingEnabled = True
-        Me.clienteRucList.Location = New System.Drawing.Point(500, 23)
+        Me.clienteRucList.Location = New System.Drawing.Point(499, 23)
         Me.clienteRucList.Name = "clienteRucList"
         Me.clienteRucList.Size = New System.Drawing.Size(106, 251)
         Me.clienteRucList.TabIndex = 7
@@ -109,7 +111,7 @@ Partial Class Cliente
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(382, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(381, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(112, 251)
         Me.clienteNumeroList.TabIndex = 6
@@ -117,7 +119,7 @@ Partial Class Cliente
         'clienteApellidoList
         '
         Me.clienteApellidoList.FormattingEnabled = True
-        Me.clienteApellidoList.Location = New System.Drawing.Point(185, 23)
+        Me.clienteApellidoList.Location = New System.Drawing.Point(184, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
         Me.clienteApellidoList.Size = New System.Drawing.Size(191, 251)
         Me.clienteApellidoList.TabIndex = 5
@@ -125,7 +127,7 @@ Partial Class Cliente
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(500, 0)
+        Me.Label4.Location = New System.Drawing.Point(499, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 3
@@ -134,7 +136,7 @@ Partial Class Cliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(382, 0)
+        Me.Label3.Location = New System.Drawing.Point(381, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -143,7 +145,7 @@ Partial Class Cliente
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(185, 0)
+        Me.Label2.Location = New System.Drawing.Point(184, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 1
@@ -163,7 +165,7 @@ Partial Class Cliente
         Me.clienteNombreList.FormattingEnabled = True
         Me.clienteNombreList.Location = New System.Drawing.Point(3, 23)
         Me.clienteNombreList.Name = "clienteNombreList"
-        Me.clienteNombreList.Size = New System.Drawing.Size(176, 251)
+        Me.clienteNombreList.Size = New System.Drawing.Size(175, 251)
         Me.clienteNombreList.TabIndex = 4
         '
         'clienteAgreBtn
@@ -171,7 +173,7 @@ Partial Class Cliente
         Me.clienteAgreBtn.Location = New System.Drawing.Point(434, 57)
         Me.clienteAgreBtn.Name = "clienteAgreBtn"
         Me.clienteAgreBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteAgreBtn.TabIndex = 16
+        Me.clienteAgreBtn.TabIndex = 3
         Me.clienteAgreBtn.Text = "Agregar"
         Me.clienteAgreBtn.UseVisualStyleBackColor = True
         '
@@ -180,7 +182,7 @@ Partial Class Cliente
         Me.clienteSalBtn.Location = New System.Drawing.Point(515, 57)
         Me.clienteSalBtn.Name = "clienteSalBtn"
         Me.clienteSalBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteSalBtn.TabIndex = 15
+        Me.clienteSalBtn.TabIndex = 4
         Me.clienteSalBtn.Text = "Salir"
         Me.clienteSalBtn.UseVisualStyleBackColor = True
         '
@@ -202,14 +204,13 @@ Partial Class Cliente
         Me.clienteParTxt.Size = New System.Drawing.Size(445, 20)
         Me.clienteParTxt.TabIndex = 0
         Me.clienteParTxt.Tag = "Holi"
-        Me.clienteParTxt.Text = "(nombre o apellido)"
         '
         'clienteBusBtn
         '
-        Me.clienteBusBtn.Location = New System.Drawing.Point(353, 57)
+        Me.clienteBusBtn.Location = New System.Drawing.Point(256, 57)
         Me.clienteBusBtn.Name = "clienteBusBtn"
         Me.clienteBusBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteBusBtn.TabIndex = 11
+        Me.clienteBusBtn.TabIndex = 1
         Me.clienteBusBtn.Text = "Buscar"
         Me.clienteBusBtn.UseVisualStyleBackColor = True
         '
@@ -242,6 +243,7 @@ Partial Class Cliente
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.clienteTableAdapter = Me.ClienteTableAdapter
+        Me.TableAdapterManager.ingreso_proveedorTableAdapter = Nothing
         Me.TableAdapterManager.ingresoTableAdapter = Nothing
         Me.TableAdapterManager.proveedorTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Nothing
@@ -255,7 +257,7 @@ Partial Class Cliente
         Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
         Me.ClienteDataGridView.Location = New System.Drawing.Point(725, 65)
-        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ClienteDataGridView.Name = "ClienteDataGridView"
         Me.ClienteDataGridView.RowTemplate.Height = 24
         Me.ClienteDataGridView.Size = New System.Drawing.Size(225, 179)
@@ -311,6 +313,15 @@ Partial Class Cliente
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(337, 57)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(91, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Mostrar todos"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Cliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -321,7 +332,7 @@ Partial Class Cliente
         Me.Controls.Add(Me.ClienteDataGridView)
         Me.Controls.Add(Me.clientesBusGroup)
         Me.Controls.Add(Me.clienteLb)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Cliente"
         Me.Text = "Cliente"
         Me.clientesBusGroup.ResumeLayout(False)
@@ -366,4 +377,5 @@ Partial Class Cliente
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
 End Class
