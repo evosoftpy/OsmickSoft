@@ -87,9 +87,14 @@ Public Class Form1
 
 
         form_manager.stock.MdiParent = Me
-        form_manager.stock.StartPosition = FormStartPosition.CenterScreen
+        ''form_manager.stock.StartPosition = FormStartPosition.CenterScreen
+
+        form_manager.productos2stock.MdiParent = Me
 
 
+        form_manager.productos2stock.Show()
+
+        'productos2stock.show()
         stock.Show()
 
         ProgressBar1.Value = 100
@@ -107,6 +112,7 @@ Public Class Form1
         form_manager.client.Hide()
         form_manager.prov.Hide()
         form_manager.informe.Hide()
+        form_manager.productos2stock.Hide()
 
 
         form_manager.sell.MdiParent = Me
@@ -135,6 +141,7 @@ Public Class Form1
         form_manager.prov.Hide()
         form_manager.product.Hide()
         form_manager.informe.Hide()
+        form_manager.productos2stock.Hide()
         ProgressBar1.Value = 70
         form_manager.client.MdiParent = Me
         form_manager.client.StartPosition = FormStartPosition.CenterScreen
@@ -155,6 +162,7 @@ Public Class Form1
         form_manager.prov.Hide()
         form_manager.informe.Hide()
         form_manager.product.Hide()
+        form_manager.productos2stock.Hide()
         ProgressBar1.Value = 70
         form_manager.prov.MdiParent = Me
         form_manager.prov.StartPosition = FormStartPosition.CenterScreen
@@ -208,6 +216,7 @@ Public Class Form1
         form_manager.prov.Hide()
         form_manager.product.Hide()
         form_manager.stock.Hide()
+        form_manager.productos2stock.Hide()
 
         form_manager.informe.MdiParent = Me
         form_manager.informe.StartPosition = FormStartPosition.CenterScreen
@@ -465,6 +474,7 @@ Public Class Form1
         form_manager.prov.Hide()
         form_manager.product.Hide()
         form_manager.informe.Hide()
+        form_manager.productos2stock.Hide()
         ProgressBar1.Value = 70
         config.MdiParent = Me
         config.StartPosition = StartPosition.CenterScreen

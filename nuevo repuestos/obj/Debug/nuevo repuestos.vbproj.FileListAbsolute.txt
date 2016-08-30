@@ -202,3 +202,8 @@ C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\n
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
+C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
+C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources
+C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.info_p_falta.resources
+C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.productos2stock.resources

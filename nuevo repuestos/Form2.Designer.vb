@@ -483,7 +483,7 @@ Partial Class Form2
         Me.GroupBoxModificarProducto.Controls.Add(Me.Label17)
         Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxModificarNuevoCodigo)
         Me.GroupBoxModificarProducto.Controls.Add(Me.Label18)
-        Me.GroupBoxModificarProducto.Location = New System.Drawing.Point(484, 44)
+        Me.GroupBoxModificarProducto.Location = New System.Drawing.Point(143, 40)
         Me.GroupBoxModificarProducto.Name = "GroupBoxModificarProducto"
         Me.GroupBoxModificarProducto.Size = New System.Drawing.Size(304, 424)
         Me.GroupBoxModificarProducto.TabIndex = 57
@@ -906,7 +906,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(811, 488)
+        Me.ClientSize = New System.Drawing.Size(490, 464)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBoxIngresarProducto)
         Me.Controls.Add(Me.ButtonModificarProducto)
@@ -918,8 +918,9 @@ Partial Class Form2
         Me.Controls.Add(Me.Ingreso_proveedorDataGridView)
         Me.Controls.Add(Me.ClienteDataGridView)
         Me.Controls.Add(Me.IngresoDataGridView)
+        Me.Location = New System.Drawing.Point(615, 100)
         Me.Name = "Form2"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Stock"
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IngresoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
