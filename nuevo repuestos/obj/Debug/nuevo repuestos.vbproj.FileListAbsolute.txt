@@ -207,3 +207,4 @@ C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xm
 C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources
 C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.info_p_falta.resources
 C:\Users\LENOVO\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.productos2stock.resources
+C:\Users\gp_75\Documents\GitHub\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.productos2stock.resources

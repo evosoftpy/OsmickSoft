@@ -122,29 +122,32 @@ Public Class Venta
         Dim aux As String
         ruc = funcion_buscar_cliente(text_ruc_venta.Text)
         update_cache()
+        If text_ruc_venta.Text IsNot "" Then
+            If ruc < 0 Then
+                label_ruc_venta.Text = "no se econtro cliente"
+                label_ruc_venta.ForeColor = Color.Red
+                label_ruc_venta.Visible = True
+                If text_ruc_venta.Text.Length > 0 Then
+                    Dim c_client As New crearClientes
+                    c_client.Show()
+                    c_client.clienteRucTxt.Text = text_ruc_venta.Text
+                End If
+                text_ruc_venta.Text = ""
 
-        If ruc < 0 Then
-            label_ruc_venta.Text = "no se econtro cliente"
-            label_ruc_venta.ForeColor = Color.Red
-            label_ruc_venta.Visible = True
-            If text_ruc_venta.Text.Length > 0 Then
-                Dim c_client As New crearClientes
-                c_client.Show()
-                c_client.clienteRucTxt.Text = text_ruc_venta.Text
+
+
+            Else
+                label_ruc_venta.Visible = False
+                TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre_cliente") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido_cliente")
+                TextBox17.Text = Date.Now.Date
+                Dim i As Integer
+
+
+                n_factura_textbox.Text = "00-000-0000"
             End If
-            text_ruc_venta.Text = ""
-
-
-
-        Else
-            label_ruc_venta.Visible = False
-            TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre_cliente") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido_cliente")
-            TextBox17.Text = Date.Now.Date
-            Dim i As Integer
-
-
-            n_factura_textbox.Text = "00-000-0000"
         End If
+
+
 
 
         ' ver 
