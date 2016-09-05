@@ -167,8 +167,8 @@ Public Class Venta
         For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
             If n_factura_textbox.Text = DataSet1.Tables("venta").Rows(i).Item("factura_venta") And ban = 0 Then
 
-                MsgBox("facutra existe se aumentara en 1 el valor")
-
+                'MsgBox("facutra existe se aumentara en 1 el valor")
+                'aca aumenta en uno el numero de factura al existir el numero de factura
                 Dim pos As Integer
                 Dim num As Integer
                 Dim aux32 As String
@@ -351,6 +351,9 @@ Public Class Venta
         Else
             cod = DataGridView1.Item(0, curen).Value
 
+            update_cache()
+            'tentativa de update cache
+
             For i = 0 To DataSet1.Tables("stock").Rows.Count - 1
 
 
@@ -374,52 +377,11 @@ Public Class Venta
         If DataGridView1.Item(4, curen).Value = "" Then
 
         Else
-            cantidad_product = cantidad_producto_disponible(idproducto)
-            For i = 0 To DataGridView1.RowCount - 1
-                If DataGridView1.Item(0, i).Value IsNot "" Then
-                    If DataGridView1.Item(0, i).Value = 0 Then
-                        suma = suma + DataGridView1.Item(5, i).Value
-                        text_sub_total.Text = Puntos(suma.ToString)
-                        iva = suma * 0.1
-                        text_iva.Text = Puntos(iva.ToString)
-                        total = suma + iva
-
-                        text_total.Text = Puntos(total.ToString)
-
-
-
-
-                    End If
-                End If
-
-
-
-            Next
-
-            If IsNumeric(DataGridView1.Item(4, curen).Value) = False Then
-                MsgBox("Ingrese numero")
-                DataGridView1.Item(4, curen).Value = ""
-            Else
-
-                If cantidad_product - DataGridView1.Item(4, curen).Value < 0 Then
-                    Dim mensaje As String
-                    MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
-
-
-                    DataGridView1.CurrentCell.Value = 0
-
-                    If cantidad_product - DataGridView1.Item(4, curen).Value < 2 Then
-                        mensaje = "Producto " + DataGridView1.Item(1, curen).Value.ToString + " sobra  " + cantidad_product.ToString
-                        'EnvioMail(mensaje)
-                        'envia mail si esta en falta un producto 
-                    End If
-
-                End If
-                If IsNumeric(DataGridView1.Item(3, curen).Value) Then
-                    DataGridView1.Item(5, curen).Value = DataGridView1.Item(4, curen).Value * DataGridView1.Item(3, curen).Value
-                    suma = 0
-                    For i = 0 To DataGridView1.RowCount - 1
-                        If DataGridView1.Item(5, i).Value IsNot "" Then
+            If DataGridView1.Item(4, curen).Value > -1 Then
+                cantidad_product = cantidad_producto_disponible(idproducto)
+                For i = 0 To DataGridView1.RowCount - 1
+                    If DataGridView1.Item(0, i).Value IsNot "" Then
+                        If DataGridView1.Item(0, i).Value = 0 Then
                             suma = suma + DataGridView1.Item(5, i).Value
                             text_sub_total.Text = Puntos(suma.ToString)
                             iva = suma * 0.1
@@ -427,13 +389,59 @@ Public Class Venta
                             total = suma + iva
 
                             text_total.Text = Puntos(total.ToString)
+
+
+
+
                         End If
-                    Next
+                    End If
+
+
+
+                Next
+
+                If IsNumeric(DataGridView1.Item(4, curen).Value) = False Then
+                    MsgBox("Ingrese numero")
+                    DataGridView1.Item(4, curen).Value = ""
                 Else
-                    MsgBox("Ingrese un precio unitario numerico")
-                    DataGridView1.Item(3, curen).Value = ""
+
+                    If cantidad_product - DataGridView1.Item(4, curen).Value < 0 Then
+                        Dim mensaje As String
+                        MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
+
+
+                        DataGridView1.CurrentCell.Value = 0
+
+                        If cantidad_product - DataGridView1.Item(4, curen).Value < 2 Then
+                            mensaje = "Producto " + DataGridView1.Item(1, curen).Value.ToString + " sobra  " + cantidad_product.ToString
+                            'EnvioMail(mensaje)
+                            'envia mail si esta en falta un producto 
+                        End If
+
+                    End If
+                    If IsNumeric(DataGridView1.Item(3, curen).Value) Then
+                        DataGridView1.Item(5, curen).Value = DataGridView1.Item(4, curen).Value * DataGridView1.Item(3, curen).Value
+                        suma = 0
+                        For i = 0 To DataGridView1.RowCount - 1
+                            If DataGridView1.Item(5, i).Value IsNot "" Then
+                                suma = suma + DataGridView1.Item(5, i).Value
+                                text_sub_total.Text = Puntos(suma.ToString)
+                                iva = suma * 0.1
+                                text_iva.Text = Puntos(iva.ToString)
+                                total = suma + iva
+
+                                text_total.Text = Puntos(total.ToString)
+                            End If
+                        Next
+                    Else
+                        MsgBox("Ingrese un precio unitario numerico")
+                        DataGridView1.Item(3, curen).Value = ""
+                    End If
                 End If
+            Else
+                DataGridView1.Item(4, curen).Value = 0
             End If
+
         End If
 
         'ordenar los los grid
@@ -864,6 +872,7 @@ Public Class Venta
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         Dim factura As String
         factura = n_factura_textbox.Text
         Dim i As Integer
@@ -877,6 +886,13 @@ Public Class Venta
         Validate()
         VentaBindingSource.EndEdit()
         VentaTableAdapter.Update(DataSet1.venta)
+        text_ruc_venta.Clear()
+        TextBox16.Clear()
+        DataGridView1.Rows.Clear()
+        TextBox17.Clear()
+
+
+        MsgBox("Borrado exitosamente")
     End Sub
 
     Private Sub text_ruc_venta_TextChanged(sender As Object, e As EventArgs) Handles text_ruc_venta.TextChanged
@@ -886,5 +902,19 @@ Public Class Venta
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
 
 
+    End Sub
+
+    Private Sub TextBox17_TextChanged(sender As Object, e As EventArgs) Handles TextBox17.TextChanged
+
+
+    End Sub
+
+    Private Sub TextBox17_Leave(sender As Object, e As EventArgs) Handles TextBox17.Leave
+        If IsDate(TextBox17.Text) Then
+
+        Else
+            MsgBox("Por favor ingrese una fecha valida")
+            TextBox17.Text = ""
+        End If
     End Sub
 End Class
