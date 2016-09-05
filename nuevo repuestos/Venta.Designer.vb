@@ -68,7 +68,6 @@ Partial Class Venta
         Me.IngresoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IngresoDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -354,6 +353,7 @@ Partial Class Venta
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.clienteTableAdapter = Me.ClienteTableAdapter
+        Me.TableAdapterManager.ingreso_proveedorTableAdapter = Nothing
         Me.TableAdapterManager.ingresoTableAdapter = Me.IngresoTableAdapter
         Me.TableAdapterManager.proveedorTableAdapter = Nothing
         Me.TableAdapterManager.stockTableAdapter = Me.StockTableAdapter
@@ -422,7 +422,7 @@ Partial Class Venta
         '
         Me.IngresoDataGridView.AutoGenerateColumns = False
         Me.IngresoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.IngresoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
+        Me.IngresoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.IngresoDataGridView.DataSource = Me.IngresoBindingSource
         Me.IngresoDataGridView.Location = New System.Drawing.Point(969, 22)
         Me.IngresoDataGridView.Name = "IngresoDataGridView"
@@ -434,12 +434,6 @@ Partial Class Venta
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "id_ingreso"
         Me.DataGridViewTextBoxColumn6.HeaderText = "id_ingreso"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "id_proveedor"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "id_proveedor"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
         'DataGridViewTextBoxColumn8
         '
