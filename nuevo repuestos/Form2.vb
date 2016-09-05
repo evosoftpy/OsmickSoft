@@ -77,6 +77,28 @@
             habilitado = 0
         End If
 
+
+        If IsNumeric(TextBoxCantidad.Text) = False Then
+
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+
+            habilitado = 0
+        End If
+
+        If IsDate(TextBoxFecha.Text) = False Then
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese fecha válida"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            habilitado = 0
+            'TextBoxFecha.Focus()
+        End If
+
         ''' SI LOS CAMPOS IMPORTANTES NO ESTAN VACIOS, SE PROCEDE AL INGRESO
         If habilitado = 1 Then
             Dim codigo_existe As Integer
@@ -333,7 +355,7 @@
                 End If
             Next
 
-            '''SOLO SI HAY UN PRODUCTO CON ESE CODIGO SE AUTOCOMPLETA, SINO HAY QUE DAR CLIC EN PRODUCTOS2
+            '''SOLO SI HAY UN PRODUCTO CON ESE CODIGO SE AUTOCOMPLETA (SINO HAY QUE DAR CLIC EN PRODUCTOS2)
             If cantidad_de_codigo = 1 Then
                 For i As Integer = 0 To (cantidad_stock - 1)
                     'Si el PRODUCTO ingresado existe'
@@ -389,15 +411,15 @@
     End Sub
 
     Private Sub TextBoxCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.LostFocus
-        LabelInsertarProducto.Hide()
+        'LabelInsertarProducto.Hide()
         If IsNumeric(TextBoxCantidad.Text) = False Then
 
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
             LabelInsertarProducto.ForeColor = Color.Red
 
-            TextBoxCantidad.Text = ""
-            TextBoxCantidad.Focus()
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
         End If
     End Sub
 
@@ -757,13 +779,13 @@
 
     Private Sub TextBox1_LostFocus(sender As Object, e As EventArgs) Handles TextBoxFecha.LostFocus
 
-        LabelInsertarProducto.Hide()
+        'LabelInsertarProducto.Hide()
         If IsDate(TextBoxFecha.Text) = False Then
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Ingrese fecha válida"
             LabelInsertarProducto.ForeColor = Color.Red
 
-            TextBoxFecha.Focus()
+            'TextBoxFecha.Focus()
         End If
 
     End Sub
@@ -798,6 +820,10 @@
             End If
         Next
 
+
+    End Sub
+
+    Private Sub TextBoxCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCantidad.TextChanged
 
     End Sub
 End Class
