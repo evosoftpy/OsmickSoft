@@ -1,21 +1,21 @@
-﻿Imports System
-Imports System.Net.Mail
-Imports System.Threading
-Imports System.IO
-Imports System.Text
+﻿'Imports System
+'Imports System.Net.Mail
+'Imports System.Threading
+'Imports System.IO
+'Imports System.Text
 Public Class Form1
     'primer hilo indenpendiente para consultas
-    Dim consulta As Thread
-    Dim consultaStart As New ThreadStart(AddressOf consultas)
-    Dim CallEnvioMail As New MethodInvoker(AddressOf Me.EnvioMail)
+    'Dim consulta As Thread
+    'Dim consultaStart As New ThreadStart(AddressOf consultas)
+    'Dim CallEnvioMail As New MethodInvoker(AddressOf Me.EnvioMail)
 
-    Dim avisosProgramados As Thread
-    Dim avisosStart As New ThreadStart(AddressOf aviso)
-    Dim callEscribir As New MethodInvoker(AddressOf crearArchivo)
-    Dim callEnviaremail2 As New MethodInvoker(AddressOf EnvioMail2)
+    'Dim avisosProgramados As Thread
+    'Dim avisosStart As New ThreadStart(AddressOf aviso)
+    'Dim callEscribir As New MethodInvoker(AddressOf crearArchivo)
+    'Dim callEnviaremail2 As New MethodInvoker(AddressOf EnvioMail2)
 
-    Dim callLectura As New MethodInvoker(AddressOf leerArchivo)
-    Dim callCrear As New MethodInvoker(AddressOf crearArchivo)
+    'Dim callLectura As New MethodInvoker(AddressOf leerArchivo)
+    'Dim callCrear As New MethodInvoker(AddressOf crearArchivo)
     Private Sub ClienteBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.ClienteBindingSource.EndEdit()
@@ -36,38 +36,38 @@ Public Class Form1
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
 
-        moduloDatos.leerArchivo()
-        Dim ruta As String = "dataMail.conf"
-        Dim escritor As StreamWriter
-        Try
-            'MsgBox(avisoEnviado.ToString + "hola")
-            If My.Computer.FileSystem.FileExists(ruta) Then
-                My.Computer.FileSystem.DeleteFile(ruta)
-            End If
+        'moduloDatos.leerArchivo()
+        'Dim ruta As String = "dataMail.conf"
+        'Dim escritor As StreamWriter
+        'Try
+        '    'MsgBox(avisoEnviado.ToString + "hola")
+        '    If My.Computer.FileSystem.FileExists(ruta) Then
+        '        My.Computer.FileSystem.DeleteFile(ruta)
+        '    End If
 
-            escritor = File.AppendText(ruta)
-            escritor.Write(moduloDatos.correo + escritor.NewLine + moduloDatos.dia + escritor.NewLine + "false")
-            escritor.Flush()
-            escritor.Close()
-        Catch ex As Exception
+        '    escritor = File.AppendText(ruta)
+        '    escritor.Write(moduloDatos.correo + escritor.NewLine + moduloDatos.dia + escritor.NewLine + "false")
+        '    escritor.Flush()
+        '    escritor.Close()
+        'Catch ex As Exception
 
-        End Try
-        Try
-            Me.consulta = New Thread(consultaStart)
-            consulta.IsBackground = True
-            consulta.Name = "procesoConsulta"
-            consulta.Start()
-        Catch ex As Exception
-        End Try
+        'End Try
+        'Try
+        '    Me.consulta = New Thread(consultaStart)
+        '    consulta.IsBackground = True
+        '    consulta.Name = "procesoConsulta"
+        '    consulta.Start()
+        'Catch ex As Exception
+        'End Try
 
-        Try
-            Me.avisosProgramados = New Thread(avisosStart)
-            avisosProgramados.IsBackground = True
-            avisosProgramados.Name = "procesoAvisos"
-            avisosProgramados.Start()
+        'Try
+        '    Me.avisosProgramados = New Thread(avisosStart)
+        '    avisosProgramados.IsBackground = True
+        '    avisosProgramados.Name = "procesoAvisos"
+        '    avisosProgramados.Start()
 
-        Catch ex As Exception
-        End Try
+        'Catch ex As Exception
+        'End Try
 
     End Sub
 
@@ -243,227 +243,227 @@ Public Class Form1
 
 
 
-    Public Sub EnvioMail()
+    'Public Sub EnvioMail()
 
-        Dim correo As New MailMessage
-        Dim smtp As New SmtpClient()
-        Dim respuesta As String
-        moduloDatos.leerArchivo()
-        correo.From = New MailAddress("evotestpy@gmail.com", "Repuestos Evosoft", System.Text.Encoding.UTF8)
-        correo.To.Add(moduloDatos.correo)
-        correo.SubjectEncoding = System.Text.Encoding.UTF8
-        correo.Subject = "Productos en falta"
-        respuesta = consultarStock()
-        correo.Body = respuesta
-        correo.BodyEncoding = System.Text.Encoding.UTF8
-        correo.IsBodyHtml = False
-        correo.Priority = MailPriority.High
+    '    Dim correo As New MailMessage
+    '    Dim smtp As New SmtpClient()
+    '    Dim respuesta As String
+    '    moduloDatos.leerArchivo()
+    '    correo.From = New MailAddress("evotestpy@gmail.com", "Repuestos Evosoft", System.Text.Encoding.UTF8)
+    '    correo.To.Add(moduloDatos.correo)
+    '    correo.SubjectEncoding = System.Text.Encoding.UTF8
+    '    correo.Subject = "Productos en falta"
+    '    respuesta = consultarStock()
+    '    correo.Body = respuesta
+    '    correo.BodyEncoding = System.Text.Encoding.UTF8
+    '    correo.IsBodyHtml = False
+    '    correo.Priority = MailPriority.High
 
-        smtp.Credentials = New System.Net.NetworkCredential("evotestpy@gmail.com", "evotest123")
-        smtp.Port = 587
-        smtp.Host = "smtp.gmail.com"
-        smtp.EnableSsl = True
+    '    smtp.Credentials = New System.Net.NetworkCredential("evotestpy@gmail.com", "evotest123")
+    '    smtp.Port = 587
+    '    smtp.Host = "smtp.gmail.com"
+    '    smtp.EnableSsl = True
 
-        smtp.Send(correo)
-
-
-    End Sub
+    '    smtp.Send(correo)
 
 
-    Public Sub EnvioMail2()
-
-        Dim correo As New MailMessage
-        Dim smtp As New SmtpClient()
-        moduloDatos.leerArchivo()
-        correo.From = New MailAddress("evosoftpy@gmail.com", "Repuestos Evosoft", System.Text.Encoding.UTF8)
-        correo.To.Add("evosoftpy@gmail.com")
-        correo.SubjectEncoding = System.Text.Encoding.UTF8
-        correo.Subject = "no Consultar stock"
-        correo.Body = "cancelado el comando"
-        correo.BodyEncoding = System.Text.Encoding.UTF8
-        correo.IsBodyHtml = False
-        correo.Priority = MailPriority.High
-
-        smtp.Credentials = New System.Net.NetworkCredential("evotestpy@gmail.com", "evotest123")
-        smtp.Port = 587
-        smtp.Host = "smtp.gmail.com"
-        smtp.EnableSsl = True
-
-        smtp.Send(correo)
+    'End Sub
 
 
-    End Sub
+    'Public Sub EnvioMail2()
 
-    Private Sub aviso()
-        Dim DateNow As Date
-        'Dim objReader As New StreamReader("dataMail.conf")
-        Dim sLine As String = ""
+    '    Dim correo As New MailMessage
+    '    Dim smtp As New SmtpClient()
+    '    moduloDatos.leerArchivo()
+    '    correo.From = New MailAddress("evosoftpy@gmail.com", "Repuestos Evosoft", System.Text.Encoding.UTF8)
+    '    correo.To.Add("evosoftpy@gmail.com")
+    '    correo.SubjectEncoding = System.Text.Encoding.UTF8
+    '    correo.Subject = "no Consultar stock"
+    '    correo.Body = "cancelado el comando"
+    '    correo.BodyEncoding = System.Text.Encoding.UTF8
+    '    correo.IsBodyHtml = False
+    '    correo.Priority = MailPriority.High
 
-        While True
-            If My.Computer.FileSystem.FileExists("dataMail.conf") Then
-                DateNow = Date.Now
+    '    smtp.Credentials = New System.Net.NetworkCredential("evotestpy@gmail.com", "evotest123")
+    '    smtp.Port = 587
+    '    smtp.Host = "smtp.gmail.com"
+    '    smtp.EnableSsl = True
 
-                Me.BeginInvoke(callLectura)
-                If DateNow.DayOfWeek.ToString = dia And avisoEnviado = "false" Then
-                    'MsgBox(avisoEnviado)
-                    Me.BeginInvoke(CallEnvioMail)
-                    moduloDatos.avisoEnviado = "true"
-                    'MsgBox(avisoEnviado)
-                    Dim ruta As String = "dataMail.conf"
-                    Dim escritor As StreamWriter
-                    Try
-                        'MsgBox(avisoEnviado.ToString + "hola")
-                        If My.Computer.FileSystem.FileExists(ruta) Then
-                            My.Computer.FileSystem.DeleteFile(ruta)
-                        End If
-
-                        escritor = File.AppendText(ruta)
-                        escritor.Write(moduloDatos.correo + escritor.NewLine + moduloDatos.dia + escritor.NewLine + "true")
-                        escritor.Flush()
-                        escritor.Close()
-                    Catch ex As Exception
-                    End Try
-                End If
-            End If
-            Thread.Sleep(10000)
-        End While
+    '    smtp.Send(correo)
 
 
+    'End Sub
 
-    End Sub
+    'Private Sub aviso()
+    '    Dim DateNow As Date
+    '    'Dim objReader As New StreamReader("dataMail.conf")
+    '    Dim sLine As String = ""
 
-    Private Sub consultas()
+    '    While True
+    '        If My.Computer.FileSystem.FileExists("dataMail.conf") Then
+    '            DateNow = Date.Now
 
+    '            Me.BeginInvoke(callLectura)
+    '            If DateNow.DayOfWeek.ToString = dia And avisoEnviado = "false" Then
+    '                'MsgBox(avisoEnviado)
+    '                Me.BeginInvoke(CallEnvioMail)
+    '                moduloDatos.avisoEnviado = "true"
+    '                'MsgBox(avisoEnviado)
+    '                Dim ruta As String = "dataMail.conf"
+    '                Dim escritor As StreamWriter
+    '                Try
+    '                    'MsgBox(avisoEnviado.ToString + "hola")
+    '                    If My.Computer.FileSystem.FileExists(ruta) Then
+    '                        My.Computer.FileSystem.DeleteFile(ruta)
+    '                    End If
 
-        While True
-            'verificar si hay consultar en el correo
-
-            If GetMails("evosoftpy@gmail.com", "pr1nt3f3") Then
-                'MsgBox("VERDERO")
-                BeginInvoke(CallEnvioMail)
-                BeginInvoke(callEnviaremail2)
-
-            End If
-            Thread.Sleep(10000)
-        End While
+    '                    escritor = File.AppendText(ruta)
+    '                    escritor.Write(moduloDatos.correo + escritor.NewLine + moduloDatos.dia + escritor.NewLine + "true")
+    '                    escritor.Flush()
+    '                    escritor.Close()
+    '                Catch ex As Exception
+    '                End Try
+    '            End If
+    '        End If
+    '        Thread.Sleep(10000)
+    '    End While
 
 
 
+    'End Sub
 
-    End Sub
-
-
-    Private Function GetMails(mail As String, clave As String)
-        Dim client As OpenPop.Pop3.Pop3Client = New OpenPop.Pop3.Pop3Client()
-        'Dim allMessages As List(Of OpenPop.Mime.Message) = New List(Of OpenPop.Mime.Message)(messageCount)
-
-        'For count As Integer = 1 To messageCount
-        'Try
-        ' allMessages.Add(client.GetMessage(count))
-        ' Catch ex As OpenPop.Pop3.Exceptions.PopServerException
-        'allMessages.Add(Nothing)
-        'End Try
-        ' Next
-
-        Dim subj, from As String
-
-        Try
-            'MsgBox(moduloDatos.correo)
-            client.Connect("pop.gmail.com", 995, True)
-            client.Authenticate(mail, clave)
-
-            Dim messageCount As Integer = client.GetMessageCount()
-            subj = client.GetMessage(messageCount).Headers.Subject
-            from = client.GetMessage(messageCount).Headers.From.Address
-
-            If subj = "Consultar stock" And from = moduloDatos.correo Then
-                client.DeleteMessage(messageCount)
-                Return True
-            End If
-        Catch ex As Exception
-            MsgBox("Error al conectarse con el servidor")
-        End Try
-        Return False
-    End Function
-
-    Private Function consultarStock()
-        '''TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
-        'Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
-        '''TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
-        'Me.StockTableAdapter.Fill(Me.DataSet1.stock)
-        '''TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
-        'Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
-
-        Dim string_salida As String
-        string_salida = "CANTIDAD" + vbTab + vbTab + "NOMBRE" + vbTab + vbTab + vbTab + "DESCRIPCIÓN" + vbCr
-        ''MsgBox("no se porque no entra")
-        'MsgBox("negrooooo wtf")
-        Dim i As Integer
-        Dim j As Integer
-        Dim k As Integer
-        k = 0
+    'Private Sub consultas()
 
 
-        Dim cantidad_en_stock As Integer
-        cantidad_en_stock = 0
+    '    While True
+    '        'verificar si hay consultar en el correo
 
-        Dim cantidad_stock As Integer
-        cantidad_stock = DataSet1.Tables("stock").Rows.Count - 1
+    '        If GetMails("evosoftpy@gmail.com", "pr1nt3f3") Then
+    '            'MsgBox("VERDERO")
+    '            BeginInvoke(CallEnvioMail)
+    '            BeginInvoke(callEnviaremail2)
 
-        Dim cantidad_ingreso As Integer
-        cantidad_ingreso = DataSet1.Tables("ingreso").Rows.Count - 1
-
-        Dim cantidad_venta As Integer
-        cantidad_venta = DataSet1.Tables("venta").Rows.Count - 1
-        Try
+    '        End If
+    '        Thread.Sleep(10000)
+    '    End While
 
 
-            '''HACE ESTO POR CADA ITEM DEL STOCK
-            If cantidad_en_stock > 0 Then
 
-                For i = 0 To cantidad_stock
-                    '  MsgBox("entra al for i")
-                    '''SUMA LOS INGRESOS
-                    For j = 0 To cantidad_ingreso
-                        ' MsgBox("entra al For ingresa")
-                        If DataSet1.Tables("stock").Rows(i).Item("id_stock") = DataSet1.Tables("ingreso").Rows(j).Item("id_stock") Then
-                            cantidad_en_stock = cantidad_en_stock + DataSet1.Tables("ingreso").Rows(j).Item("cantidad")
-                        End If
-                    Next
 
-                    '''RESTA LOS EGRESOS
-                    For j = 0 To cantidad_venta
-                        'MsgBox("entra al For venta")
-                        If DataSet1.Tables("stock").Rows(i).Item("id_stock") = DataSet1.Tables("venta").Rows(j).Item("id_stock") Then
-                            cantidad_en_stock = cantidad_en_stock - DataSet1.Tables("venta").Rows(j).Item("cantidad_venta")
-                        End If
-                    Next
+    'End Sub
 
-                    '''SI LA CANTIDAD DEL STOCK(i) ES INSUFICIENTE, LO EXPLICITA EN LA TABLA
 
-                    If cantidad_en_stock <= 2 Then
-                        ''MsgBox(DataSet1.Tables("stock").Rows(i).Item("nombre"))
-                        'DataGridViewFalta.Rows.Add()
+    'Private Function GetMails(mail As String, clave As String)
+    '    Dim client As OpenPop.Pop3.Pop3Client = New OpenPop.Pop3.Pop3Client()
+    '    'Dim allMessages As List(Of OpenPop.Mime.Message) = New List(Of OpenPop.Mime.Message)(messageCount)
 
-                        'DataGridViewFalta.Item(0, k).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                        'DataGridViewFalta.Item(1, k).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                        'DataGridViewFalta.Item(2, k).Value = cantidad_en_stock
-                        'k = k + 1
+    '    'For count As Integer = 1 To messageCount
+    '    'Try
+    '    ' allMessages.Add(client.GetMessage(count))
+    '    ' Catch ex As OpenPop.Pop3.Exceptions.PopServerException
+    '    'allMessages.Add(Nothing)
+    '    'End Try
+    '    ' Next
 
-                        string_salida = string_salida + cantidad_en_stock.ToString + vbTab + vbTab + vbTab + DataSet1.Tables("stock").Rows(i).Item("nombre").ToString + vbTab + vbTab + vbTab + DataSet1.Tables("stock").Rows(i).Item("descripcion").ToString + vbCr
-                    End If
-                    cantidad_en_stock = 0
+    '    Dim subj, from As String
 
-                Next
-            Else
-                string_salida = "No hay ningun stock bajo en este momento"
-            End If
+    '    Try
+    '        'MsgBox(moduloDatos.correo)
+    '        client.Connect("pop.gmail.com", 995, True)
+    '        client.Authenticate(mail, clave)
 
-        Catch ex As Exception
+    '        Dim messageCount As Integer = client.GetMessageCount()
+    '        subj = client.GetMessage(messageCount).Headers.Subject
+    '        from = client.GetMessage(messageCount).Headers.From.Address
 
-        End Try
-        Return string_salida
-    End Function
+    '        If subj = "Consultar stock" And from = moduloDatos.correo Then
+    '            client.DeleteMessage(messageCount)
+    '            Return True
+    '        End If
+    '    Catch ex As Exception
+    '        MsgBox("Error al conectarse con el servidor")
+    '    End Try
+    '    Return False
+    'End Function
+
+    'Private Function consultarStock()
+    '    '''TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
+    '    'Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
+    '    '''TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
+    '    'Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+    '    '''TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
+    '    'Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+
+    '    Dim string_salida As String
+    '    string_salida = "CANTIDAD" + vbTab + vbTab + "NOMBRE" + vbTab + vbTab + vbTab + "DESCRIPCIÓN" + vbCr
+    '    ''MsgBox("no se porque no entra")
+    '    'MsgBox("negrooooo wtf")
+    '    Dim i As Integer
+    '    Dim j As Integer
+    '    Dim k As Integer
+    '    k = 0
+
+
+    '    Dim cantidad_en_stock As Integer
+    '    cantidad_en_stock = 0
+
+    '    Dim cantidad_stock As Integer
+    '    cantidad_stock = DataSet1.Tables("stock").Rows.Count - 1
+
+    '    Dim cantidad_ingreso As Integer
+    '    cantidad_ingreso = DataSet1.Tables("ingreso").Rows.Count - 1
+
+    '    Dim cantidad_venta As Integer
+    '    cantidad_venta = DataSet1.Tables("venta").Rows.Count - 1
+    '    Try
+
+
+    '        '''HACE ESTO POR CADA ITEM DEL STOCK
+    '        If cantidad_en_stock > 0 Then
+
+    '            For i = 0 To cantidad_stock
+    '                '  MsgBox("entra al for i")
+    '                '''SUMA LOS INGRESOS
+    '                For j = 0 To cantidad_ingreso
+    '                    ' MsgBox("entra al For ingresa")
+    '                    If DataSet1.Tables("stock").Rows(i).Item("id_stock") = DataSet1.Tables("ingreso").Rows(j).Item("id_stock") Then
+    '                        cantidad_en_stock = cantidad_en_stock + DataSet1.Tables("ingreso").Rows(j).Item("cantidad")
+    '                    End If
+    '                Next
+
+    '                '''RESTA LOS EGRESOS
+    '                For j = 0 To cantidad_venta
+    '                    'MsgBox("entra al For venta")
+    '                    If DataSet1.Tables("stock").Rows(i).Item("id_stock") = DataSet1.Tables("venta").Rows(j).Item("id_stock") Then
+    '                        cantidad_en_stock = cantidad_en_stock - DataSet1.Tables("venta").Rows(j).Item("cantidad_venta")
+    '                    End If
+    '                Next
+
+    '                '''SI LA CANTIDAD DEL STOCK(i) ES INSUFICIENTE, LO EXPLICITA EN LA TABLA
+
+    '                If cantidad_en_stock <= 2 Then
+    '                    ''MsgBox(DataSet1.Tables("stock").Rows(i).Item("nombre"))
+    '                    'DataGridViewFalta.Rows.Add()
+
+    '                    'DataGridViewFalta.Item(0, k).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+    '                    'DataGridViewFalta.Item(1, k).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+    '                    'DataGridViewFalta.Item(2, k).Value = cantidad_en_stock
+    '                    'k = k + 1
+
+    '                    string_salida = string_salida + cantidad_en_stock.ToString + vbTab + vbTab + vbTab + DataSet1.Tables("stock").Rows(i).Item("nombre").ToString + vbTab + vbTab + vbTab + DataSet1.Tables("stock").Rows(i).Item("descripcion").ToString + vbCr
+    '                End If
+    '                cantidad_en_stock = 0
+
+    '            Next
+    '        Else
+    '            string_salida = "No hay ningun stock bajo en este momento"
+    '        End If
+
+    '    Catch ex As Exception
+
+    '    End Try
+    '    Return string_salida
+    'End Function
 
     Private Sub Buttoncorreo_Click(sender As Object, e As EventArgs) Handles Buttoncorreo.Click
 
@@ -477,8 +477,12 @@ Public Class Form1
         form_manager.productos2stock.Hide()
         ProgressBar1.Value = 70
         config.MdiParent = Me
-        config.StartPosition = StartPosition.CenterScreen
+        'config.StartPosition = StartPosition.CenterScreen
         config.Show()
         ProgressBar1.Value = 100
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class
