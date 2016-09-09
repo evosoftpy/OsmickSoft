@@ -586,7 +586,7 @@ Partial Class Venta
         'Venta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.ClientSize = New System.Drawing.Size(673, 507)
+        Me.ClientSize = New System.Drawing.Size(670, 507)
         Me.ControlBox = False
         Me.Controls.Add(Me.ClienteDataGridView)
         Me.Controls.Add(Me.IngresoDataGridView)
