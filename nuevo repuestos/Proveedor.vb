@@ -33,9 +33,9 @@
                     End If
                 End If
                 If ban Then
-                    clienteNombreList.Items.Clear()
-                    clienteApellidoList.Items.Clear()
-                    clienteNumeroList.Items.Clear()
+                    clienteNombreList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor"))
+                    clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
+                    clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
                     ban = False
                 End If
                 If j = cant2 - 1 Then
@@ -43,7 +43,7 @@
                     If b = 1 Then
                         dato = "ruc_proveedor"
                         b = 2
-                        j = 0
+                        j = -1
                     End If
                 End If
             Next

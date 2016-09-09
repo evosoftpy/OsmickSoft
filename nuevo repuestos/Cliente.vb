@@ -37,7 +37,7 @@
         If cad1 <> "" Then
             For j = 0 To cant2 - 1
                 cad2 = DataSet1.Tables("cliente").Rows(j).Item(dato)
-                MsgBox(cad2)
+                'MsgBox(cad2)
                 cant3 = cad2.LongCount
                 If cant1 <= cant3 Then
                     If cad1 = cad2.Substring(0, cant1) Then

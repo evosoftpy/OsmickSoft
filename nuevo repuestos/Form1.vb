@@ -471,4 +471,8 @@ Public Class Form1
         config.Show()
         ProgressBar1.Value = 100
     End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class
