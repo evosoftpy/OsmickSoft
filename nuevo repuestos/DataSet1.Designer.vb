@@ -1821,7 +1821,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddstockRow(ByVal codigo As String, ByVal codigo_barras As Integer, ByVal nombre As String, ByVal descripcion As String, ByVal precio_venta As Integer) As stockRow
+        Public Overloads Function AddstockRow(ByVal codigo As String, ByVal codigo_barras As String, ByVal nombre As String, ByVal descripcion As String, ByVal precio_venta As Integer) As stockRow
             Dim rowstockRow As stockRow = CType(Me.NewRow,stockRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, codigo, codigo_barras, nombre, descripcion, precio_venta}
             rowstockRow.ItemArray = columnValuesArray
@@ -1867,7 +1867,7 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnid_stock)
             Me.columncodigo = New Global.System.Data.DataColumn("codigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncodigo)
-            Me.columncodigo_barras = New Global.System.Data.DataColumn("codigo_barras", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncodigo_barras = New Global.System.Data.DataColumn("codigo_barras", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncodigo_barras)
             Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre)
@@ -1882,6 +1882,7 @@ Partial Public Class DataSet1
             Me.columnid_stock.AllowDBNull = false
             Me.columnid_stock.Unique = true
             Me.columncodigo.MaxLength = 1000
+            Me.columncodigo_barras.MaxLength = 1000
             Me.columnnombre.MaxLength = 200
             Me.columndescripcion.MaxLength = 1000
         End Sub
@@ -2827,10 +2828,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property codigo_barras() As Integer
+        Public Property codigo_barras() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablestock.codigo_barrasColumn),Integer)
+                    Return CType(Me(Me.tablestock.codigo_barrasColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'codigo_barras' in table 'stock' is DBNull.", e)
                 End Try
@@ -4863,14 +4864,11 @@ Namespace DataSet1TableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.Odbc.OdbcCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""taller"".""public"".""stock"" WHERE ((""id_stock"" = ?) AND ((? = 1 AND ""co"& _ 
-                "digo_barras"" IS NULL) OR (""codigo_barras"" = ?)) AND ((? = 1 AND ""nombre"" IS NULL"& _ 
-                ") OR (""nombre"" = ?)) AND ((? = 1 AND ""precio_venta"" IS NULL) OR (""precio_venta"" "& _ 
-                "= ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""taller"".""public"".""stock"" WHERE ((""id_stock"" = ?) AND ((? = 1 AND ""no"& _ 
+                "mbre"" IS NULL) OR (""nombre"" = ?)) AND ((? = 1 AND ""precio_venta"" IS NULL) OR (""p"& _ 
+                "recio_venta"" = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_id_stock", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_stock", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_codigo_barras", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_codigo_barras", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_nombre", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_nombre", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_precio_venta", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "precio_venta", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -4881,7 +4879,7 @@ Namespace DataSet1TableAdapters
                 "ripcion"", ""precio_venta"") VALUES (?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("codigo", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("codigo_barras", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("codigo_barras", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("nombre", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("descripcion", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("precio_venta", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "precio_venta", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -4889,18 +4887,15 @@ Namespace DataSet1TableAdapters
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE ""taller"".""public"".""stock"" SET ""codigo"" = ?, ""codigo_barras"" = ?, ""nombre"" "& _ 
                 "= ?, ""descripcion"" = ?, ""precio_venta"" = ? WHERE ((""id_stock"" = ?) AND ((? = 1 A"& _ 
-                "ND ""codigo_barras"" IS NULL) OR (""codigo_barras"" = ?)) AND ((? = 1 AND ""nombre"" I"& _ 
-                "S NULL) OR (""nombre"" = ?)) AND ((? = 1 AND ""precio_venta"" IS NULL) OR (""precio_v"& _ 
-                "enta"" = ?)))"
+                "ND ""nombre"" IS NULL) OR (""nombre"" = ?)) AND ((? = 1 AND ""precio_venta"" IS NULL) "& _ 
+                "OR (""precio_venta"" = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("codigo", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("codigo_barras", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("codigo_barras", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("nombre", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("descripcion", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("precio_venta", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "precio_venta", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_id_stock", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_stock", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_codigo_barras", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_codigo_barras", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "codigo_barras", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_nombre", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_nombre", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_precio_venta", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "precio_venta", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -4981,18 +4976,16 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id_stock As Integer, ByVal Original_codigo_barras As Integer, ByVal Original_nombre As String, ByVal Original_precio_venta As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_id_stock As Integer, ByVal Original_nombre As String, ByVal Original_precio_venta As Integer) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_stock,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_codigo_barras,Integer)
             If (Original_nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_nombre")
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_nombre,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_nombre,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_precio_venta,Integer)
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_precio_venta,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5012,13 +5005,17 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal codigo As String, ByVal codigo_barras As Integer, ByVal nombre As String, ByVal descripcion As String, ByVal precio_venta As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal codigo As String, ByVal codigo_barras As String, ByVal nombre As String, ByVal descripcion As String, ByVal precio_venta As Integer) As Integer
             If (codigo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("codigo")
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(codigo,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(codigo_barras,Integer)
+            If (codigo_barras Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("codigo_barras")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(codigo_barras,String)
+            End If
             If (nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("nombre")
             Else
@@ -5049,13 +5046,17 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal codigo As String, ByVal codigo_barras As Integer, ByVal nombre As String, ByVal descripcion As String, ByVal precio_venta As Integer, ByVal Original_id_stock As Integer, ByVal Original_codigo_barras As Integer, ByVal Original_nombre As String, ByVal Original_precio_venta As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal codigo As String, ByVal codigo_barras As String, ByVal nombre As String, ByVal descripcion As String, ByVal precio_venta As Integer, ByVal Original_id_stock As Integer, ByVal Original_nombre As String, ByVal Original_precio_venta As Integer) As Integer
             If (codigo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("codigo")
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(codigo,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(codigo_barras,Integer)
+            If (codigo_barras Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("codigo_barras")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(codigo_barras,String)
+            End If
             If (nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("nombre")
             Else
@@ -5068,16 +5069,14 @@ Namespace DataSet1TableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(4).Value = CType(precio_venta,Integer)
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_id_stock,Integer)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_codigo_barras,Integer)
             If (Original_nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_nombre")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_nombre,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_nombre,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_precio_venta,Integer)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_precio_venta,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

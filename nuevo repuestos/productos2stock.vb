@@ -4,6 +4,29 @@
         Me.StockTableAdapter.Fill(Me.DataSet1.stock)
 
 
+        '''MOSTRAR TODO'''
+        DataGridViewStock.Rows.Clear()
+
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+        For i = 0 To cant_cont
+
+            DataGridViewStock.Rows.Add()
+
+            DataGridViewStock.Item(0, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+            DataGridViewStock.Item(1, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+            DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+            DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+            DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+        Next
+
     End Sub
 
     Private Sub StockBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
@@ -76,7 +99,7 @@
 
 
 
-
+        '''MOSTRAR TODO'''
         DataGridViewStock.Rows.Clear()
 
 
@@ -110,11 +133,45 @@
         Dim index As Integer
         index = DataGridViewStock.CurrentRow.Index
 
-        form_manager.stock.TextBoxCodigoDeBarras.Text = DataGridViewStock.Item(1, index).Value
-        form_manager.stock.TextBoxCodigo.Text = DataGridViewStock.Item(0, index).Value
-        form_manager.stock.TextBoxNombre.Text = DataGridViewStock.Item(2, index).Value
-        form_manager.stock.TextBoxDescripcion.Text = DataGridViewStock.Item(3, index).Value
-        form_manager.stock.TextBoxPrecioDeVenta.Text = DataGridViewStock.Item(4, index).Value
+        If form_manager.stock.GroupBoxIngresarProducto.Visible = True Then
+            '''EN CASO DE QUE SEA "INSERTAR PRODUCTO"
+            Dim varCodigoDeBarras As String
+            Dim varCodigo As String
+            Dim varNombre As String
+            Dim varDescripcion As String
+            Dim varPrecioDeVenta As Integer
+
+            varCodigoDeBarras = DataGridViewStock.Item(1, index).Value
+            varCodigo = DataGridViewStock.Item(0, index).Value
+            varNombre = DataGridViewStock.Item(2, index).Value
+            varDescripcion = DataGridViewStock.Item(3, index).Value
+            varPrecioDeVenta = DataGridViewStock.Item(4, index).Value
+
+            form_manager.stock.TextBoxCodigoDeBarras.Text = varCodigoDeBarras
+            form_manager.stock.TextBoxCodigo.Text = varCodigo
+            form_manager.stock.TextBoxNombre.Text = varNombre
+            form_manager.stock.TextBoxDescripcion.Text = varDescripcion
+            form_manager.stock.TextBoxPrecioDeVenta.Text = varPrecioDeVenta
+        Else
+            '''EN CASO DE QUE SEA "MODIFICAR PRODUCTO"
+            Dim varCodigoDeBarras As String
+            Dim varCodigo As String
+            Dim varNombre As String
+            Dim varDescripcion As String
+            Dim varPrecioDeVenta As Integer
+
+            varCodigoDeBarras = DataGridViewStock.Item(1, index).Value
+            varCodigo = DataGridViewStock.Item(0, index).Value
+            varNombre = DataGridViewStock.Item(2, index).Value
+            varDescripcion = DataGridViewStock.Item(3, index).Value
+            varPrecioDeVenta = DataGridViewStock.Item(4, index).Value
+
+            form_manager.stock.TextBoxModificarNuevoCodigoDeBarras.Text = varCodigoDeBarras
+            form_manager.stock.TextBoxModificarNuevoCodigo.Text = varCodigo
+            form_manager.stock.TextBoxModificarNuevoNombre.Text = varNombre
+            form_manager.stock.TextBoxModificarNuevaDescripcion.Text = varDescripcion
+            form_manager.stock.TextBoxModificarNuevoPrecioDeVenta.Text = varPrecioDeVenta
+        End If
 
 
     End Sub
