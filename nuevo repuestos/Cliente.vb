@@ -17,8 +17,6 @@
     Private Sub clienteBusBtn_Click(sender As Object, e As EventArgs) Handles clienteBusBtn.Click
 
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
-
-
         Dim t As New herramientas
         Dim j, cant1, cant2, cant3 As Integer
         Dim cad1, cad2, dato As String
@@ -33,7 +31,7 @@
         clienteApellidoList.Items.Clear()
         clienteNumeroList.Items.Clear()
         clienteRucList.Items.Clear()
-
+        ClienteTableAdapter.Update(DataSet1.cliente)
         If cad1 <> "" Then
             For j = 0 To cant2 - 1
                 cad2 = DataSet1.Tables("cliente").Rows(j).Item(dato)
@@ -180,6 +178,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim j, can As Integer
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
         can = DataSet1.Tables("cliente").Rows.Count
         clienteNombreList.Items.Clear()
         clienteApellidoList.Items.Clear()

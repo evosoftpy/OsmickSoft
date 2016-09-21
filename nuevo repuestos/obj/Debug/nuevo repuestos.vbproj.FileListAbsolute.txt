@@ -202,3 +202,28 @@ C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\n
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 C:\Users\cpaez\Documents\Programas\Taller\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+E:\Documents\programas\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
+E:\Documents\programas\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+E:\Documents\programas\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+E:\Documents\programas\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+E:\Documents\programas\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
+E:\Documents\programas\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.info_p_falta.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Productos.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Informes.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache

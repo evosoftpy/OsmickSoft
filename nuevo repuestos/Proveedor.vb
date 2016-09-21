@@ -22,7 +22,7 @@
         clienteNombreList.Items.Clear()
         clienteApellidoList.Items.Clear()
         clienteNumeroList.Items.Clear()
-
+        ProveedorTableAdapter.Update(DataSet1.proveedor)
         If cad1 <> "" Then
             For j = 0 To cant2 - 1
                 cad2 = DataSet1.Tables("proveedor").Rows(j).Item(dato)
