@@ -29,6 +29,8 @@
         Dim cantidad_stock As Integer
         cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
+        Dim j As Integer
+
         If TextBoxCodigo.Text = "" And TextBoxCodigoDeBarras.Text = "" Then
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Complete al menos un campo de Código"
@@ -77,6 +79,28 @@
             habilitado = 0
         End If
 
+
+        If IsNumeric(TextBoxCantidad.Text) = False Then
+
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+
+            habilitado = 0
+        End If
+
+        If IsDate(TextBoxFecha.Text) = False Then
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese fecha válida"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            habilitado = 0
+            'TextBoxFecha.Focus()
+        End If
+
         ''' SI LOS CAMPOS IMPORTANTES NO ESTAN VACIOS, SE PROCEDE AL INGRESO
         If habilitado = 1 Then
             Dim codigo_existe As Integer
@@ -99,23 +123,25 @@
                 '''''If TextBoxCodigo.Text <> "" Then
                 nuevo_stock("codigo") = TextBoxCodigo.Text
                 '''''End If
-                '''''If TextBoxCodigoDeBarras.Text <> "" Then
-                nuevo_stock("codigo_barras") = TextBoxCodigoDeBarras.Text
-                '''''End If
+                If TextBoxCodigoDeBarras.Text <> "" Then
+                    nuevo_stock("codigo_barras") = TextBoxCodigoDeBarras.Text
+                Else
+                    nuevo_stock("codigo_barras") = "''"
+                End If
                 nuevo_stock("nombre") = TextBoxNombre.Text
-                nuevo_stock("descripcion") = TextBoxDescripcion.Text
-                nuevo_stock("precio_venta") = TextBoxPrecioDeVenta.Text
+                    nuevo_stock("descripcion") = TextBoxDescripcion.Text
+                    nuevo_stock("precio_venta") = TextBoxPrecioDeVenta.Text
 
-                DataSet1.Tables("stock").Rows.Add(nuevo_stock)
+                    DataSet1.Tables("stock").Rows.Add(nuevo_stock)
 
-                Validate()
-                StockBindingSource.EndEdit()
-                StockTableAdapter.Update(DataSet1.stock)
+                    Validate()
+                    StockBindingSource.EndEdit()
+                    StockTableAdapter.Update(DataSet1.stock)
 
-            Else
+                Else
 
-                ''' BUSCA SI EXISTE PRODUCTO CON "CODIGO DE BARRAS" YA INGRESADO
-                For i = 0 To (cantidad_stock - 1)
+                    ''' BUSCA SI EXISTE PRODUCTO CON "CODIGO DE BARRAS" YA INGRESADO
+                    For i = 0 To (cantidad_stock - 1)
                     'Si el CODIGO ingresado existe'
                     If TextBoxCodigoDeBarras.Text <> "" And DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
                         codigo_existe = 1
@@ -285,6 +311,37 @@
             LabelInsertarProducto.ForeColor = Color.Green
 
             ButtonInsertarProducto.Focus()
+
+
+            '''DESPUES DE INSERTAR
+            '''UPDATEO
+            'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
+            Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+
+            '''MOSTRAR TODO'''
+            form_manager.productos2stock.DataGridViewStock.Rows.Clear()
+
+
+            'Dim i As Integer
+            '           Dim j As Integer
+            j = 0
+            Dim cant_cont As Integer
+            cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+            For i = 0 To cant_cont
+
+                form_manager.productos2stock.DataGridViewStock.Rows.Add()
+
+                form_manager.productos2stock.DataGridViewStock.Item(0, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                form_manager.productos2stock.DataGridViewStock.Item(1, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                form_manager.productos2stock.DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                form_manager.productos2stock.DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                form_manager.productos2stock.DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+            Next
+
+
         End If
     End Sub
 
@@ -319,24 +376,36 @@
         Dim cantidad_stock As Integer
         cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
+        Dim cantidad_de_codigo As Integer
+        cantidad_de_codigo = 0
+
         If TextBoxCodigo.Text <> "" Then
 
             For i As Integer = 0 To (cantidad_stock - 1)
-                'Si el PRODUCTO ingresado existe'
+                '''SI EL CODIGO EXISTE
                 If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
-
-                    LabelInsertarProducto.Hide()
-
-                    TextBoxCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
-                    TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                    TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
-
-                    TextBoxCantidad.Focus()
-
+                    cantidad_de_codigo = cantidad_de_codigo + 1
                 End If
             Next
 
+            '''SOLO SI HAY UN PRODUCTO CON ESE CODIGO SE AUTOCOMPLETA (SINO HAY QUE DAR CLIC EN PRODUCTOS2)
+            If cantidad_de_codigo = 1 Then
+                For i As Integer = 0 To (cantidad_stock - 1)
+                    'Si el PRODUCTO ingresado existe'
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+
+                        LabelInsertarProducto.Hide()
+
+                        TextBoxCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                        TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                        TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                        TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+                        TextBoxCantidad.Focus()
+
+                    End If
+                Next
+            End If
         End If
 
 
@@ -344,18 +413,46 @@
 
     Private Sub TextBoxCodigo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
 
+        form_manager.productos2stock.DataGridViewStock.Rows.Clear()
+
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+        For i = 0 To cant_cont
+            '''SI LA CADENA EXISTE EN EL CODIGO
+            If TextBoxCodigo.TextLength <= DataSet1.Tables("stock").Rows(i).Item("codigo").ToString.Length Then
+                If TextBoxCodigo.Text.ToString = DataSet1.Tables("stock").Rows(i).Item("codigo").Substring(0, TextBoxCodigo.TextLength) Then
+
+                    form_manager.productos2stock.DataGridViewStock.Rows.Add()
+
+                    form_manager.productos2stock.DataGridViewStock.Item(0, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                    form_manager.productos2stock.DataGridViewStock.Item(1, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                    form_manager.productos2stock.DataGridViewStock.Item(2, j).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                    form_manager.productos2stock.DataGridViewStock.Item(3, j).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                    form_manager.productos2stock.DataGridViewStock.Item(4, j).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                    j = j + 1
+
+                End If
+            End If
+        Next
+
     End Sub
 
     Private Sub TextBoxCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.LostFocus
-        LabelInsertarProducto.Hide()
+        'LabelInsertarProducto.Hide()
         If IsNumeric(TextBoxCantidad.Text) = False Then
 
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
             LabelInsertarProducto.ForeColor = Color.Red
 
-            TextBoxCantidad.Text = ""
-            TextBoxCantidad.Focus()
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
         End If
     End Sub
 
@@ -414,39 +511,39 @@
 
     End Sub
 
-    Private Sub TextBoxModificarCodigoDeBarras_TextChanged(sender As Object, e As EventArgs) Handles TextBoxModificarCodigoDeBarras.TextChanged
+    Private Sub TextBoxModificarNuevoCodigoDeBarras_TextChanged(sender As Object, e As EventArgs)
 
-        Dim cantidad_stock As Integer
-        cantidad_stock = DataSet1.Tables("stock").Rows.Count
+        '''''Dim cantidad_stock As Integer
+        '''''cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
-        If TextBoxModificarCodigoDeBarras.Text <> "" Then
-            For i As Integer = 0 To (cantidad_stock - 1)
-                'Si el PRODUCTO ingresado existe'
-                If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarCodigoDeBarras.Text Then
+        '''''If TextBoxModificarNuevoCodigoDeBarras.Text <> "" Then
+        '''''    For i As Integer = 0 To (cantidad_stock - 1)
+        '''''        'Si el PRODUCTO ingresado existe'
+        '''''        If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarNuevoCodigoDeBarras.Text Then
 
-                    LabelModificarProducto.Hide()
+        '''''            LabelModificarProducto.Hide()
 
-                    TextBoxModificarCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
+        '''''            TextBoxModificarNuevoCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
 
-                    TextBoxModificarNuevoCodigoDeBarras.Text = TextBoxModificarCodigoDeBarras.Text
-                    TextBoxModificarNuevoCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
-                    TextBoxModificarNuevoNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    TextBoxModificarNuevaDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                    TextBoxModificarNuevoPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+        '''''            TextBoxModificarNuevoCodigoDeBarras.Text = TextBoxModificarNuevoCodigoDeBarras.Text
+        '''''            TextBoxModificarNuevoCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
+        '''''            TextBoxModificarNuevoNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
+        '''''            TextBoxModificarNuevaDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+        '''''            TextBoxModificarNuevoPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
 
 
-                    'TextBoxCantidad.Focus()
-                End If
-            Next
+        '''''            'TextBoxCantidad.Focus()
+        '''''        End If
+        '''''    Next
 
-        End If
+        '''''End If
 
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        TextBoxModificarCodigoDeBarras.Clear()
-        TextBoxModificarCodigo.Clear()
+        ''TextBoxModificarNuevoCodigoDeBarras.Clear()
+        ''TextBoxModificarNuevoCodigo.Clear()
 
         TextBoxModificarNuevoCodigoDeBarras.Clear()
         TextBoxModificarNuevoCodigo.Clear()
@@ -502,7 +599,7 @@
 
                 For i As Integer = 0 To (cantidad_stock - 1)
                     'si hubo una modificacion en el codigo
-                    If TextBoxModificarCodigo.Text <> TextBoxModificarNuevoCodigo.Text Then
+                    If TextBoxModificarNuevoCodigo.Text <> TextBoxModificarNuevoCodigo.Text Then
                         'Si el nuevo CODIGO ingresado YA existe'
                         If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
                             existe_codigo = 1
@@ -513,7 +610,7 @@
 
                 For i As Integer = 0 To (cantidad_stock - 1)
                     'buscar cual es el id_stock a reemplazar
-                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarCodigo.Text Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
                         id_stock_viejo = DataSet1.Tables("stock").Rows(i).Item("id_stock")
                     End If
                 Next
@@ -557,7 +654,7 @@
                     cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
                     For i = 0 To (cantidad_stock - 1)
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarCodigo.Text Then
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
 
                             DataSet1.Tables("stock").Rows(i).Delete()
                         End If
@@ -572,7 +669,7 @@
                     cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
                     For i As Integer = 0 To (cantidad_stock - 1)
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarCodigo.Text Then
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
 
                             DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarNuevoCodigoDeBarras.Text
                             DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text
@@ -595,7 +692,7 @@
                 cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
                 For i As Integer = 0 To (cantidad_stock - 1)
-                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarCodigo.Text Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
 
                         DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarNuevoCodigoDeBarras.Text
                         DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text
@@ -618,23 +715,52 @@
 
             Button3.Focus()
 
+            '''DESPUES DE MODIFICAR
+            '''UPDATEO
+            'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
+            Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+
+            '''MOSTRAR TODO'''
+            form_manager.productos2stock.DataGridViewStock.Rows.Clear()
+
+
+            'Dim i As Integer
+            Dim j As Integer
+            j = 0
+            Dim cant_cont As Integer
+            cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+            For i = 0 To cant_cont
+
+                form_manager.productos2stock.DataGridViewStock.Rows.Add()
+
+                form_manager.productos2stock.DataGridViewStock.Item(0, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                form_manager.productos2stock.DataGridViewStock.Item(1, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                form_manager.productos2stock.DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                form_manager.productos2stock.DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                form_manager.productos2stock.DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+            Next
+
+
         End If
     End Sub
 
-    Private Sub TextBoxModificarCodigo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxModificarCodigo.TextChanged
+    Private Sub TextBoxModificarNuevoCodigo_TextChanged(sender As Object, e As EventArgs)
 
         Dim cantidad_stock As Integer
         cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
-        If TextBoxModificarCodigo.Text <> "" Then
+        If TextBoxModificarNuevoCodigo.Text <> "" Then
 
             For i As Integer = 0 To (cantidad_stock - 1)
                 'Si el PRODUCTO ingresado existe'
-                If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarCodigo.Text Then
+                If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
 
                     LabelModificarProducto.Hide()
 
-                    TextBoxModificarCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                    TextBoxModificarNuevoCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
 
                     TextBoxModificarNuevoCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
                     TextBoxModificarNuevoCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
@@ -688,8 +814,8 @@
 
         '''BORRAR CAMPOS
 
-        TextBoxModificarCodigoDeBarras.Clear()
-        TextBoxModificarCodigo.Clear()
+        TextBoxModificarNuevoCodigoDeBarras.Clear()
+        TextBoxModificarNuevoCodigo.Clear()
 
         TextBoxModificarNuevoCodigoDeBarras.Clear()
         TextBoxModificarNuevoCodigo.Clear()
@@ -715,14 +841,77 @@
 
     Private Sub TextBox1_LostFocus(sender As Object, e As EventArgs) Handles TextBoxFecha.LostFocus
 
-        LabelInsertarProducto.Hide()
+        'LabelInsertarProducto.Hide()
         If IsDate(TextBoxFecha.Text) = False Then
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Ingrese fecha válida"
             LabelInsertarProducto.ForeColor = Color.Red
 
-            TextBoxFecha.Focus()
+            'TextBoxFecha.Focus()
         End If
+
+    End Sub
+
+    Private Sub TextBoxDescripcion_TextChanged(sender As Object, e As EventArgs) Handles TextBoxDescripcion.TextChanged
+
+        form_manager.productos2stock.DataGridViewStock.Rows.Clear()
+
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+        For i = 0 To cant_cont
+            '''SI LA CADENA EXISTE EN DESCRIPCION
+            If TextBoxDescripcion.TextLength <= DataSet1.Tables("stock").Rows(i).Item("descripcion").ToString.Length Then
+                If TextBoxDescripcion.Text.ToString = DataSet1.Tables("stock").Rows(i).Item("descripcion").Substring(0, TextBoxDescripcion.TextLength) Then
+
+                    form_manager.productos2stock.DataGridViewStock.Rows.Add()
+
+                    form_manager.productos2stock.DataGridViewStock.Item(0, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                    form_manager.productos2stock.DataGridViewStock.Item(1, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                    form_manager.productos2stock.DataGridViewStock.Item(2, j).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                    form_manager.productos2stock.DataGridViewStock.Item(3, j).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                    form_manager.productos2stock.DataGridViewStock.Item(4, j).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                    j = j + 1
+
+                End If
+            End If
+        Next
+
+
+    End Sub
+
+    Private Sub TextBoxCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCantidad.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxCantidad_GotFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.GotFocus
+
+        '''MOSTRAR TODO'''
+        form_manager.productos2stock.DataGridViewStock.Rows.Clear()
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+        For i = 0 To cant_cont
+
+            form_manager.productos2stock.DataGridViewStock.Rows.Add()
+
+            form_manager.productos2stock.DataGridViewStock.Item(0, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+            form_manager.productos2stock.DataGridViewStock.Item(1, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+            form_manager.productos2stock.DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+            form_manager.productos2stock.DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+            form_manager.productos2stock.DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+        Next
 
     End Sub
 End Class
