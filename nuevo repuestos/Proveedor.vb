@@ -33,9 +33,11 @@
                     End If
                 End If
                 If ban Then
-                    clienteNombreList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor"))
-                    clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
-                    clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
+                    If Not (clienteNombreList.Items.Contains(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor")) And clienteApellidoList.Items.Contains(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor")) And clienteNumeroList.Items.Contains(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))) Then
+                        clienteNombreList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor"))
+                        clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
+                        clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
+                    End If
                     ban = False
                 End If
                 If j = cant2 - 1 Then

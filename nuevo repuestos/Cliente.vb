@@ -21,6 +21,7 @@
         Dim j, cant1, cant2, cant3 As Integer
         Dim cad1, cad2, dato As String
         Dim ban As Boolean = False
+        Dim ban2 As Boolean = False
         Dim b As Integer = 1
         Dim c As Integer = 0
         cad1 = clienteParTxt.Text
@@ -40,25 +41,32 @@
                 If cant1 <= cant3 Then
                     If cad1 = cad2.Substring(0, cant1) Then
                         ban = True
+                        ban2 = False
+                        'MsgBox("holi entre")
+                    Else
+                        ban2 = True
                     End If
                 End If
                 If ban Then
-                    clienteNombreList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente"))
-                    clienteApellidoList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente"))
-                    clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
-                    clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
+
+                    If Not (clienteNombreList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente")) And clienteApellidoList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente")) And clienteNumeroList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente")) And clienteRucList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))) Then
+                        clienteNombreList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente"))
+                        clienteApellidoList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente"))
+                        clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
+                        clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
+                    End If
                     ban = False
                 End If
                 If j = cant2 - 1 Then
-                    If b = 1 Then
+                    If b = 1 And ban2 = True Then
                         dato = "apellido_cliente"
                         j = -1
                         b = 2
-                    ElseIf b = 2 Then
+                    ElseIf b = 2 And ban2 = True Then
                         dato = "ruc_cliente"
                         j = -1
                         b = 3
-                    ElseIf b = 3 Then
+                    ElseIf b = 3 And ban2 = True Then
                         dato = "numero_cliente"
                         j = -1
                         b = 4
