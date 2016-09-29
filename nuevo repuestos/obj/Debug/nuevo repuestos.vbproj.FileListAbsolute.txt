@@ -234,3 +234,29 @@ E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Reso
 E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
 E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
 E:\Documents\programas\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe.config
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.exe
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.pdb
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\nuevo repuestos.xml
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.dll
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\bin\Debug\OpenPop.xml
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbprojResolveAssemblyReference.cache
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.agregarProveedores.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Cliente.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.confAvisos.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.crearClientes.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarClientes.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.editarProveedores.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form1.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Form2.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.info_p_falta.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Productos.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Informes.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Resources.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.productos2stock.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Proveedor.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Venta.resources
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.vbproj.GenerateResource.Cache
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.exe
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.xml
+C:\Users\cpaez\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
