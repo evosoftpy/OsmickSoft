@@ -47,8 +47,8 @@
                     clienteApTxt.Text = ""
                     clienteNcTxt.Text = ""
                     clienteRucTxt.Text = ""
-                    form_manager.sell.update_cache()
-                    form_manager.client.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
+                    ' form_manager.sell.update_cache()
+                    ' form_manager.client.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
                     Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
                     Me.Hide()
@@ -62,7 +62,7 @@
             End If
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
         End Try
 
 
