@@ -164,98 +164,101 @@ Public Class Venta
         ruc_cliente = buscar_en_tablas("cliente", "ruc_cliente", text_ruc_venta.Text)
 
         Dim i As Integer
-        For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
-            If n_factura_textbox.Text = DataSet1.Tables("venta").Rows(i).Item("factura_venta") And ban = 0 Then
+        If n_factura_textbox.Text = "" Then
+            MsgBox("Falta numero de factura!")
+        Else
+            For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
+                If n_factura_textbox.Text = DataSet1.Tables("venta").Rows(i).Item("factura_venta") And ban = 0 Then
 
-                'MsgBox("facutra existe se aumentara en 1 el valor")
-                'aca aumenta en uno el numero de factura al existir el numero de factura
-                Dim pos As Integer
-                Dim num As Integer
-                Dim aux32 As String
-                Dim nueva As String
-                nueva = n_factura_textbox.Text
+                    'MsgBox("facutra existe se aumentara en 1 el valor")
+                    'aca aumenta en uno el numero de factura al existir el numero de factura
+                    Dim pos As Integer
+                    Dim num As Integer
+                    Dim aux32 As String
+                    Dim nueva As String
+                    nueva = n_factura_textbox.Text
 
-                pos = pos_ultimo_guion(n_factura_textbox.Text)
-                num = n_factura_textbox.Text.Substring(pos)
-                aux32 = n_factura_textbox.Text.Substring(pos)
-                num = num + 1
-                If num < 10 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 1) + num.ToString
-                ElseIf num >= 10 And num < 100 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 2) + num.ToString
-                ElseIf num >= 100 And num < 1000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 3) + num.ToString
-                ElseIf num >= 1000 And num < 10000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 4) + num.ToString
-                ElseIf num >= 10000 And num < 100000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 5) + num.ToString
-                ElseIf num >= 100000 And num < 1000000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 6) + num.ToString
-                ElseIf num >= 1000000 And num < 10000000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 7) + num.ToString
-                ElseIf num >= 10000000 And num < 100000000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 8) + num.ToString
-                ElseIf num >= 100000000 And num < 1000000000 Then
-                    nueva = nueva.Substring(0, pos + aux32.Length - 9) + num.ToString
+                    pos = pos_ultimo_guion(n_factura_textbox.Text)
+                    num = n_factura_textbox.Text.Substring(pos)
+                    aux32 = n_factura_textbox.Text.Substring(pos)
+                    num = num + 1
+                    If num < 10 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 1) + num.ToString
+                    ElseIf num >= 10 And num < 100 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 2) + num.ToString
+                    ElseIf num >= 100 And num < 1000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 3) + num.ToString
+                    ElseIf num >= 1000 And num < 10000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 4) + num.ToString
+                    ElseIf num >= 10000 And num < 100000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 5) + num.ToString
+                    ElseIf num >= 100000 And num < 1000000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 6) + num.ToString
+                    ElseIf num >= 1000000 And num < 10000000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 7) + num.ToString
+                    ElseIf num >= 10000000 And num < 100000000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 8) + num.ToString
+                    ElseIf num >= 100000000 And num < 1000000000 Then
+                        nueva = nueva.Substring(0, pos + aux32.Length - 9) + num.ToString
+                    End If
+
+                    n_factura_textbox.Text = nueva
+                    i = 0
                 End If
+            Next
 
-                n_factura_textbox.Text = nueva
-                i = 0
+
+            If ruc_cliente < 0 Then
+                ban = 1
+                MsgBox("Cliente sin registrar!")
             End If
-        Next
 
 
-        If ruc_cliente < 0 Then
-            ban = 1
-            MsgBox("Cliente sin registrar!")
-        End If
+            If ban = 0 Then
 
+                'comprobar existencia del producto
+                Dim busqueda As Integer
 
-        If ban = 0 Then
+                For i = 0 To DataGridView1.RowCount - 1
 
-            'comprobar existencia del producto
-            Dim busqueda As Integer
+                    If DataGridView1.Item(0, i).Value IsNot "" Then
+                        If DataGridView1.Item(4, i).Value IsNot Nothing Then
 
-            For i = 0 To DataGridView1.RowCount - 1
+                            If DataGridView1.Item(4, i).Value.ToString = "" Then
 
-                If DataGridView1.Item(0, i).Value IsNot "" Then
-                    If DataGridView1.Item(4, i).Value IsNot Nothing Then
+                            Else
+                                If DataGridView1.Item(3, i).Value IsNot "0" Then
+                                    id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
+                                    'cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
+                                    Dim nueva_venta As DataRow = DataSet1.Tables("venta").NewRow
+                                    Dim id_producto As Integer
+                                    busqueda = buscar_en_tablas("stock", "codigo", DataGridView1.Item(0, i).Value)
+                                    If busqueda > -1 Then
+                                        id_producto = DataSet1.Tables("stock").Rows(busqueda).Item("id_stock")
+                                    Else
+                                        id_producto = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "codigo_barras", DataGridView1.Item(0, i).Value)).Item("id_stock")
+                                    End If
+                                    nueva_venta("id_cliente") = id_cliente
+                                    nueva_venta("id_stock") = id_producto
+                                    nueva_venta("cantidad_venta") = DataGridView1.Item(4, i).Value
+                                    nueva_venta("factura_venta") = n_factura_textbox.Text
+                                    nueva_venta("fecha_venta") = TextBox17.Text
+                                    nueva_venta("precio_venta") = DataGridView1.Item(5, i).Value
 
-                        If DataGridView1.Item(4, i).Value.ToString = "" Then
-
-                        Else
-                            If DataGridView1.Item(3, i).Value IsNot "0" Then
-                                id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
-                                'cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
-                                Dim nueva_venta As DataRow = DataSet1.Tables("venta").NewRow
-                                Dim id_producto As Integer
-                                busqueda = buscar_en_tablas("stock", "codigo", DataGridView1.Item(0, i).Value)
-                                If busqueda > -1 Then
-                                    id_producto = DataSet1.Tables("stock").Rows(busqueda).Item("id_stock")
-                                Else
-                                    id_producto = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "codigo_barras", DataGridView1.Item(0, i).Value)).Item("id_stock")
+                                    DataSet1.Tables("venta").Rows.Add(nueva_venta)
+                                    Validate()
+                                    VentaBindingSource.EndEdit()
+                                    VentaTableAdapter.Update(DataSet1.venta)
+                                    MsgBox("Guardado Exitosamente")
                                 End If
-                                nueva_venta("id_cliente") = id_cliente
-                                nueva_venta("id_stock") = id_producto
-                                nueva_venta("cantidad_venta") = DataGridView1.Item(4, i).Value
-                                nueva_venta("factura_venta") = n_factura_textbox.Text
-                                nueva_venta("fecha_venta") = TextBox17.Text
-                                nueva_venta("precio_venta") = DataGridView1.Item(5, i).Value
-
-                                DataSet1.Tables("venta").Rows.Add(nueva_venta)
-                                Validate()
-                                VentaBindingSource.EndEdit()
-                                VentaTableAdapter.Update(DataSet1.venta)
-                                MsgBox("Guardado Exitosamente")
                             End If
                         End If
                     End If
-                End If
+                Next
 
-
-            Next
-
+            End If
         End If
+
 
 
     End Sub
