@@ -106,6 +106,7 @@ Public Class Form1
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Panel1.Show()
 
+
         ProgressBar1.Value = 30
         form_manager.stock.Hide()
         form_manager.sell.Hide()
@@ -121,7 +122,7 @@ Public Class Form1
 
         ProgressBar1.Value = 70
         form_manager.product.MdiParent = Me
-
+        form_manager.sell.update_cache()
 
         form_manager.product.Show()
         Refresh()

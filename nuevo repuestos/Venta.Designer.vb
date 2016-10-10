@@ -90,6 +90,11 @@ Partial Class Venta
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.facturas = New System.Windows.Forms.DataGridView()
+        Me.numero = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.factura = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +105,7 @@ Partial Class Venta
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IngresoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.facturas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -122,21 +128,23 @@ Partial Class Venta
         '
         'Button31
         '
-        Me.Button31.Location = New System.Drawing.Point(15, 467)
+        Me.Button31.Location = New System.Drawing.Point(786, 187)
         Me.Button31.Name = "Button31"
         Me.Button31.Size = New System.Drawing.Size(75, 23)
         Me.Button31.TabIndex = 72
         Me.Button31.Text = "Anterior"
         Me.Button31.UseVisualStyleBackColor = True
+        Me.Button31.Visible = False
         '
         'Button30
         '
-        Me.Button30.Location = New System.Drawing.Point(96, 467)
+        Me.Button30.Location = New System.Drawing.Point(867, 187)
         Me.Button30.Name = "Button30"
         Me.Button30.Size = New System.Drawing.Size(75, 23)
         Me.Button30.TabIndex = 71
         Me.Button30.Text = "Siguiente"
         Me.Button30.UseVisualStyleBackColor = True
+        Me.Button30.Visible = False
         '
         'Button29
         '
@@ -151,7 +159,7 @@ Partial Class Venta
         '
         Me.n_factura_textbox.Location = New System.Drawing.Point(502, 53)
         Me.n_factura_textbox.Name = "n_factura_textbox"
-        Me.n_factura_textbox.Size = New System.Drawing.Size(109, 26)
+        Me.n_factura_textbox.Size = New System.Drawing.Size(109, 20)
         Me.n_factura_textbox.TabIndex = 69
         '
         'label_n_factura
@@ -159,7 +167,7 @@ Partial Class Venta
         Me.label_n_factura.AutoSize = True
         Me.label_n_factura.Location = New System.Drawing.Point(422, 58)
         Me.label_n_factura.Name = "label_n_factura"
-        Me.label_n_factura.Size = New System.Drawing.Size(97, 20)
+        Me.label_n_factura.Size = New System.Drawing.Size(66, 13)
         Me.label_n_factura.TabIndex = 68
         Me.label_n_factura.Text = "Nro. Factura"
         '
@@ -177,7 +185,7 @@ Partial Class Venta
         Me.label_ruc_venta.AutoSize = True
         Me.label_ruc_venta.Location = New System.Drawing.Point(162, 18)
         Me.label_ruc_venta.Name = "label_ruc_venta"
-        Me.label_ruc_venta.Size = New System.Drawing.Size(121, 20)
+        Me.label_ruc_venta.Size = New System.Drawing.Size(83, 13)
         Me.label_ruc_venta.TabIndex = 66
         Me.label_ruc_venta.Text = "label_ruc_venta"
         Me.label_ruc_venta.Visible = False
@@ -187,7 +195,7 @@ Partial Class Venta
         Me.text_total.Location = New System.Drawing.Point(486, 465)
         Me.text_total.Name = "text_total"
         Me.text_total.ReadOnly = True
-        Me.text_total.Size = New System.Drawing.Size(100, 26)
+        Me.text_total.Size = New System.Drawing.Size(100, 20)
         Me.text_total.TabIndex = 65
         Me.text_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -196,7 +204,7 @@ Partial Class Venta
         Me.label_total.AutoSize = True
         Me.label_total.Location = New System.Drawing.Point(385, 472)
         Me.label_total.Name = "label_total"
-        Me.label_total.Size = New System.Drawing.Size(59, 20)
+        Me.label_total.Size = New System.Drawing.Size(42, 13)
         Me.label_total.TabIndex = 64
         Me.label_total.Text = "TOTAL"
         '
@@ -205,7 +213,7 @@ Partial Class Venta
         Me.text_iva.Location = New System.Drawing.Point(486, 429)
         Me.text_iva.Name = "text_iva"
         Me.text_iva.ReadOnly = True
-        Me.text_iva.Size = New System.Drawing.Size(100, 26)
+        Me.text_iva.Size = New System.Drawing.Size(100, 20)
         Me.text_iva.TabIndex = 63
         Me.text_iva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -214,7 +222,7 @@ Partial Class Venta
         Me.label_iva.AutoSize = True
         Me.label_iva.Location = New System.Drawing.Point(385, 436)
         Me.label_iva.Name = "label_iva"
-        Me.label_iva.Size = New System.Drawing.Size(36, 20)
+        Me.label_iva.Size = New System.Drawing.Size(24, 13)
         Me.label_iva.TabIndex = 62
         Me.label_iva.Text = "IVA"
         '
@@ -224,7 +232,7 @@ Partial Class Venta
         Me.text_sub_total.Name = "text_sub_total"
         Me.text_sub_total.ReadOnly = True
         Me.text_sub_total.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.text_sub_total.Size = New System.Drawing.Size(100, 26)
+        Me.text_sub_total.Size = New System.Drawing.Size(100, 20)
         Me.text_sub_total.TabIndex = 61
         Me.text_sub_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -233,7 +241,7 @@ Partial Class Venta
         Me.label_subtotal.AutoSize = True
         Me.label_subtotal.Location = New System.Drawing.Point(385, 397)
         Me.label_subtotal.Name = "label_subtotal"
-        Me.label_subtotal.Size = New System.Drawing.Size(97, 20)
+        Me.label_subtotal.Size = New System.Drawing.Size(67, 13)
         Me.label_subtotal.TabIndex = 60
         Me.label_subtotal.Text = "SUB TOTAL"
         '
@@ -294,7 +302,7 @@ Partial Class Venta
         '
         Me.TextBox17.Location = New System.Drawing.Point(502, 17)
         Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(109, 26)
+        Me.TextBox17.Size = New System.Drawing.Size(109, 20)
         Me.TextBox17.TabIndex = 57
         '
         'label_fecha
@@ -302,7 +310,7 @@ Partial Class Venta
         Me.label_fecha.AutoSize = True
         Me.label_fecha.Location = New System.Drawing.Point(451, 22)
         Me.label_fecha.Name = "label_fecha"
-        Me.label_fecha.Size = New System.Drawing.Size(54, 20)
+        Me.label_fecha.Size = New System.Drawing.Size(37, 13)
         Me.label_fecha.TabIndex = 56
         Me.label_fecha.Text = "Fecha"
         '
@@ -310,7 +318,7 @@ Partial Class Venta
         '
         Me.TextBox16.Location = New System.Drawing.Point(54, 55)
         Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(335, 26)
+        Me.TextBox16.Size = New System.Drawing.Size(335, 20)
         Me.TextBox16.TabIndex = 55
         '
         'label_venta_cliente
@@ -318,7 +326,7 @@ Partial Class Venta
         Me.label_venta_cliente.AutoSize = True
         Me.label_venta_cliente.Location = New System.Drawing.Point(9, 60)
         Me.label_venta_cliente.Name = "label_venta_cliente"
-        Me.label_venta_cliente.Size = New System.Drawing.Size(58, 20)
+        Me.label_venta_cliente.Size = New System.Drawing.Size(39, 13)
         Me.label_venta_cliente.TabIndex = 54
         Me.label_venta_cliente.Text = "Cliente"
         '
@@ -326,7 +334,7 @@ Partial Class Venta
         '
         Me.text_ruc_venta.Location = New System.Drawing.Point(45, 15)
         Me.text_ruc_venta.Name = "text_ruc_venta"
-        Me.text_ruc_venta.Size = New System.Drawing.Size(100, 26)
+        Me.text_ruc_venta.Size = New System.Drawing.Size(100, 20)
         Me.text_ruc_venta.TabIndex = 53
         '
         'label_ruc
@@ -334,7 +342,7 @@ Partial Class Venta
         Me.label_ruc.AutoSize = True
         Me.label_ruc.Location = New System.Drawing.Point(9, 20)
         Me.label_ruc.Name = "label_ruc"
-        Me.label_ruc.Size = New System.Drawing.Size(44, 20)
+        Me.label_ruc.Size = New System.Drawing.Size(30, 13)
         Me.label_ruc.TabIndex = 52
         Me.label_ruc.Text = "RUC"
         '
@@ -385,7 +393,7 @@ Partial Class Venta
         Me.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8})
         Me.VentaDataGridView.DataSource = Me.VentaBindingSource
-        Me.VentaDataGridView.Location = New System.Drawing.Point(693, 17)
+        Me.VentaDataGridView.Location = New System.Drawing.Point(1070, 38)
         Me.VentaDataGridView.Name = "VentaDataGridView"
         Me.VentaDataGridView.RowTemplate.Height = 28
         Me.VentaDataGridView.Size = New System.Drawing.Size(300, 220)
@@ -443,7 +451,7 @@ Partial Class Venta
         Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14})
         Me.StockDataGridView.DataSource = Me.StockBindingSource
-        Me.StockDataGridView.Location = New System.Drawing.Point(693, 270)
+        Me.StockDataGridView.Location = New System.Drawing.Point(1070, 270)
         Me.StockDataGridView.Name = "StockDataGridView"
         Me.StockDataGridView.RowTemplate.Height = 28
         Me.StockDataGridView.Size = New System.Drawing.Size(300, 220)
@@ -495,7 +503,7 @@ Partial Class Venta
         Me.IngresoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.IngresoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
         Me.IngresoDataGridView.DataSource = Me.IngresoBindingSource
-        Me.IngresoDataGridView.Location = New System.Drawing.Point(1025, 17)
+        Me.IngresoDataGridView.Location = New System.Drawing.Point(1376, 38)
         Me.IngresoDataGridView.Name = "IngresoDataGridView"
         Me.IngresoDataGridView.RowTemplate.Height = 28
         Me.IngresoDataGridView.Size = New System.Drawing.Size(300, 220)
@@ -547,7 +555,7 @@ Partial Class Venta
         Me.ClienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25})
         Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
-        Me.ClienteDataGridView.Location = New System.Drawing.Point(1025, 272)
+        Me.ClienteDataGridView.Location = New System.Drawing.Point(1376, 273)
         Me.ClienteDataGridView.Name = "ClienteDataGridView"
         Me.ClienteDataGridView.RowTemplate.Height = 28
         Me.ClienteDataGridView.Size = New System.Drawing.Size(300, 220)
@@ -583,11 +591,52 @@ Partial Class Venta
         Me.DataGridViewTextBoxColumn25.HeaderText = "ruc_cliente"
         Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
         '
+        'facturas
+        '
+        Me.facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.facturas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.numero, Me.factura})
+        Me.facturas.Location = New System.Drawing.Point(679, 18)
+        Me.facturas.Name = "facturas"
+        Me.facturas.Size = New System.Drawing.Size(263, 150)
+        Me.facturas.TabIndex = 75
+        Me.facturas.Visible = False
+        '
+        'numero
+        '
+        Me.numero.HeaderText = "numero"
+        Me.numero.Name = "numero"
+        '
+        'factura
+        '
+        Me.factura.HeaderText = "factura"
+        Me.factura.Name = "factura"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(97, 463)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 76
+        Me.Button2.Text = "Siguiente"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(15, 463)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 77
+        Me.Button3.Text = "Anterior"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Venta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.ClientSize = New System.Drawing.Size(670, 507)
+        Me.ClientSize = New System.Drawing.Size(665, 505)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.facturas)
         Me.Controls.Add(Me.ClienteDataGridView)
         Me.Controls.Add(Me.IngresoDataGridView)
         Me.Controls.Add(Me.StockDataGridView)
@@ -629,6 +678,7 @@ Partial Class Venta
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IngresoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.facturas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -702,4 +752,9 @@ Partial Class Venta
     Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
+    Friend WithEvents facturas As DataGridView
+    Friend WithEvents numero As DataGridViewTextBoxColumn
+    Friend WithEvents factura As DataGridViewTextBoxColumn
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class
