@@ -43,10 +43,12 @@
                     End If
                 End If
                 If ban Then
-                    clienteNombreList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente"))
-                    clienteApellidoList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente"))
-                    clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
-                    clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
+                    If Not (clienteNombreList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente")) And clienteApellidoList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente")) And clienteNumeroList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente")) And clienteRucList.Items.Contains(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))) Then
+                        clienteNombreList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("nombre_cliente"))
+                        clienteApellidoList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("apellido_cliente"))
+                        clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
+                        clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
+                    End If
                     ban = False
                 End If
                 If j = cant2 - 1 Then
