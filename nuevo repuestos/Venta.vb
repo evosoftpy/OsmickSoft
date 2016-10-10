@@ -163,7 +163,7 @@ Public Class Venta
         Dim ban_operacion_realizada = 0
         ruc_cliente = buscar_en_tablas("cliente", "ruc_cliente", text_ruc_venta.Text)
 
-        Dim i As Integer
+
         If n_factura_textbox.Text = "" Then
             MsgBox("Falta numero de factura!")
         Else
@@ -172,38 +172,40 @@ Public Class Venta
 
                     'MsgBox("facutra existe se aumentara en 1 el valor")
                     'aca aumenta en uno el numero de factura al existir el numero de factura
-                    Dim pos As Integer
-                    Dim num As Integer
-                    Dim aux32 As String
-                    Dim nueva As String
-                    nueva = n_factura_textbox.Text
+                    'Dim pos As Integer
+                    'Dim num As Integer
+                    'Dim aux32 As String
+                    'Dim nueva As String
+                    'nueva = n_factura_textbox.Text
 
-                    pos = pos_ultimo_guion(n_factura_textbox.Text)
-                    num = n_factura_textbox.Text.Substring(pos)
-                    aux32 = n_factura_textbox.Text.Substring(pos)
-                    num = num + 1
-                    If num < 10 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 1) + num.ToString
-                    ElseIf num >= 10 And num < 100 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 2) + num.ToString
-                    ElseIf num >= 100 And num < 1000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 3) + num.ToString
-                    ElseIf num >= 1000 And num < 10000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 4) + num.ToString
-                    ElseIf num >= 10000 And num < 100000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 5) + num.ToString
-                    ElseIf num >= 100000 And num < 1000000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 6) + num.ToString
-                    ElseIf num >= 1000000 And num < 10000000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 7) + num.ToString
-                    ElseIf num >= 10000000 And num < 100000000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 8) + num.ToString
-                    ElseIf num >= 100000000 And num < 1000000000 Then
-                        nueva = nueva.Substring(0, pos + aux32.Length - 9) + num.ToString
-                    End If
+                    'pos = pos_ultimo_guion(n_factura_textbox.Text)
+                    'num = n_factura_textbox.Text.Substring(pos)
+                    'aux32 = n_factura_textbox.Text.Substring(pos)
+                    'num = num + 1
+                    'If num < 10 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 1) + num.ToString
+                    'ElseIf num >= 10 And num < 100 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 2) + num.ToString
+                    'ElseIf num >= 100 And num < 1000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 3) + num.ToString
+                    'ElseIf num >= 1000 And num < 10000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 4) + num.ToString
+                    'ElseIf num >= 10000 And num < 100000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 5) + num.ToString
+                    'ElseIf num >= 100000 And num < 1000000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 6) + num.ToString
+                    'ElseIf num >= 1000000 And num < 10000000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 7) + num.ToString
+                    'ElseIf num >= 10000000 And num < 100000000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 8) + num.ToString
+                    'ElseIf num >= 100000000 And num < 1000000000 Then
+                    '    nueva = nueva.Substring(0, pos + aux32.Length - 9) + num.ToString
+                    'End If
 
-                    n_factura_textbox.Text = nueva
-                    i = 0
+                    'n_factura_textbox.Text = nueva
+                    'i = 0
+                    MsgBox("Factura existe")
+                    ban = 1
                 End If
             Next
 
@@ -213,7 +215,7 @@ Public Class Venta
                 MsgBox("Cliente sin registrar!")
             End If
 
-
+            Dim ban_guardado = 0
             If ban = 0 Then
 
                 'comprobar existencia del producto
@@ -244,18 +246,20 @@ Public Class Venta
                                     nueva_venta("factura_venta") = n_factura_textbox.Text
                                     nueva_venta("fecha_venta") = TextBox17.Text
                                     nueva_venta("precio_venta") = DataGridView1.Item(5, i).Value
-
+                                    ban_guardado = 1
                                     DataSet1.Tables("venta").Rows.Add(nueva_venta)
                                     Validate()
                                     VentaBindingSource.EndEdit()
                                     VentaTableAdapter.Update(DataSet1.venta)
-                                    MsgBox("Guardado Exitosamente")
+
                                 End If
                             End If
                         End If
                     End If
                 Next
-
+                If ban_guardado = 1 Then
+                    MsgBox("Guardado Exitosamente")
+                End If
             End If
         End If
 
@@ -917,7 +921,250 @@ Public Class Venta
 
         Else
             MsgBox("Por favor ingrese una fecha valida")
-            TextBox17.Text = ""
+            TextBox17.Text = Date.Now.Date
+
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        facturas.Rows.Clear()
+
+        Dim col As Integer
+        Dim fil As Integer
+        Dim i As Integer
+        Dim ban As Integer
+        Dim suma As Integer
+        suma = 0
+
+        Dim cant_Ventas As Integer
+        cant_Ventas = DataSet1.Tables("venta").Rows.Count - 1
+        col = 0
+        fil = 0
+        ban = 0
+
+
+
+        For i = 0 To cant_Ventas
+            If fil > 0 Then
+                For col = 0 To fil
+                    If DataSet1.Tables("venta").Rows(i).Item("factura_venta") = facturas.Item(1, col).Value Then
+                        ban = 1
+                    End If
+                Next
+            End If
+            If ban = 0 Then
+                facturas.Rows.Add()
+                facturas.Item(0, fil).Value = fil
+                facturas.Item(1, fil).Value = DataSet1.Tables("venta").Rows(i).Item("factura_venta")
+                fil = fil + 1
+            End If
+            ban = 0
+        Next
+        Dim posi As Integer
+        posi = 0
+
+        For i = 0 To fil
+            If facturas.Item(1, i).Value = n_factura_textbox.Text Then
+                posi = i
+            End If
+        Next
+        If posi < fil Then
+            n_factura_textbox.Text = facturas.Item(1, posi + 1).Value
+            DataGridView1.Rows.Clear()
+
+            Dim factura_buscada As String
+
+
+            Dim ruc As String
+
+            Dim fecha As String
+            Dim pos_cliente As Integer
+            Dim nom_cliente As String
+
+            Dim cont As Integer
+            cont = 0
+            Dim pos As Integer
+
+            factura_buscada = facturas.Item(1, posi + 1).Value
+            pos = buscar_en_tablas("venta", "factura_venta", factura_buscada)
+
+            If pos >= 0 Then
+                ruc = DataSet1.Tables("venta").Rows(pos).Item("id_cliente")
+                pos_cliente = buscar_en_tablas("cliente", "id_cliente", ruc)
+                ruc = DataSet1.Tables("cliente").Rows(pos_cliente).Item("ruc_cliente")
+                nom_cliente = DataSet1.Tables("cliente").Rows(pos_cliente).Item("nombre_cliente") + " " + DataSet1.Tables("cliente").Rows(pos_cliente).Item("apellido_cliente")
+                'fecha = DataSet1.Tables("venta_producto").Rows(pos).Item("fecha_venta")
+                'agregar fecha
+                text_ruc_venta.Text = ruc
+                TextBox16.Text = nom_cliente
+                'TextBox17.Text = fecha
+
+                For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
+
+                    If factura_buscada = DataSet1.Tables("venta").Rows(i).Item("factura_venta") Then
+
+                        DataGridView1.Rows.Add()
+
+                        DataGridView1.Item(0, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("codigo")
+                        DataGridView1.Item(1, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("nombre")
+                        DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("descripcion")
+                        DataGridView1.Item(3, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
+                        DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
+                        DataGridView1.Item(5, cont).Value = DataSet1.Tables("venta").Rows(i).Item("precio_venta")
+                        cont = cont + 1
+                    End If
+
+
+                Next
+                n_factura_textbox.Text = facturas.Item(1, posi + 1).Value
+                Dim iva As Integer
+                iva = 0
+                Dim total As Integer
+                total = 0
+
+                For i = 0 To DataGridView1.RowCount - 1
+                    If DataGridView1.Item(0, i).Value IsNot "" Then
+
+                        suma = suma + DataGridView1.Item(5, i).Value
+                        text_sub_total.Text = Puntos(suma.ToString)
+                        iva = suma * 0.1
+                        text_iva.Text = Puntos(iva.ToString)
+                        total = suma + iva
+
+                        text_total.Text = Puntos(total.ToString)
+
+
+                    End If
+                Next
+            Else
+                MsgBox("Factura no existe")
+                text_ruc_venta.Clear()
+                TextBox16.Clear()
+                DataGridView1.Rows.Clear()
+            End If
+        Else
+            MsgBox("Factura no encontrada")
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        facturas.Rows.Clear()
+
+        Dim col As Integer
+        Dim fil As Integer
+        Dim i As Integer
+        Dim ban As Integer
+        Dim suma As Integer
+        suma = 0
+
+        Dim cant_Ventas As Integer
+        cant_Ventas = DataSet1.Tables("venta").Rows.Count - 1
+        col = 0
+        fil = 0
+        ban = 0
+
+
+
+        For i = 0 To cant_Ventas
+            If fil > 0 Then
+                For col = 0 To fil
+                    If DataSet1.Tables("venta").Rows(i).Item("factura_venta") = facturas.Item(1, col).Value Then
+                        ban = 1
+                    End If
+                Next
+            End If
+            If ban = 0 Then
+                facturas.Rows.Add()
+                facturas.Item(0, fil).Value = fil
+                facturas.Item(1, fil).Value = DataSet1.Tables("venta").Rows(i).Item("factura_venta")
+                fil = fil + 1
+            End If
+            ban = 0
+        Next
+        Dim posi As Integer
+        posi = 0
+
+        For i = 0 To fil
+            If facturas.Item(1, i).Value = n_factura_textbox.Text Then
+                posi = i
+            End If
+        Next
+        If posi > 0 Then
+            n_factura_textbox.Text = facturas.Item(1, posi - 1).Value
+            DataGridView1.Rows.Clear()
+
+            Dim factura_buscada As String
+
+
+            Dim ruc As String
+
+            Dim fecha As String
+            Dim pos_cliente As Integer
+            Dim nom_cliente As String
+            Dim pos As Integer
+
+            Dim cont As Integer
+            cont = 0
+
+            factura_buscada = facturas.Item(1, posi - 1).Value
+            pos = buscar_en_tablas("venta", "factura_venta", factura_buscada)
+
+            If pos >= 0 Then
+                ruc = DataSet1.Tables("venta").Rows(pos).Item("id_cliente")
+                pos_cliente = buscar_en_tablas("cliente", "id_cliente", ruc)
+                ruc = DataSet1.Tables("cliente").Rows(pos_cliente).Item("ruc_cliente")
+                nom_cliente = DataSet1.Tables("cliente").Rows(pos_cliente).Item("nombre_cliente") + " " + DataSet1.Tables("cliente").Rows(pos_cliente).Item("apellido_cliente")
+                'fecha = DataSet1.Tables("venta_producto").Rows(pos).Item("fecha_venta")
+                'agregar fecha
+                text_ruc_venta.Text = ruc
+                TextBox16.Text = nom_cliente
+                'TextBox17.Text = fecha
+
+                For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
+
+                    If factura_buscada = DataSet1.Tables("venta").Rows(i).Item("factura_venta") Then
+
+                        DataGridView1.Rows.Add()
+
+                        DataGridView1.Item(0, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("codigo")
+                        DataGridView1.Item(1, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("nombre")
+                        DataGridView1.Item(2, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("descripcion")
+                        DataGridView1.Item(3, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
+                        DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
+                        DataGridView1.Item(5, cont).Value = DataSet1.Tables("venta").Rows(i).Item("precio_venta")
+                        cont = cont + 1
+                    End If
+
+
+                Next
+                n_factura_textbox.Text = facturas.Item(1, posi - 1).Value
+                Dim iva As Integer
+                iva = 0
+                Dim total As Integer
+                total = 0
+
+                For i = 0 To DataGridView1.RowCount - 1
+                    If DataGridView1.Item(0, i).Value IsNot "" Then
+
+                        suma = suma + DataGridView1.Item(5, i).Value
+                        text_sub_total.Text = Puntos(suma.ToString)
+                        iva = suma * 0.1
+                        text_iva.Text = Puntos(iva.ToString)
+                        total = suma + iva
+
+                        text_total.Text = Puntos(total.ToString)
+
+
+                    End If
+                Next
+            Else
+                MsgBox("Factura no existe")
+                text_ruc_venta.Clear()
+                TextBox16.Clear()
+                DataGridView1.Rows.Clear()
+            End If
+        Else
+            MsgBox("Factura no encontrada")
         End If
     End Sub
 End Class
