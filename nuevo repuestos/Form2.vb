@@ -347,27 +347,6 @@
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigoDeBarras.TextChanged
 
-        Dim cantidad_stock As Integer
-        cantidad_stock = DataSet1.Tables("stock").Rows.Count
-
-        If TextBoxCodigoDeBarras.Text <> "" Then
-            For i As Integer = 0 To (cantidad_stock - 1)
-                'Si el PRODUCTO ingresado existe'
-                If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
-
-                    LabelInsertarProducto.Hide()
-
-                    TextBoxCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
-                    TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                    TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
-
-
-                    TextBoxCantidad.Focus()
-                End If
-            Next
-
-        End If
 
     End Sub
 
@@ -912,6 +891,33 @@
             form_manager.productos2stock.DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
 
         Next
+
+    End Sub
+
+    Private Sub TextBoxCodigoDeBarras_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCodigoDeBarras.LostFocus
+
+
+        Dim cantidad_stock As Integer
+        cantidad_stock = DataSet1.Tables("stock").Rows.Count
+
+        If TextBoxCodigoDeBarras.Text <> "" Then
+            For i As Integer = 0 To (cantidad_stock - 1)
+                'Si el PRODUCTO ingresado existe'
+                If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
+
+                    LabelInsertarProducto.Hide()
+
+                    TextBoxCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                    TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                    TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                    TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+
+                    TextBoxCantidad.Focus()
+                End If
+            Next
+
+        End If
 
     End Sub
 End Class
