@@ -328,7 +328,10 @@ Partial Class Productos
         Me.Controls.Add(Me.TextBoxBuscar)
         Me.Controls.Add(Me.StockDataGridView)
         Me.Location = New System.Drawing.Point(0, 100)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Productos"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Productos"
         CType(Me.DataGridViewStock, System.ComponentModel.ISupportInitialize).EndInit()
