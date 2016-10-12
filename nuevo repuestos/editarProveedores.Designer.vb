@@ -202,7 +202,7 @@ Partial Class editarProveedores
         Me.Controls.Add(Me.clienteAgreGroup)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "editarProveedores"
-        Me.Text = "editarProveedores"
+        Me.Text = "Editar Proveedores"
         Me.clienteAgreGroup.ResumeLayout(False)
         Me.clienteAgreGroup.PerformLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -5,7 +5,9 @@
 
     End Sub
 
-
+    Public Function update_cache()
+        Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
+    End Function
 
     Private Sub clienteBusBtn_Click(sender As Object, e As EventArgs) Handles clienteBusBtn.Click
 
@@ -159,6 +161,8 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        update_cache()
+
         Dim j, can As Integer
         can = DataSet1.Tables("proveedor").Rows.Count
         clienteNombreList.Items.Clear()

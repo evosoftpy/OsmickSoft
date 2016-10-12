@@ -79,7 +79,6 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClienteBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.Buttoncorreo = New System.Windows.Forms.Button()
         Me.StockTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.stockTableAdapter()
         Me.IngresoTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.ingresoTableAdapter()
         Me.VentaTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.ventaTableAdapter()
@@ -99,60 +98,54 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(18, 9)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button1.Location = New System.Drawing.Point(12, 6)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(219, 35)
+        Me.Button1.Size = New System.Drawing.Size(146, 23)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Stock"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(246, 9)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button2.Location = New System.Drawing.Point(164, 6)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(219, 35)
+        Me.Button2.Size = New System.Drawing.Size(146, 23)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Ventas"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(474, 9)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button3.Location = New System.Drawing.Point(316, 6)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(219, 35)
+        Me.Button3.Size = New System.Drawing.Size(146, 23)
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "Clientes"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(702, 9)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button4.Location = New System.Drawing.Point(468, 6)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(218, 35)
+        Me.Button4.Size = New System.Drawing.Size(145, 23)
         Me.Button4.TabIndex = 4
         Me.Button4.Text = "Proveedores"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(928, 9)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button5.Location = New System.Drawing.Point(619, 6)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(219, 35)
+        Me.Button5.Size = New System.Drawing.Size(146, 23)
         Me.Button5.TabIndex = 6
         Me.Button5.Text = "Informe"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(18, 54)
-        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 29)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(1356, 3)
+        Me.ProgressBar1.Size = New System.Drawing.Size(752, 2)
         Me.ProgressBar1.TabIndex = 8
         '
         'Panel1
@@ -162,10 +155,9 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.IngresoDataGridView)
         Me.Panel1.Controls.Add(Me.StockDataGridView)
         Me.Panel1.Controls.Add(Me.ClienteDataGridView)
-        Me.Panel1.Location = New System.Drawing.Point(0, 154)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel1.Location = New System.Drawing.Point(0, 100)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(2880, 1662)
+        Me.Panel1.Size = New System.Drawing.Size(1920, 1080)
         Me.Panel1.TabIndex = 9
         Me.Panel1.Visible = False
         '
@@ -175,10 +167,9 @@ Partial Class Form1
         Me.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VentaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24})
         Me.VentaDataGridView.DataSource = Me.VentaBindingSource
-        Me.VentaDataGridView.Location = New System.Drawing.Point(1458, -85)
-        Me.VentaDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.VentaDataGridView.Location = New System.Drawing.Point(972, -55)
         Me.VentaDataGridView.Name = "VentaDataGridView"
-        Me.VentaDataGridView.Size = New System.Drawing.Size(450, 338)
+        Me.VentaDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.VentaDataGridView.TabIndex = 11
         Me.VentaDataGridView.Visible = False
         '
@@ -240,10 +231,9 @@ Partial Class Form1
         Me.IngresoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.IngresoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17})
         Me.IngresoDataGridView.DataSource = Me.IngresoBindingSource
-        Me.IngresoDataGridView.Location = New System.Drawing.Point(999, -85)
-        Me.IngresoDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.IngresoDataGridView.Location = New System.Drawing.Point(666, -55)
         Me.IngresoDataGridView.Name = "IngresoDataGridView"
-        Me.IngresoDataGridView.Size = New System.Drawing.Size(450, 338)
+        Me.IngresoDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.IngresoDataGridView.TabIndex = 11
         Me.IngresoDataGridView.Visible = False
         '
@@ -294,10 +284,9 @@ Partial Class Form1
         Me.StockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.StockDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.StockDataGridView.DataSource = Me.StockBindingSource
-        Me.StockDataGridView.Location = New System.Drawing.Point(1743, 315)
-        Me.StockDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.StockDataGridView.Location = New System.Drawing.Point(1162, 205)
         Me.StockDataGridView.Name = "StockDataGridView"
-        Me.StockDataGridView.Size = New System.Drawing.Size(450, 338)
+        Me.StockDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.StockDataGridView.TabIndex = 11
         Me.StockDataGridView.Visible = False
         '
@@ -348,10 +337,9 @@ Partial Class Form1
         Me.ClienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
-        Me.ClienteDataGridView.Location = New System.Drawing.Point(1743, -54)
-        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ClienteDataGridView.Location = New System.Drawing.Point(1162, -35)
         Me.ClienteDataGridView.Name = "ClienteDataGridView"
-        Me.ClienteDataGridView.Size = New System.Drawing.Size(450, 338)
+        Me.ClienteDataGridView.Size = New System.Drawing.Size(300, 220)
         Me.ClienteDataGridView.TabIndex = 11
         Me.ClienteDataGridView.Visible = False
         '
@@ -418,9 +406,8 @@ Partial Class Form1
         Me.ClienteBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.ClienteBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ClienteBindingNavigator.Name = "ClienteBindingNavigator"
-        Me.ClienteBindingNavigator.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ClienteBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ClienteBindingNavigator.Size = New System.Drawing.Size(2404, 38)
+        Me.ClienteBindingNavigator.Size = New System.Drawing.Size(1603, 25)
         Me.ClienteBindingNavigator.TabIndex = 11
         Me.ClienteBindingNavigator.Text = "BindingNavigator1"
         Me.ClienteBindingNavigator.Visible = False
@@ -431,13 +418,13 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 35)
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 35)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
@@ -447,7 +434,7 @@ Partial Class Form1
         Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 35)
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
@@ -456,7 +443,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 35)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
@@ -465,27 +452,27 @@ Partial Class Form1
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 35)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 38)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorPositionItem
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(73, 23)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 38)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -493,7 +480,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 35)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -502,32 +489,21 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 35)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 38)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'ClienteBindingNavigatorSaveItem
         '
         Me.ClienteBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ClienteBindingNavigatorSaveItem.Image = CType(resources.GetObject("ClienteBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.ClienteBindingNavigatorSaveItem.Name = "ClienteBindingNavigatorSaveItem"
-        Me.ClienteBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 35)
+        Me.ClienteBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.ClienteBindingNavigatorSaveItem.Text = "Save Data"
-        '
-        'Buttoncorreo
-        '
-        Me.Buttoncorreo.BackColor = System.Drawing.SystemColors.Control
-        Me.Buttoncorreo.Location = New System.Drawing.Point(1156, 9)
-        Me.Buttoncorreo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Buttoncorreo.Name = "Buttoncorreo"
-        Me.Buttoncorreo.Size = New System.Drawing.Size(218, 35)
-        Me.Buttoncorreo.TabIndex = 13
-        Me.Buttoncorreo.Text = "Configurar correo"
-        Me.Buttoncorreo.UseVisualStyleBackColor = False
         '
         'StockTableAdapter
         '
@@ -543,10 +519,9 @@ Partial Class Form1
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(2404, 1053)
-        Me.Controls.Add(Me.Buttoncorreo)
+        Me.ClientSize = New System.Drawing.Size(1603, 679)
         Me.Controls.Add(Me.ClienteBindingNavigator)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ProgressBar1)
@@ -556,7 +531,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.IsMdiContainer = True
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu principal"
@@ -608,7 +582,6 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents Buttoncorreo As Button
     Friend WithEvents StockBindingSource As BindingSource
     Friend WithEvents StockTableAdapter As DataSet1TableAdapters.stockTableAdapter
     Friend WithEvents StockDataGridView As DataGridView

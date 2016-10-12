@@ -35,6 +35,8 @@
                     clienteRucTxt.Text = ""
                     Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
                     Me.Hide()
+                    form_manager.prov.update_cache()
+
                 Else
                     MsgBox("El proveedor ya existe")
                 End If
