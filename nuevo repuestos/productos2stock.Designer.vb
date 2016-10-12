@@ -322,6 +322,7 @@ Partial Class productos2stock
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(602, 487)
+        Me.ControlBox = False
         Me.Controls.Add(Me.StockBindingNavigator)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -329,8 +330,6 @@ Partial Class productos2stock
         Me.Controls.Add(Me.DataGridViewStock)
         Me.Controls.Add(Me.StockDataGridView)
         Me.Location = New System.Drawing.Point(0, 100)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "productos2stock"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

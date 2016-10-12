@@ -73,7 +73,7 @@
 
         If TextBoxPrecio.Text = "" Then
             LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Complete el campo 'Precio'"
+            LabelInsertarProducto.Text = "Complete el campo 'Costo'"
             LabelInsertarProducto.ForeColor = Color.Red
 
             habilitado = 0
@@ -84,6 +84,18 @@
 
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+
+            habilitado = 0
+        End If
+
+        If IsNumeric(TextBoxPrecioDeVenta.Text) = False Then
+
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "'Precio De Venta' Incorrecto"
             LabelInsertarProducto.ForeColor = Color.Red
 
             'TextBoxCantidad.Text = ""
@@ -423,16 +435,7 @@
     End Sub
 
     Private Sub TextBoxCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.LostFocus
-        'LabelInsertarProducto.Hide()
-        If IsNumeric(TextBoxCantidad.Text) = False Then
 
-            LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
-            LabelInsertarProducto.ForeColor = Color.Red
-
-            'TextBoxCantidad.Text = ""
-            'TextBoxCantidad.Focus()
-        End If
     End Sub
 
     Private Sub TextBoxPrecio_LostFocus(sender As Object, e As EventArgs) Handles TextBoxPrecio.LostFocus
@@ -865,7 +868,18 @@
     End Sub
 
     Private Sub TextBoxCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCantidad.TextChanged
+        'LabelInsertarProducto.Hide()
+        If IsNumeric(TextBoxCantidad.Text) = False Then
 
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+        Else
+            LabelInsertarProducto.Hide()
+        End If
     End Sub
 
     Private Sub TextBoxCantidad_GotFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.GotFocus
@@ -918,6 +932,25 @@
             Next
 
         End If
+
+    End Sub
+
+    Private Sub TextBoxPrecioDeVenta_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecioDeVenta.TextChanged
+        'LabelInsertarProducto.Hide()
+        If IsNumeric(TextBoxPrecioDeVenta.Text) = False Then
+
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "'Precio De Venta' Incorrecto"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+        Else
+            LabelInsertarProducto.Hide()
+        End If
+    End Sub
+
+    Private Sub TextBoxFactura_TextChanged(sender As Object, e As EventArgs) Handles TextBoxFactura.TextChanged
 
     End Sub
 End Class

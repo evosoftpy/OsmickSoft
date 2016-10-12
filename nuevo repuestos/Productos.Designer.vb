@@ -321,6 +321,7 @@ Partial Class Productos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(594, 506)
+        Me.ControlBox = False
         Me.Controls.Add(Me.StockBindingNavigator)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DataGridViewStock)
