@@ -664,6 +664,7 @@ Partial Class Venta
         Me.Controls.Add(Me.label_venta_cliente)
         Me.Controls.Add(Me.text_ruc_venta)
         Me.Controls.Add(Me.label_ruc)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Location = New System.Drawing.Point(610, 100)
         Me.Name = "Venta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
