@@ -38,7 +38,7 @@
             Validate()
             ProveedorBindingSource.EndEdit()
             ProveedorTableAdapter.Update(DataSet1.proveedor)
-            MsgBox("Proveedor editado con exito")
+            MsgBox("Proveedor editado con éxito")
 
             clienteNomTxt.Text = ""
             clienteApTxt.Text = ""
@@ -49,7 +49,7 @@
             Me.Hide()
             moduloDatos.reset = True
         Catch ex As Exception
-            MsgBox("Error durante la edicion")
+            MsgBox("Error durante la edición")
 
         End Try
     End Sub

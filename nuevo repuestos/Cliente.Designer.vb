@@ -92,7 +92,7 @@ Partial Class Cliente
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteRucList, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -112,7 +112,7 @@ Partial Class Cliente
         'clienteRucList
         '
         Me.clienteRucList.FormattingEnabled = True
-        Me.clienteRucList.Location = New System.Drawing.Point(498, 23)
+        Me.clienteRucList.Location = New System.Drawing.Point(497, 23)
         Me.clienteRucList.Name = "clienteRucList"
         Me.clienteRucList.Size = New System.Drawing.Size(106, 251)
         Me.clienteRucList.TabIndex = 7
@@ -120,7 +120,7 @@ Partial Class Cliente
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(380, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(379, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(112, 251)
         Me.clienteNumeroList.TabIndex = 6
@@ -128,7 +128,7 @@ Partial Class Cliente
         'clienteApellidoList
         '
         Me.clienteApellidoList.FormattingEnabled = True
-        Me.clienteApellidoList.Location = New System.Drawing.Point(184, 23)
+        Me.clienteApellidoList.Location = New System.Drawing.Point(183, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
         Me.clienteApellidoList.Size = New System.Drawing.Size(190, 251)
         Me.clienteApellidoList.TabIndex = 5
@@ -136,7 +136,7 @@ Partial Class Cliente
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(498, 0)
+        Me.Label4.Location = New System.Drawing.Point(497, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 3
@@ -145,7 +145,7 @@ Partial Class Cliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(380, 0)
+        Me.Label3.Location = New System.Drawing.Point(379, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -154,7 +154,7 @@ Partial Class Cliente
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(184, 0)
+        Me.Label2.Location = New System.Drawing.Point(183, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 1
@@ -174,7 +174,7 @@ Partial Class Cliente
         Me.clienteNombreList.FormattingEnabled = True
         Me.clienteNombreList.Location = New System.Drawing.Point(3, 23)
         Me.clienteNombreList.Name = "clienteNombreList"
-        Me.clienteNombreList.Size = New System.Drawing.Size(175, 251)
+        Me.clienteNombreList.Size = New System.Drawing.Size(174, 251)
         Me.clienteNombreList.TabIndex = 4
         '
         'clienteAgreBtn
@@ -335,7 +335,7 @@ Partial Class Cliente
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Cliente"
-        Me.Text = "Cliente"
+        Me.Text = "Clientes"
         Me.clientesBusGroup.ResumeLayout(False)
         Me.clientesBusGroup.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)

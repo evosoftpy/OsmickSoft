@@ -17,7 +17,7 @@
             Validate()
             ClienteBindingSource.EndEdit()
             ClienteTableAdapter.Update(DataSet1.cliente)
-            MsgBox("Cliente editado con exito")
+            MsgBox("Cliente editado con éxito")
 
             clienteNomTxt.Text = ""
             clienteApTxt.Text = ""
@@ -28,7 +28,7 @@
             form_manager.client.ClienteTableAdapter.Fill(DataSet1.cliente)
             Me.Hide()
         Catch ex As Exception
-            MsgBox("Error durante la edicion")
+            MsgBox("Error durante la edición")
 
         End Try
 

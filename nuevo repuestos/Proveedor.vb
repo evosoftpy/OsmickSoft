@@ -50,7 +50,7 @@
                 End If
             Next
         Else
-            MsgBox("Favor ingrese el parametro de busqueda")
+            MsgBox("Favor ingrese el parámetro de busqueda")
         End If
     End Sub
 
@@ -88,7 +88,7 @@
                 End If
             End If
         Else
-            MsgBox("Por favor seleccione la opcion a editar antes realizando un click izquierdo sobre el mismo")
+            MsgBox("Por favor seleccione la opción a editar, antes realizando un click izquierdo sobre el mismo")
         End If
     End Sub
 
@@ -114,7 +114,7 @@
             k = t.buscar_en_tablas(DataSet1, "proveedor", "ruc_proveedor", clienteNombreList.SelectedItem)
             If (i > -1 Or j > -1) And k > -1 Then
                 If i = k Or j = k Then
-                    d = MessageBox.Show("Esta seguro que desea eliminar este cliente", "Eliminar?", MessageBoxButtons.YesNo)
+                    d = MessageBox.Show("Esta seguro que desea eliminar este cliente", "¿Eliminar?", MessageBoxButtons.YesNo)
                     If d = DialogResult.Yes Then
                         Try
                             DataSet1.Tables("proveedor").Rows(k).Delete()
@@ -136,7 +136,7 @@
                 End If
             End If
         Else
-            MsgBox("Por favor seleccione la opcion a editar antes realizando un click izquierdo sobre el mismo")
+            MsgBox("Por favor seleccione la opción a editar, antes realizando un click izquierdo sobre el mismo")
         End If
     End Sub
 
