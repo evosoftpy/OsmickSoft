@@ -53,6 +53,8 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
+        '''UPDATEO
+        StockTableAdapter.Fill(Me.DataSet1.stock)
 
         DataGridViewStock.Rows.Clear()
 
@@ -87,9 +89,32 @@
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
+
+        '''UPDATEO
         Me.StockTableAdapter.Fill(Me.DataSet1.stock)
 
+        ''''MOSTRAR TODO''''
+        DataGridViewStock.Rows.Clear()
+
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("stock").Rows.Count - 1
+
+
+        For i = 0 To cant_cont
+
+            DataGridViewStock.Rows.Add()
+
+            DataGridViewStock.Item(0, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+            DataGridViewStock.Item(1, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+            DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+            DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+            DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+        Next
 
 
     End Sub

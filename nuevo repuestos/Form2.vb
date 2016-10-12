@@ -63,17 +63,17 @@
             habilitado = 0
         End If
 
-        If TextBoxFactura.Text = "" Then
-            LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Complete el campo 'Factura'"
-            LabelInsertarProducto.ForeColor = Color.Red
+        'If TextBoxFactura.Text = "" Then
+        '    LabelInsertarProducto.Show()
+        '    LabelInsertarProducto.Text = "Complete el campo 'Factura'"
+        '    LabelInsertarProducto.ForeColor = Color.Red
 
-            habilitado = 0
-        End If
+        '    habilitado = 0
+        'End If
 
         If TextBoxPrecio.Text = "" Then
             LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Complete el campo 'Precio'"
+            LabelInsertarProducto.Text = "Complete el campo 'Costo'"
             LabelInsertarProducto.ForeColor = Color.Red
 
             habilitado = 0
@@ -84,6 +84,18 @@
 
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+
+            habilitado = 0
+        End If
+
+        If IsNumeric(TextBoxPrecioDeVenta.Text) = False Then
+
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "'Precio De Venta' Incorrecto"
             LabelInsertarProducto.ForeColor = Color.Red
 
             'TextBoxCantidad.Text = ""
@@ -282,12 +294,12 @@
 
                         Dim cantidad_proveedores As Integer
                         cantidad_proveedores = DataSet1.Tables("proveedor").Rows.Count
-                        For j = 0 To (cantidad_proveedores - 1)
-                            'Si el PROVEEDOR ingresado existe'
-                            If DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
-                                nuevo_ingreso("id_proveedor") = DataSet1.Tables("proveedor").Rows(j).Item("id_proveedor")
-                            End If
-                        Next
+                        ''For j = 0 To (cantidad_proveedores - 1)
+                        ''    'Si el PROVEEDOR ingresado existe'
+                        ''    If DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
+                        ''        nuevo_ingreso("id_proveedor") = DataSet1.Tables("proveedor").Rows(j).Item("id_proveedor")
+                        ''    End If
+                        ''Next
 
                         nuevo_ingreso("id_stock") = DataSet1.Tables("stock").Rows(i).Item("id_stock")
                         nuevo_ingreso("cantidad") = TextBoxCantidad.Text
@@ -347,27 +359,6 @@
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigoDeBarras.TextChanged
 
-        Dim cantidad_stock As Integer
-        cantidad_stock = DataSet1.Tables("stock").Rows.Count
-
-        If TextBoxCodigoDeBarras.Text <> "" Then
-            For i As Integer = 0 To (cantidad_stock - 1)
-                'Si el PRODUCTO ingresado existe'
-                If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
-
-                    LabelInsertarProducto.Hide()
-
-                    TextBoxCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
-                    TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                    TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
-
-
-                    TextBoxCantidad.Focus()
-                End If
-            Next
-
-        End If
 
     End Sub
 
@@ -444,16 +435,7 @@
     End Sub
 
     Private Sub TextBoxCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.LostFocus
-        'LabelInsertarProducto.Hide()
-        If IsNumeric(TextBoxCantidad.Text) = False Then
 
-            LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
-            LabelInsertarProducto.ForeColor = Color.Red
-
-            'TextBoxCantidad.Text = ""
-            'TextBoxCantidad.Focus()
-        End If
     End Sub
 
     Private Sub TextBoxPrecio_LostFocus(sender As Object, e As EventArgs) Handles TextBoxPrecio.LostFocus
@@ -886,7 +868,18 @@
     End Sub
 
     Private Sub TextBoxCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCantidad.TextChanged
+        'LabelInsertarProducto.Hide()
+        If IsNumeric(TextBoxCantidad.Text) = False Then
 
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "Ingrese un número en 'Cantidad'"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+        Else
+            LabelInsertarProducto.Hide()
+        End If
     End Sub
 
     Private Sub TextBoxCantidad_GotFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.GotFocus
@@ -912,6 +905,52 @@
             form_manager.productos2stock.DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
 
         Next
+
+    End Sub
+
+    Private Sub TextBoxCodigoDeBarras_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCodigoDeBarras.LostFocus
+
+
+        Dim cantidad_stock As Integer
+        cantidad_stock = DataSet1.Tables("stock").Rows.Count
+
+        If TextBoxCodigoDeBarras.Text <> "" Then
+            For i As Integer = 0 To (cantidad_stock - 1)
+                'Si el PRODUCTO ingresado existe'
+                If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
+
+                    LabelInsertarProducto.Hide()
+
+                    TextBoxCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                    TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                    TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                    TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+
+                    TextBoxCantidad.Focus()
+                End If
+            Next
+
+        End If
+
+    End Sub
+
+    Private Sub TextBoxPrecioDeVenta_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecioDeVenta.TextChanged
+        'LabelInsertarProducto.Hide()
+        If IsNumeric(TextBoxPrecioDeVenta.Text) = False Then
+
+            LabelInsertarProducto.Show()
+            LabelInsertarProducto.Text = "'Precio De Venta' Incorrecto"
+            LabelInsertarProducto.ForeColor = Color.Red
+
+            'TextBoxCantidad.Text = ""
+            'TextBoxCantidad.Focus()
+        Else
+            LabelInsertarProducto.Hide()
+        End If
+    End Sub
+
+    Private Sub TextBoxFactura_TextChanged(sender As Object, e As EventArgs) Handles TextBoxFactura.TextChanged
 
     End Sub
 End Class
