@@ -47,8 +47,10 @@
                     clienteApTxt.Text = ""
                     clienteNcTxt.Text = ""
                     clienteRucTxt.Text = ""
-                    ' form_manager.sell.update_cache()
-                    ' form_manager.client.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
+
+                    ''''ESTO ES CODIGO DE PASTORE NO TOCAR'''
+                    form_manager.sell.update_cache()
+                    '''''''''''''''''''''''''''''''''''''''''
 
                     Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
                     Me.Hide()
