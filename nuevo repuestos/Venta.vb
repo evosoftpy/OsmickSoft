@@ -133,6 +133,7 @@ Public Class Venta
                 If text_ruc_venta.Text.Length > 0 Then
                     Dim c_client As New crearClientes
                     c_client.Show()
+                    c_client.clienteNomTxt.Focus()
                     c_client.clienteRucTxt.Text = text_ruc_venta.Text
                 End If
                 text_ruc_venta.Text = ""
@@ -168,7 +169,7 @@ Public Class Venta
 
 
         If n_factura_textbox.Text = "" Then
-            MsgBox("Falta numero de factura!")
+            MsgBox("Falta numero de factura")
         Else
             For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
                 If n_factura_textbox.Text = DataSet1.Tables("venta").Rows(i).Item("factura_venta") And ban = 0 Then
@@ -215,7 +216,7 @@ Public Class Venta
 
             If ruc_cliente < 0 Then
                 ban = 1
-                MsgBox("Cliente sin registrar!")
+                MsgBox("Cliente sin registrar")
             End If
 
             Dim ban_guardado = 0
@@ -261,7 +262,7 @@ Public Class Venta
                     End If
                 Next
                 If ban_guardado = 1 Then
-                    MsgBox("Guardado Exitosamente")
+                    MsgBox("Guardado exitosamente")
                 End If
             End If
         End If
@@ -379,7 +380,7 @@ Public Class Venta
             Next
             If ban_exist_product = 0 Then
                 DataGridView1.Item(0, curen).Value = ""
-                MsgBox("Codigo de producto no existe!")
+                MsgBox("Codigo de producto no existe")
             End If
 
         End If
@@ -411,7 +412,7 @@ Public Class Venta
                 Next
 
                 If IsNumeric(DataGridView1.Item(4, curen).Value) = False Then
-                    MsgBox("Ingrese numero")
+                    MsgBox("Ingrese dato numerico")
                     DataGridView1.Item(4, curen).Value = ""
                 Else
 
@@ -868,7 +869,7 @@ Public Class Venta
                             Validate()
                             VentaBindingSource.EndEdit()
                             VentaTableAdapter.Update(DataSet1.venta)
-                            MsgBox("Guardado Exitosamente")
+                            MsgBox("Guardado exitosamente")
                         End If
                     End If
                 End If

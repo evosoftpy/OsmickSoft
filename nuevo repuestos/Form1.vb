@@ -83,6 +83,7 @@ Public Class Form1
         form_manager.product.Hide()
         form_manager.informe.Hide()
         form_manager.p_falta.Hide()
+        form_manager.ban_venta = 0
         ProgressBar1.Value = 70
 
 
@@ -115,7 +116,7 @@ Public Class Form1
         form_manager.informe.Hide()
         form_manager.productos2stock.Hide()
         form_manager.p_falta.Hide()
-
+        form_manager.ban_venta = 1
         form_manager.sell.MdiParent = Me
         form_manager.sell.Show()
 
@@ -125,6 +126,7 @@ Public Class Form1
         form_manager.sell.update_cache()
 
         form_manager.product.Show()
+        form_manager.sell.text_ruc_venta.Focus()
         form_manager.product.Button1.PerformClick()
 
         Refresh()
@@ -146,6 +148,7 @@ Public Class Form1
         form_manager.informe.Hide()
         form_manager.productos2stock.Hide()
         form_manager.p_falta.Hide()
+        form_manager.ban_venta = 0
         ProgressBar1.Value = 70
         form_manager.client.MdiParent = Me
         form_manager.client.StartPosition = FormStartPosition.CenterScreen
@@ -171,6 +174,7 @@ Public Class Form1
         form_manager.product.Hide()
         form_manager.productos2stock.Hide()
         form_manager.p_falta.Hide()
+        form_manager.ban_venta = 0
         ProgressBar1.Value = 70
         form_manager.prov.MdiParent = Me
         form_manager.prov.StartPosition = FormStartPosition.CenterScreen
@@ -228,6 +232,7 @@ Public Class Form1
         form_manager.stock.Hide()
         form_manager.productos2stock.Hide()
         form_manager.p_falta.Hide()
+        form_manager.ban_venta = 0
         form_manager.informe.MdiParent = Me
         form_manager.informe.StartPosition = FormStartPosition.CenterScreen
         form_manager.product.Hide()
