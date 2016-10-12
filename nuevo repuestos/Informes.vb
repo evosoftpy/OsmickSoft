@@ -193,11 +193,11 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        p_falta.MdiParent = Me.MdiParent
-        p_falta.StartPosition = StartPosition.CenterScreen
+        form_manager.p_falta.MdiParent = Me.MdiParent
+        form_manager.p_falta.StartPosition = StartPosition.CenterScreen
         Me.Hide()
 
-        p_falta.Show()
+        form_manager.p_falta.Show()
 
     End Sub
 End Class
