@@ -76,6 +76,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acercade.Designer.vb">
+      <DependentUpon>Acercade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Acercade.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="agregarProveedores.Designer.vb">
       <DependentUpon>agregarProveedores.vb</DependentUpon>
     </Compile>
@@ -189,6 +195,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Acercade.resx">
+      <DependentUpon>Acercade.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="agregarProveedores.resx">
       <DependentUpon>agregarProveedores.vb</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +270,9 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acercade.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
