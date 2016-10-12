@@ -329,6 +329,7 @@ Partial Class productos2stock
         Me.Controls.Add(Me.TextBoxBuscar)
         Me.Controls.Add(Me.DataGridViewStock)
         Me.Controls.Add(Me.StockDataGridView)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Location = New System.Drawing.Point(0, 100)
         Me.Name = "productos2stock"
         Me.ShowIcon = False

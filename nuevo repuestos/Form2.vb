@@ -63,13 +63,13 @@
             habilitado = 0
         End If
 
-        If TextBoxFactura.Text = "" Then
-            LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Complete el campo 'Factura'"
-            LabelInsertarProducto.ForeColor = Color.Red
+        'If TextBoxFactura.Text = "" Then
+        '    LabelInsertarProducto.Show()
+        '    LabelInsertarProducto.Text = "Complete el campo 'Factura'"
+        '    LabelInsertarProducto.ForeColor = Color.Red
 
-            habilitado = 0
-        End If
+        '    habilitado = 0
+        'End If
 
         If TextBoxPrecio.Text = "" Then
             LabelInsertarProducto.Show()
@@ -294,12 +294,12 @@
 
                         Dim cantidad_proveedores As Integer
                         cantidad_proveedores = DataSet1.Tables("proveedor").Rows.Count
-                        For j = 0 To (cantidad_proveedores - 1)
-                            'Si el PROVEEDOR ingresado existe'
-                            If DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
-                                nuevo_ingreso("id_proveedor") = DataSet1.Tables("proveedor").Rows(j).Item("id_proveedor")
-                            End If
-                        Next
+                        ''For j = 0 To (cantidad_proveedores - 1)
+                        ''    'Si el PROVEEDOR ingresado existe'
+                        ''    If DataSet1.Tables("proveedor").Rows(j).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
+                        ''        nuevo_ingreso("id_proveedor") = DataSet1.Tables("proveedor").Rows(j).Item("id_proveedor")
+                        ''    End If
+                        ''Next
 
                         nuevo_ingreso("id_stock") = DataSet1.Tables("stock").Rows(i).Item("id_stock")
                         nuevo_ingreso("cantidad") = TextBoxCantidad.Text

@@ -328,6 +328,7 @@ Partial Class Productos
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBoxBuscar)
         Me.Controls.Add(Me.StockDataGridView)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Location = New System.Drawing.Point(0, 100)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
