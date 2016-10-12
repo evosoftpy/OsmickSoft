@@ -1,5 +1,8 @@
 ﻿Imports System.Net.Mail
 Public Class Venta
+
+
+
     Private Sub ClienteBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.ClienteBindingSource.EndEdit()
@@ -1166,5 +1169,9 @@ Public Class Venta
         Else
             MsgBox("Factura no encontrada")
         End If
+    End Sub
+
+    Private Sub Venta_Move(sender As Object, e As EventArgs) Handles Me.Move
+
     End Sub
 End Class
