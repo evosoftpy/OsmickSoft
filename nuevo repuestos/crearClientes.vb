@@ -43,15 +43,22 @@
                     ClienteBindingSource.EndEdit()
                     ClienteTableAdapter.Update(DataSet1.cliente)
                     MsgBox("Cliente creado con exito")
+
+
+                    ''''ESTO ES CODIGO DE PASTORE NO TOCAR'''
+
+                    If form_manager.ban_venta = 1 Then
+                        form_manager.sell.update_cache()
+                        form_manager.sell.text_ruc_venta.Text = clienteRucTxt.Text
+                        form_manager.sell.text_ruc_venta.Focus()
+
+                    End If
+
+                    '''''''''''''''''''''''''''''''''''''''''
                     clienteNomTxt.Text = ""
                     clienteApTxt.Text = ""
                     clienteNcTxt.Text = ""
                     clienteRucTxt.Text = ""
-
-                    ''''ESTO ES CODIGO DE PASTORE NO TOCAR'''
-                    form_manager.sell.update_cache()
-                    '''''''''''''''''''''''''''''''''''''''''
-
                     Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
                     Me.Hide()
 

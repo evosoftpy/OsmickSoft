@@ -113,7 +113,7 @@ Partial Class Venta
         Me.Button1.Location = New System.Drawing.Point(97, 409)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 74
+        Me.Button1.TabIndex = 10
         Me.Button1.Text = "Borrar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -122,7 +122,7 @@ Partial Class Venta
         Me.Button20.Location = New System.Drawing.Point(96, 376)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(75, 23)
-        Me.Button20.TabIndex = 73
+        Me.Button20.TabIndex = 8
         Me.Button20.Text = "Modificar"
         Me.Button20.UseVisualStyleBackColor = True
         '
@@ -151,7 +151,7 @@ Partial Class Venta
         Me.Button29.Location = New System.Drawing.Point(15, 438)
         Me.Button29.Name = "Button29"
         Me.Button29.Size = New System.Drawing.Size(156, 23)
-        Me.Button29.TabIndex = 70
+        Me.Button29.TabIndex = 11
         Me.Button29.Text = "Buscar por factura"
         Me.Button29.UseVisualStyleBackColor = True
         '
@@ -176,7 +176,7 @@ Partial Class Venta
         Me.Button24.Location = New System.Drawing.Point(15, 376)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(75, 23)
-        Me.Button24.TabIndex = 67
+        Me.Button24.TabIndex = 7
         Me.Button24.Text = "Nuevo"
         Me.Button24.UseVisualStyleBackColor = True
         '
@@ -250,7 +250,7 @@ Partial Class Venta
         Me.venta_guardar.Location = New System.Drawing.Point(15, 409)
         Me.venta_guardar.Name = "venta_guardar"
         Me.venta_guardar.Size = New System.Drawing.Size(75, 23)
-        Me.venta_guardar.TabIndex = 59
+        Me.venta_guardar.TabIndex = 9
         Me.venta_guardar.Text = "Guardar"
         Me.venta_guardar.UseVisualStyleBackColor = True
         '
@@ -261,7 +261,7 @@ Partial Class Venta
         Me.DataGridView1.Location = New System.Drawing.Point(12, 115)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(644, 236)
-        Me.DataGridView1.TabIndex = 58
+        Me.DataGridView1.TabIndex = 6
         '
         'Codigo
         '
@@ -335,7 +335,7 @@ Partial Class Venta
         Me.text_ruc_venta.Location = New System.Drawing.Point(45, 15)
         Me.text_ruc_venta.Name = "text_ruc_venta"
         Me.text_ruc_venta.Size = New System.Drawing.Size(100, 20)
-        Me.text_ruc_venta.TabIndex = 53
+        Me.text_ruc_venta.TabIndex = 0
         '
         'label_ruc
         '
@@ -616,7 +616,7 @@ Partial Class Venta
         Me.Button2.Location = New System.Drawing.Point(97, 463)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 76
+        Me.Button2.TabIndex = 13
         Me.Button2.Text = "Siguiente"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -625,7 +625,7 @@ Partial Class Venta
         Me.Button3.Location = New System.Drawing.Point(15, 463)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 77
+        Me.Button3.TabIndex = 12
         Me.Button3.Text = "Anterior"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -668,7 +668,7 @@ Partial Class Venta
         Me.Location = New System.Drawing.Point(610, 100)
         Me.Name = "Venta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Venta"
+        Me.Text = "Ventas"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClienteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
