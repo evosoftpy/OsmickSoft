@@ -313,3 +313,4 @@ C:\Users\hejasako\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repues
 C:\Users\hejasako\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.xml
 C:\Users\hejasako\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo repuestos.pdb
 C:\Users\gp_75\Source\Repos\nuevo_repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Acercade.resources
+C:\Users\hejasako\Source\Repos\OsmickSoft\nuevo repuestos\obj\Debug\nuevo_repuestos.Acercade.resources
