@@ -139,8 +139,16 @@
         form_manager.sell.DataGridView1.Rows.Add()
         j = form_manager.sell.DataGridView1.Rows.Count - 2
 
-
-        form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(0, index).Value
+        If DataGridViewStock.Item(0, index).Value = "" Then
+            If DataGridViewStock.Item(1, index).Value = "" Then
+                MsgBox("Producto invalido")
+            Else
+                form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(1, index).Value
+            End If
+        Else
+            form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(0, index).Value
+        End If
+        'form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(0, index).Value
         form_manager.sell.DataGridView1.Item(1, j).Value = DataGridViewStock.Item(2, index).Value
         form_manager.sell.DataGridView1.Item(2, j).Value = DataGridViewStock.Item(3, index).Value
         form_manager.sell.DataGridView1.Item(3, j).Value = DataGridViewStock.Item(4, index).Value
