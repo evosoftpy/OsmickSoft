@@ -1,18 +1,13 @@
 ﻿Public Class Productos
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-
-
-
         DataGridViewStock.Rows.Clear()
-
 
         Dim i As Integer
         Dim j As Integer
         j = 0
         Dim cant_cont As Integer
         cant_cont = DataSet1.Tables("stock").Rows.Count - 1
-
 
         For i = 0 To cant_cont
             '''SI LA CADENA EXISTE EN EL NOMBRE
@@ -27,12 +22,10 @@
                     DataGridViewStock.Item(3, j).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
                     DataGridViewStock.Item(4, j).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
                     j = j + 1
-
                 Else
                     '''SI LA CADENA EXISTE EN DESCRIPCION
                     If TextBoxBuscar.TextLength <= DataSet1.Tables("stock").Rows(i).Item("descripcion").ToString.Length Then
                         If TextBoxBuscar.Text.ToString = DataSet1.Tables("stock").Rows(i).Item("descripcion").Substring(0, TextBoxBuscar.TextLength) Then
-
                             DataGridViewStock.Rows.Add()
 
                             DataGridViewStock.Item(0, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
@@ -43,6 +36,21 @@
                             j = j + 1
 
                         End If
+                    End If
+                End If
+            Else
+                '''SI LA CADENA EXISTE EN DESCRIPCION
+                If TextBoxBuscar.TextLength <= DataSet1.Tables("stock").Rows(i).Item("descripcion").ToString.Length Then
+                    If TextBoxBuscar.Text.ToString = DataSet1.Tables("stock").Rows(i).Item("descripcion").Substring(0, TextBoxBuscar.TextLength) Then
+                        DataGridViewStock.Rows.Add()
+
+                        DataGridViewStock.Item(0, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                        DataGridViewStock.Item(1, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                        DataGridViewStock.Item(2, j).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                        DataGridViewStock.Item(3, j).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                        DataGridViewStock.Item(4, j).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                        j = j + 1
+
                     End If
                 End If
             End If
@@ -160,5 +168,13 @@
 
 
 
+    End Sub
+
+    Private Sub DataGridViewStock_DoubleClick(sender As Object, e As EventArgs) Handles DataGridViewStock.DoubleClick
+
+    End Sub
+
+    Private Sub TextBoxBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBuscar.TextChanged
+        Button2.PerformClick()
     End Sub
 End Class
