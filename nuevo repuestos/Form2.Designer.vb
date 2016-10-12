@@ -346,7 +346,7 @@ Partial Class Form2
         'LabelInsertarProducto
         '
         Me.LabelInsertarProducto.AutoSize = True
-        Me.LabelInsertarProducto.Location = New System.Drawing.Point(146, 362)
+        Me.LabelInsertarProducto.Location = New System.Drawing.Point(64, 362)
         Me.LabelInsertarProducto.Name = "LabelInsertarProducto"
         Me.LabelInsertarProducto.Size = New System.Drawing.Size(111, 13)
         Me.LabelInsertarProducto.TabIndex = 15

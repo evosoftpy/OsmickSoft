@@ -444,7 +444,7 @@
         If IsNumeric(TextBoxPrecio.Text) = False Then
 
             LabelInsertarProducto.Show()
-            LabelInsertarProducto.Text = "Ingrese un número en 'Precio'"
+            LabelInsertarProducto.Text = "Ingrese un número en 'Costo'"
             LabelInsertarProducto.ForeColor = Color.Red
 
             TextBoxPrecio.Text = ""
@@ -951,6 +951,10 @@
     End Sub
 
     Private Sub TextBoxFactura_TextChanged(sender As Object, e As EventArgs) Handles TextBoxFactura.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxPrecio_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecio.TextChanged
 
     End Sub
 End Class
