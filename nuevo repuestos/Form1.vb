@@ -148,7 +148,10 @@ Public Class Form1
         form_manager.client.MdiParent = Me
         form_manager.client.StartPosition = FormStartPosition.CenterScreen
 
+
+
         form_manager.client.Show()
+        form_manager.client.Button1.PerformClick()
         ProgressBar1.Value = 100
 
         Refresh()
@@ -170,6 +173,8 @@ Public Class Form1
         form_manager.prov.MdiParent = Me
         form_manager.prov.StartPosition = FormStartPosition.CenterScreen
         form_manager.prov.Show()
+        form_manager.prov.Button1.PerformClick()
+
 
         ProgressBar1.Value = 100
         Refresh()
@@ -468,7 +473,7 @@ Public Class Form1
     '    Return string_salida
     'End Function
 
-    Private Sub Buttoncorreo_Click(sender As Object, e As EventArgs) Handles Buttoncorreo.Click
+    Private Sub Buttoncorreo_Click(sender As Object, e As EventArgs)
 
         ProgressBar1.Value = 30
         form_manager.stock.Hide()

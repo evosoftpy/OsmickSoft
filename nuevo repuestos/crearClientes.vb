@@ -89,4 +89,8 @@
     Private Sub clienteAgregarBtn_Click(sender As Object, e As EventArgs) Handles clienteCargarBtn.Click
 
     End Sub
+
+    Private Sub clienteAgreGroup_Enter(sender As Object, e As EventArgs) Handles clienteAgreGroup.Enter
+
+    End Sub
 End Class

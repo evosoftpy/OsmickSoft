@@ -67,7 +67,7 @@ Partial Class crearClientes
         Me.clienteAgreGroup.Size = New System.Drawing.Size(407, 184)
         Me.clienteAgreGroup.TabIndex = 20
         Me.clienteAgreGroup.TabStop = False
-        Me.clienteAgreGroup.Text = "Agregar Proveedor"
+        Me.clienteAgreGroup.Text = "Agregar Cliente"
         '
         'Label1
         '
@@ -227,7 +227,7 @@ Partial Class crearClientes
         Me.Controls.Add(Me.clienteAgreGroup)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "crearClientes"
-        Me.Text = "crearClientes"
+        Me.Text = "Crear Clientes"
         Me.clienteAgreGroup.ResumeLayout(False)
         Me.clienteAgreGroup.PerformLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
