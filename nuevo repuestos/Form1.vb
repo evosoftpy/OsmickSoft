@@ -125,6 +125,8 @@ Public Class Form1
         form_manager.sell.update_cache()
 
         form_manager.product.Show()
+        form_manager.product.Button1.PerformClick()
+
         Refresh()
 
         ProgressBar1.Value = 100
