@@ -2,7 +2,7 @@
     Private Sub Proveedor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DataSet1.proveedor' table. You can move, or remove it, as needed.
         Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
-
+        Button1.PerformClick()
     End Sub
 
 
@@ -160,6 +160,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim j, can As Integer
+        Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
         can = DataSet1.Tables("proveedor").Rows.Count
         clienteNombreList.Items.Clear()
         clienteApellidoList.Items.Clear()
@@ -172,6 +173,6 @@
             clienteApellidoList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("nombre_proveedor"))
             clienteNumeroList.Items.Add(DataSet1.Tables("proveedor").Rows(j).Item("numero_proveedor"))
         Next
-
+        Button1.PerformClick()
     End Sub
 End Class

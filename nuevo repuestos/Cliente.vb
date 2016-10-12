@@ -2,7 +2,7 @@
     Private Sub Cliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DataSet1.cliente' table. You can move, or remove it, as needed.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
-
+        Button1.PerformClick()
     End Sub
 
     Private Sub clienteAgreBtn_Click(sender As Object, e As EventArgs) Handles clienteAgreBtn.Click
@@ -194,6 +194,8 @@
             clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
             clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
         Next
-
+        Button1.PerformClick()
     End Sub
+
+
 End Class
