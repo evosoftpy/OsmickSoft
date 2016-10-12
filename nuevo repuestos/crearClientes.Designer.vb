@@ -227,7 +227,8 @@ Partial Class crearClientes
         Me.Controls.Add(Me.clienteAgreGroup)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "crearClientes"
-        Me.Text = "Crear Clientes"
+        Me.ShowIcon = False
+        Me.Text = "Agregar Cliente"
         Me.clienteAgreGroup.ResumeLayout(False)
         Me.clienteAgreGroup.PerformLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()

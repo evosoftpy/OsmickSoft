@@ -148,6 +148,7 @@ Partial Class agregarProveedores
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.clienteTableAdapter = Nothing
+        Me.TableAdapterManager.ingreso_proveedorTableAdapter = Nothing
         Me.TableAdapterManager.ingresoTableAdapter = Nothing
         Me.TableAdapterManager.proveedorTableAdapter = Me.ProveedorTableAdapter
         Me.TableAdapterManager.stockTableAdapter = Nothing
@@ -161,7 +162,7 @@ Partial Class agregarProveedores
         Me.ProveedorDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.ProveedorDataGridView.DataSource = Me.ProveedorBindingSource
         Me.ProveedorDataGridView.Location = New System.Drawing.Point(488, 15)
-        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ProveedorDataGridView.Name = "ProveedorDataGridView"
         Me.ProveedorDataGridView.RowTemplate.Height = 24
         Me.ProveedorDataGridView.Size = New System.Drawing.Size(225, 179)
@@ -199,9 +200,10 @@ Partial Class agregarProveedores
         Me.ClientSize = New System.Drawing.Size(429, 213)
         Me.Controls.Add(Me.ProveedorDataGridView)
         Me.Controls.Add(Me.clienteAgreGroup)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "agregarProveedores"
-        Me.Text = "agregarProveedores"
+        Me.ShowIcon = False
+        Me.Text = "Agregar Proveedor"
         Me.clienteAgreGroup.ResumeLayout(False)
         Me.clienteAgreGroup.PerformLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()

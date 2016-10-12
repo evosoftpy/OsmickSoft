@@ -24,6 +24,7 @@ Partial Class Proveedor
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.clientesBusGroup = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.clienteNumeroList = New System.Windows.Forms.ListBox()
         Me.clienteApellidoList = New System.Windows.Forms.ListBox()
@@ -49,7 +50,6 @@ Partial Class Proveedor
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.clientesBusGroup.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,12 +74,21 @@ Partial Class Proveedor
         Me.clientesBusGroup.TabStop = False
         Me.clientesBusGroup.Text = "Buscar Proveedor"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(345, 57)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(83, 23)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "Mostrar todos"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -98,7 +107,7 @@ Partial Class Proveedor
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(369, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(368, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(190, 251)
         Me.clienteNumeroList.TabIndex = 3
@@ -108,13 +117,13 @@ Partial Class Proveedor
         Me.clienteApellidoList.FormattingEnabled = True
         Me.clienteApellidoList.Location = New System.Drawing.Point(178, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
-        Me.clienteApellidoList.Size = New System.Drawing.Size(185, 251)
+        Me.clienteApellidoList.Size = New System.Drawing.Size(184, 251)
         Me.clienteApellidoList.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(369, 0)
+        Me.Label3.Location = New System.Drawing.Point(368, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -285,15 +294,6 @@ Partial Class Proveedor
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(345, 57)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 23)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Mostrar todos"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -306,7 +306,7 @@ Partial Class Proveedor
         Me.Controls.Add(Me.clienteLb)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Proveedor"
-        Me.Text = "Proveedor"
+        Me.Text = "Proveedores"
         Me.clientesBusGroup.ResumeLayout(False)
         Me.clientesBusGroup.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
