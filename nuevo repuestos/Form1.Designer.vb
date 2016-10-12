@@ -82,6 +82,7 @@ Partial Class Form1
         Me.StockTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.stockTableAdapter()
         Me.IngresoTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.ingresoTableAdapter()
         Me.VentaTableAdapter = New nuevo_repuestos.DataSet1TableAdapters.ventaTableAdapter()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.VentaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VentaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,7 +146,7 @@ Partial Class Form1
         '
         Me.ProgressBar1.Location = New System.Drawing.Point(12, 29)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(752, 2)
+        Me.ProgressBar1.Size = New System.Drawing.Size(773, 2)
         Me.ProgressBar1.TabIndex = 8
         '
         'Panel1
@@ -517,11 +518,21 @@ Partial Class Form1
         '
         Me.VentaTableAdapter.ClearBeforeFill = True
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(766, 6)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(20, 23)
+        Me.Button6.TabIndex = 13
+        Me.Button6.Text = "?"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1603, 679)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.ClienteBindingNavigator)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ProgressBar1)
@@ -610,4 +621,5 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents Button6 As Button
 End Class

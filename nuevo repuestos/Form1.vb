@@ -496,4 +496,9 @@ Public Class Form1
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Acercade.Show()
+
+    End Sub
 End Class
