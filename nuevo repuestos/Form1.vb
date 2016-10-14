@@ -35,6 +35,7 @@ Public Class Form1
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.cliente' Puede moverla o quitarla según sea necesario.
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
 
+        Button1.PerformClick()
 
         'moduloDatos.leerArchivo()
         'Dim ruta As String = "dataMail.conf"

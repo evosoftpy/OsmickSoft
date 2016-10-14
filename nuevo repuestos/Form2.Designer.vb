@@ -867,16 +867,16 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(524, 488)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBoxIngresarProducto)
         Me.Controls.Add(Me.ButtonModificarProducto)
         Me.Controls.Add(Me.ButtonIngresarProducto)
-        Me.Controls.Add(Me.GroupBoxModificarProducto)
         Me.Controls.Add(Me.VentaDataGridView)
         Me.Controls.Add(Me.ProveedorDataGridView)
         Me.Controls.Add(Me.Ingreso_proveedorDataGridView)
         Me.Controls.Add(Me.ClienteDataGridView)
         Me.Controls.Add(Me.IngresoDataGridView)
         Me.Controls.Add(Me.StockDataGridView)
-        Me.Controls.Add(Me.GroupBoxIngresarProducto)
+        Me.Controls.Add(Me.GroupBoxModificarProducto)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Location = New System.Drawing.Point(615, 100)
         Me.Name = "Form2"
