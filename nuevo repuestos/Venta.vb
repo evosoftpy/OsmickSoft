@@ -179,8 +179,16 @@ Public Class Venta
                     ban = 0
                 Next
                 'terminamos de cargar la tabla donde estan las facturas
-
-                n_factura_textbox.Text = facturas.RowCount.ToString
+                Dim numero As Integer
+                numero = facturas.RowCount
+                n_factura_textbox.Text = numero.ToString
+                For i = 0 To facturas.RowCount - 1
+                    If n_factura_textbox.Text = facturas.Item(1, i).Value Then
+                        numero = numero + 1
+                        n_factura_textbox.Text = numero.ToString
+                        i = 0
+                    End If
+                Next
                 'es la cantidad de facturas hechas
             End If
         End If
@@ -289,6 +297,8 @@ Public Class Venta
                                     Validate()
                                     VentaBindingSource.EndEdit()
                                     VentaTableAdapter.Update(DataSet1.venta)
+                                    update_cache()
+
 
                                 End If
                             End If
@@ -919,7 +929,7 @@ Public Class Venta
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        update_cache()
         Dim factura As String
         factura = n_factura_textbox.Text
         Dim i As Integer
