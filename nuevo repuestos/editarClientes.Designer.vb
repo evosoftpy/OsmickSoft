@@ -24,7 +24,6 @@ Partial Class editarClientes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.clienteAgreGroup = New System.Windows.Forms.GroupBox()
-        Me.clienteBorBtn = New System.Windows.Forms.Button()
         Me.clienteNomLb = New System.Windows.Forms.Label()
         Me.clienteNomTxt = New System.Windows.Forms.TextBox()
         Me.clienteApLb = New System.Windows.Forms.Label()
@@ -52,7 +51,6 @@ Partial Class editarClientes
         '
         'clienteAgreGroup
         '
-        Me.clienteAgreGroup.Controls.Add(Me.clienteBorBtn)
         Me.clienteAgreGroup.Controls.Add(Me.clienteNomLb)
         Me.clienteAgreGroup.Controls.Add(Me.clienteNomTxt)
         Me.clienteAgreGroup.Controls.Add(Me.clienteApLb)
@@ -68,15 +66,6 @@ Partial Class editarClientes
         Me.clienteAgreGroup.TabIndex = 19
         Me.clienteAgreGroup.TabStop = False
         Me.clienteAgreGroup.Text = "Editar Cliente"
-        '
-        'clienteBorBtn
-        '
-        Me.clienteBorBtn.Location = New System.Drawing.Point(283, 143)
-        Me.clienteBorBtn.Name = "clienteBorBtn"
-        Me.clienteBorBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteBorBtn.TabIndex = 12
-        Me.clienteBorBtn.Text = "Borrar"
-        Me.clienteBorBtn.UseVisualStyleBackColor = True
         '
         'clienteNomLb
         '
@@ -123,7 +112,7 @@ Partial Class editarClientes
         '
         'clienteEditarBtn
         '
-        Me.clienteEditarBtn.Location = New System.Drawing.Point(201, 144)
+        Me.clienteEditarBtn.Location = New System.Drawing.Point(316, 139)
         Me.clienteEditarBtn.Name = "clienteEditarBtn"
         Me.clienteEditarBtn.Size = New System.Drawing.Size(75, 23)
         Me.clienteEditarBtn.TabIndex = 11
@@ -238,7 +227,6 @@ Partial Class editarClientes
     End Sub
 
     Friend WithEvents clienteAgreGroup As GroupBox
-    Friend WithEvents clienteBorBtn As Button
     Friend WithEvents clienteNomLb As Label
     Friend WithEvents clienteNomTxt As TextBox
     Friend WithEvents clienteApLb As Label

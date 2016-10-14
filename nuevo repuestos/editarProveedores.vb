@@ -18,7 +18,7 @@
 
     End Sub
 
-    Private Sub clienteBorBtn_Click(sender As Object, e As EventArgs) Handles clienteBorBtn.Click
+    Private Sub clienteBorBtn_Click(sender As Object, e As EventArgs)
         clienteNomTxt.Text = ""
         clienteApTxt.Text = ""
         clienteRucTxt.Text = ""
@@ -45,6 +45,7 @@
             clienteRucTxt.Text = ""
 
             '   f1.Show()
+            form_manager.prov.Button1.PerformClick()
 
             Me.Hide()
             moduloDatos.reset = True

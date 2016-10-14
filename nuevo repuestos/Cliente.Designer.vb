@@ -92,7 +92,7 @@ Partial Class Cliente
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteRucList, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -112,7 +112,7 @@ Partial Class Cliente
         'clienteRucList
         '
         Me.clienteRucList.FormattingEnabled = True
-        Me.clienteRucList.Location = New System.Drawing.Point(497, 23)
+        Me.clienteRucList.Location = New System.Drawing.Point(496, 23)
         Me.clienteRucList.Name = "clienteRucList"
         Me.clienteRucList.Size = New System.Drawing.Size(106, 251)
         Me.clienteRucList.TabIndex = 7
@@ -120,7 +120,7 @@ Partial Class Cliente
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(379, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(378, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(112, 251)
         Me.clienteNumeroList.TabIndex = 6
@@ -130,13 +130,13 @@ Partial Class Cliente
         Me.clienteApellidoList.FormattingEnabled = True
         Me.clienteApellidoList.Location = New System.Drawing.Point(183, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
-        Me.clienteApellidoList.Size = New System.Drawing.Size(190, 251)
+        Me.clienteApellidoList.Size = New System.Drawing.Size(189, 251)
         Me.clienteApellidoList.TabIndex = 5
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(497, 0)
+        Me.Label4.Location = New System.Drawing.Point(496, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 3
@@ -145,7 +145,7 @@ Partial Class Cliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(379, 0)
+        Me.Label3.Location = New System.Drawing.Point(378, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -206,10 +206,9 @@ Partial Class Cliente
         '
         'clienteParTxt
         '
-        Me.clienteParTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.clienteParTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.clienteParTxt.Location = New System.Drawing.Point(146, 23)
         Me.clienteParTxt.Name = "clienteParTxt"
+        Me.clienteParTxt.ShortcutsEnabled = False
         Me.clienteParTxt.Size = New System.Drawing.Size(445, 20)
         Me.clienteParTxt.TabIndex = 0
         Me.clienteParTxt.Tag = "Holi"
@@ -362,7 +361,6 @@ Partial Class Cliente
     Friend WithEvents clienteAgreBtn As Button
     Friend WithEvents clienteSalBtn As Button
     Friend WithEvents clienteParaLb As Label
-    Friend WithEvents clienteParTxt As TextBox
     Friend WithEvents clienteBusBtn As Button
     Friend WithEvents clienteLb As Label
     Friend WithEvents DataSet1 As DataSet1
@@ -379,4 +377,5 @@ Partial Class Cliente
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button1 As Button
+    Friend WithEvents clienteParTxt As TextBox
 End Class

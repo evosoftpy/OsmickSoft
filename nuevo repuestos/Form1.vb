@@ -238,6 +238,10 @@ Public Class Form1
         form_manager.product.Hide()
         ProgressBar1.Value = 70
         form_manager.informe.Show()
+        form_manager.informe.update_cache()
+
+        form_manager.informe.Button1.PerformClick()
+
         ProgressBar1.Value = 100
     End Sub
 

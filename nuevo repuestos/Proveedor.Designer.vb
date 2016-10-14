@@ -88,7 +88,7 @@ Partial Class Proveedor
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -107,7 +107,7 @@ Partial Class Proveedor
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(368, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(367, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(190, 251)
         Me.clienteNumeroList.TabIndex = 3
@@ -115,7 +115,7 @@ Partial Class Proveedor
         'clienteApellidoList
         '
         Me.clienteApellidoList.FormattingEnabled = True
-        Me.clienteApellidoList.Location = New System.Drawing.Point(178, 23)
+        Me.clienteApellidoList.Location = New System.Drawing.Point(177, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
         Me.clienteApellidoList.Size = New System.Drawing.Size(184, 251)
         Me.clienteApellidoList.TabIndex = 2
@@ -123,7 +123,7 @@ Partial Class Proveedor
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(368, 0)
+        Me.Label3.Location = New System.Drawing.Point(367, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -132,7 +132,7 @@ Partial Class Proveedor
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(178, 0)
+        Me.Label2.Location = New System.Drawing.Point(177, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 13)
         Me.Label2.TabIndex = 1
@@ -152,7 +152,7 @@ Partial Class Proveedor
         Me.clienteNombreList.FormattingEnabled = True
         Me.clienteNombreList.Location = New System.Drawing.Point(3, 23)
         Me.clienteNombreList.Name = "clienteNombreList"
-        Me.clienteNombreList.Size = New System.Drawing.Size(169, 251)
+        Me.clienteNombreList.Size = New System.Drawing.Size(168, 251)
         Me.clienteNombreList.TabIndex = 1
         '
         'clienteAgreBtn
@@ -184,8 +184,6 @@ Partial Class Proveedor
         '
         'clienteParTxt
         '
-        Me.clienteParTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.clienteParTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.clienteParTxt.Location = New System.Drawing.Point(146, 23)
         Me.clienteParTxt.Name = "clienteParTxt"
         Me.clienteParTxt.Size = New System.Drawing.Size(445, 20)

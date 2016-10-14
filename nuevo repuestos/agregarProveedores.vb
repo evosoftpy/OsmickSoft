@@ -36,6 +36,8 @@
                     Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
                     Me.Hide()
                     form_manager.prov.update_cache()
+                    form_manager.prov.Button1.PerformClick()
+
 
                 Else
                     MsgBox("El proveedor ya existe")

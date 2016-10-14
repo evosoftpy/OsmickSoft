@@ -16,6 +16,14 @@
 
     End Sub
 
+    Public Function update_cache()
+        'TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
+        Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
+        'TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
+        Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        'TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
+        Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+    End Function
     Private Function calcular_cantidad_comprada(id_stock As Integer)
         Dim i As Integer
         Dim cantidad
@@ -111,6 +119,8 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        update_cache()
+
         Dim i As Integer
 
         Dim cantidad_productos As Integer

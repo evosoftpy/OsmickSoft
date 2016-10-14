@@ -61,6 +61,8 @@
                     clienteRucTxt.Text = ""
                     Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
                     Me.Hide()
+                    form_manager.client.Button1.PerformClick()
+
 
                 Else
                     MsgBox("El cliente ya existe")

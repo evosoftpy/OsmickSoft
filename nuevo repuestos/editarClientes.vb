@@ -26,6 +26,8 @@
 
             '   f1.Show()
             form_manager.client.ClienteTableAdapter.Fill(DataSet1.cliente)
+            form_manager.client.Button1.PerformClick()
+
             Me.Hide()
         Catch ex As Exception
             MsgBox("Error durante la edición")
@@ -48,7 +50,7 @@
 
     End Sub
 
-    Private Sub clienteBorBtn_Click(sender As Object, e As EventArgs) Handles clienteBorBtn.Click
+    Private Sub clienteBorBtn_Click(sender As Object, e As EventArgs)
         clienteNomTxt.Text = ""
         clienteApTxt.Text = ""
         clienteNcTxt.Text = ""
