@@ -96,7 +96,7 @@ Public Class Venta
         update_cache()
 
         If ruc < 0 Then
-            label_ruc_venta.Text = "no se econtro cliente"
+            label_ruc_venta.Text = "No se encontro cliente"
             label_ruc_venta.ForeColor = Color.Red
             label_ruc_venta.Visible = True
             If text_ruc_venta.Text.Length > 0 Then
@@ -127,7 +127,7 @@ Public Class Venta
         update_cache()
         If text_ruc_venta.Text IsNot "" Then
             If ruc < 0 Then
-                label_ruc_venta.Text = "no se econtro cliente"
+                label_ruc_venta.Text = "No se encontro cliente"
                 label_ruc_venta.ForeColor = Color.Red
                 label_ruc_venta.Visible = True
                 If text_ruc_venta.Text.Length > 0 Then
@@ -144,10 +144,44 @@ Public Class Venta
                 label_ruc_venta.Visible = False
                 TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre_cliente") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido_cliente")
                 TextBox17.Text = Date.Now.Date
+                'cargo las facturas y le pongo de nro factura el numero de la ultima factura
+                facturas.Rows.Clear()
+
+                Dim col As Integer
+                Dim fil As Integer
                 Dim i As Integer
+                Dim ban As Integer
+                Dim suma As Integer
+                suma = 0
+
+                Dim cant_Ventas As Integer
+                cant_Ventas = DataSet1.Tables("venta").Rows.Count - 1
+                col = 0
+                fil = 0
+                ban = 0
 
 
-                n_factura_textbox.Text = "00-000-0000"
+
+                For i = 0 To cant_Ventas
+                    If fil > 0 Then
+                        For col = 0 To fil
+                            If DataSet1.Tables("venta").Rows(i).Item("factura_venta") = facturas.Item(1, col).Value Then
+                                ban = 1
+                            End If
+                        Next
+                    End If
+                    If ban = 0 Then
+                        facturas.Rows.Add()
+                        facturas.Item(0, fil).Value = fil
+                        facturas.Item(1, fil).Value = DataSet1.Tables("venta").Rows(i).Item("factura_venta")
+                        fil = fil + 1
+                    End If
+                    ban = 0
+                Next
+                'terminamos de cargar la tabla donde estan las facturas
+
+                n_factura_textbox.Text = facturas.RowCount.ToString
+                'es la cantidad de facturas hechas
             End If
         End If
 
@@ -373,6 +407,8 @@ Public Class Venta
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
                     DataGridView1.Item(3, curen).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+
+
                     idproducto = DataSet1.Tables("stock").Rows(i).Item("id_stock")
                     ban_exist_product = 1
                 End If
@@ -891,7 +927,6 @@ Public Class Venta
         For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
             If factura = DataSet1.Tables("venta").Rows(i).Item("factura_venta") Then
                 DataSet1.Tables("venta").Rows(i).Delete()
-
             End If
         Next
         Validate()
@@ -1168,7 +1203,7 @@ Public Class Venta
                 DataGridView1.Rows.Clear()
             End If
         Else
-            MsgBox("Factura no encontrada")
+            MsgBox("Factura no existe")
         End If
     End Sub
 
