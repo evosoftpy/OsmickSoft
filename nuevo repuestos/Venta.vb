@@ -438,19 +438,20 @@ Public Class Venta
                 cantidad_product = cantidad_producto_disponible(idproducto)
                 For i = 0 To DataGridView1.RowCount - 1
                     If DataGridView1.Item(0, i).Value IsNot "" Then
-                        If DataGridView1.Item(0, i).Value = 0 Then
-                            suma = suma + DataGridView1.Item(5, i).Value
-                            text_sub_total.Text = Puntos(suma.ToString)
-                            iva = suma * 0.1
-                            text_iva.Text = Puntos(iva.ToString)
-                            total = suma + iva
+                        '''''''''''HERMES TOCÓ ESTO''''''''
+                        'If DataGridView1.Item(0, i).Value = 0 Then
+                        suma = suma + DataGridView1.Item(5, i).Value
+                        text_sub_total.Text = Puntos(suma.ToString)
+                        iva = suma * 0.1
+                        text_iva.Text = Puntos(iva.ToString)
+                        total = suma + iva
 
-                            text_total.Text = Puntos(total.ToString)
+                        text_total.Text = Puntos(total.ToString)
 
 
 
 
-                        End If
+                        'End If
                     End If
 
 
