@@ -590,54 +590,51 @@
             Dim habilitado2 As Integer
 
             For i As Integer = 0 To (cantidad_stock)
-                'If DataSet1.Tables("stock").Rows(i).Item("id_stock").ToString <> LabelIdQueNoSeVe.Text.ToString Then
                 habilitado2 = 1
 
                 ''''''ACÁ LO QUE HACEMOS ES CONTROLAR QUE EL CODIGO, CODIGO DE BARRAS Y DESCRIPCION COINCIDAN
                 If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo") <> TextBoxModificarNuevoCodigo.Text Then
-                            habilitado2 = 0
-                        End If
-                    Else
-                        If TextBoxModificarNuevoCodigo.Text <> "" Then
-                            habilitado2 = 0
-                        End If
-                    End If
-
-                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") <> TextBoxModificarNuevoCodigoDeBarras.Text Then
-                            habilitado2 = 0
-                        End If
-                    Else
-                        If TextBoxModificarNuevoCodigoDeBarras.Text <> "" Then
-                            habilitado2 = 0
-                        End If
-                    End If
-
-                    If DataSet1.Tables("stock").Rows(i).Item("descripcion") <> TextBoxModificarNuevaDescripcion.Text Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") <> TextBoxModificarNuevoCodigo.Text Then
                         habilitado2 = 0
                     End If
-
-                    If DataSet1.Tables("stock").Rows(i).Item("id_stock").ToString = LabelIdQueNoSeVe.Text.ToString Then
+                Else
+                    If TextBoxModificarNuevoCodigo.Text <> "" Then
                         habilitado2 = 0
                     End If
+                End If
 
-                    '''SI LA FILA ACTUAL (en este recorrido) ES LA QUE QUEREMOS
-                    If habilitado2 = 1 Then
-                        habilitado = 0
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") <> TextBoxModificarNuevoCodigoDeBarras.Text Then
+                        habilitado2 = 0
+                    End If
+                Else
+                    If TextBoxModificarNuevoCodigoDeBarras.Text <> "" Then
+                        habilitado2 = 0
+                    End If
+                End If
+
+                If DataSet1.Tables("stock").Rows(i).Item("descripcion") <> TextBoxModificarNuevaDescripcion.Text Then
+                    habilitado2 = 0
+                End If
+
+                If DataSet1.Tables("stock").Rows(i).Item("id_stock").ToString = LabelIdQueNoSeVe.Text.ToString Then
+                    habilitado2 = 0
+                End If
+
+                '''SI LA FILA ACTUAL (en este recorrido) ES LA QUE QUEREMOS
+                If habilitado2 = 1 Then
+                    habilitado = 0
                     MsgBox("Los datos nuevos que desea insertar a este producto corresponden a otros datos ya creados anteriormente. Por favor, verifique los datos de su 'Código de barras', 'Código' y 'Descripción'.")
                     i = cantidad_stock
                 End If
-                'End If
             Next
 
 
             '''MODIFICAR
             If habilitado = 1 Then
-                'Dim cantidad_stock As Integer
                 cantidad_stock = DataSet1.Tables("stock").Rows.Count - 1
 
-                        For i As Integer = 0 To (cantidad_stock)
+                For i As Integer = 0 To (cantidad_stock)
 
                             If DataSet1.Tables("stock").Rows(i).Item("id_stock") = LabelIdQueNoSeVe.Text Then
 
