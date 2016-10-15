@@ -259,6 +259,7 @@
 
 
             ''''''''''''''''''''''''''''''''''''''''''''''' ESTA ES LA PARTE DE ACTUALIZAR EN CASO DE QUE YA EXISTA Y HAYA ALGUN CAMBIO EN LOS CAMPOS DE STOCK ''''''''''
+            cantidad_stock = DataSet1.Tables("stock").Rows.Count
             Dim es_la_fila_que_queremo As Integer
 
             For i = 0 To (cantidad_stock - 1)
@@ -545,6 +546,7 @@
         TextBoxModificarNuevoPrecioDeVenta.Clear()
 
         LabelModificarProducto.Visible = False
+        LabelIdQueNoSeVe.Text = "labelidquenoseve"
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -580,143 +582,93 @@
         Dim existe_codigo As Integer
         existe_codigo = 0
 
+        If IsNumeric(LabelIdQueNoSeVe.Text) = True Then
 
-        If habilitado = 1 Then
+            '''FIJARSE SI LOS DATOS PUESTOS AHORA NO SON IDÉNTICOS A OTRA FILA YA INSERTADA ANTES
             Dim cantidad_stock As Integer
-            cantidad_stock = DataSet1.Tables("stock").Rows.Count
+            cantidad_stock = DataSet1.Tables("stock").Rows.Count - 1
+            Dim habilitado2 As Integer
 
-            Dim id_stock_nuevo As Integer
-            Dim id_stock_viejo As Integer
+            For i As Integer = 0 To (cantidad_stock)
+                'If DataSet1.Tables("stock").Rows(i).Item("id_stock").ToString <> LabelIdQueNoSeVe.Text.ToString Then
+                habilitado2 = 1
 
-            If TextBoxModificarNuevoCodigo.Text <> "" Then
-
-                For i As Integer = 0 To (cantidad_stock - 1)
-                    'si hubo una modificacion en el codigo
-                    If TextBoxModificarNuevoCodigo.Text <> TextBoxModificarNuevoCodigo.Text Then
-                        'Si el nuevo CODIGO ingresado YA existe'
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
-                            existe_codigo = 1
-                            id_stock_nuevo = DataSet1.Tables("stock").Rows(i).Item("id_stock")
+                ''''''ACÁ LO QUE HACEMOS ES CONTROLAR QUE EL CODIGO, CODIGO DE BARRAS Y DESCRIPCION COINCIDAN
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo") <> TextBoxModificarNuevoCodigo.Text Then
+                            habilitado2 = 0
+                        End If
+                    Else
+                        If TextBoxModificarNuevoCodigo.Text <> "" Then
+                            habilitado2 = 0
                         End If
                     End If
-                Next
 
-                For i As Integer = 0 To (cantidad_stock - 1)
-                    'buscar cual es el id_stock a reemplazar
-                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
-                        id_stock_viejo = DataSet1.Tables("stock").Rows(i).Item("id_stock")
+                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") <> TextBoxModificarNuevoCodigoDeBarras.Text Then
+                            habilitado2 = 0
+                        End If
+                    Else
+                        If TextBoxModificarNuevoCodigoDeBarras.Text <> "" Then
+                            habilitado2 = 0
+                        End If
                     End If
-                Next
 
-                ''' si el codigo existe
-                ''' no inserto, cambio todos los id_stock del INGRESO al id_stock del codigo
-                ''' y se borra la linea que se queria "modificar"
+                    If DataSet1.Tables("stock").Rows(i).Item("descripcion") <> TextBoxModificarNuevaDescripcion.Text Then
+                        habilitado2 = 0
+                    End If
 
-                If existe_codigo = 1 Then
-                    Dim cantidad_ingreso As Integer
-                    cantidad_ingreso = DataSet1.Tables("ingreso").Rows.Count
+                    If DataSet1.Tables("stock").Rows(i).Item("id_stock").ToString = LabelIdQueNoSeVe.Text.ToString Then
+                        habilitado2 = 0
+                    End If
 
-                    '''MODIFICACION EN TABLA STOCK
-                    For i = 0 To (cantidad_ingreso - 1)
-                        If DataSet1.Tables("ingreso").Rows(i).Item("id_stock") = id_stock_viejo Then 'si es que encuentra en INGRESO el codigo viejo
-                            'cambia al id_stock nuevo
-                            DataSet1.Tables("ingreso").Rows(i).Item("id_stock") = id_stock_nuevo
+                    '''SI LA FILA ACTUAL (en este recorrido) ES LA QUE QUEREMOS
+                    If habilitado2 = 1 Then
+                        habilitado = 0
+                    MsgBox("Los datos nuevos que desea insertar a este producto corresponden a otros datos ya creados anteriormente. Por favor, verifique los datos de su 'Código de barras', 'Código' y 'Descripción'.")
+                    i = cantidad_stock
+                End If
+                'End If
+            Next
 
-                            Validate()
-                            IngresoBindingSource.EndEdit()
-                            IngresoTableAdapter.Update(DataSet1.ingreso)
-                        End If
-                    Next
 
-                    '''MODIFICACION EN TABLA VENTA
-                    Dim cantidad_venta As Integer
-                    cantidad_venta = DataSet1.Tables("venta").Rows.Count
+            '''MODIFICAR
+            If habilitado = 1 Then
+                'Dim cantidad_stock As Integer
+                cantidad_stock = DataSet1.Tables("stock").Rows.Count - 1
 
-                    For i = 0 To (cantidad_venta - 1)
-                        If DataSet1.Tables("venta").Rows(i).Item("id_stock") = id_stock_viejo Then 'si es que encuentra en VENTA el codigo viejo
-                            'cambia al id_stock nuevo
-                            DataSet1.Tables("venta").Rows(i).Item("id_stock") = id_stock_nuevo
+                        For i As Integer = 0 To (cantidad_stock)
 
-                            Validate()
-                            VentaBindingSource.EndEdit()
-                            VentaTableAdapter.Update(DataSet1.venta)
-                        End If
-                    Next
+                            If DataSet1.Tables("stock").Rows(i).Item("id_stock") = LabelIdQueNoSeVe.Text Then
 
-                    '''ESTA PARTE ES PARA BORRAR LA LINEA EN TABLA INGRESO QUE SE QUERIA MODIFICAR
-                    cantidad_stock = DataSet1.Tables("stock").Rows.Count
+                                DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarNuevoCodigoDeBarras.Text
+                                DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text
+                                DataSet1.Tables("stock").Rows(i).Item("nombre") = TextBoxModificarNuevoNombre.Text
+                                DataSet1.Tables("stock").Rows(i).Item("descripcion") = TextBoxModificarNuevaDescripcion.Text
+                                DataSet1.Tables("stock").Rows(i).Item("precio_venta") = TextBoxModificarNuevoPrecioDeVenta.Text
 
-                    For i = 0 To (cantidad_stock - 1)
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
+                                Validate()
+                                StockBindingSource.EndEdit()
+                                StockTableAdapter.Update(DataSet1.stock)
 
-                            DataSet1.Tables("stock").Rows(i).Delete()
-                        End If
-                    Next
-                    Validate()
-                    StockBindingSource.EndEdit()
-                    StockTableAdapter.Update(DataSet1.stock)
+                                LabelModificarProducto.Show()
+                                LabelModificarProducto.Text = "Modificardo Correctamente"
+                                LabelModificarProducto.ForeColor = Color.Green
 
-                Else    'si el codigo insertado/modificado NO existe, se modifica direcamente en la tabla STOCK
+                                Button3.Focus()
+                            End If
+                        Next
+                    End If
 
-                    'Dim cantidad_stock As Integer
-                    cantidad_stock = DataSet1.Tables("stock").Rows.Count
+                    '''DESPUES DE MODIFICAR
+                    '''UPDATEO
+                    'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
+                    Me.StockTableAdapter.Fill(Me.DataSet1.stock)
 
-                    For i As Integer = 0 To (cantidad_stock - 1)
-                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
-
-                            DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarNuevoCodigoDeBarras.Text
-                            DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text
-                            DataSet1.Tables("stock").Rows(i).Item("nombre") = TextBoxModificarNuevoNombre.Text
-                            DataSet1.Tables("stock").Rows(i).Item("descripcion") = TextBoxModificarNuevaDescripcion.Text
-                            DataSet1.Tables("stock").Rows(i).Item("precio_venta") = TextBoxModificarNuevoPrecioDeVenta.Text
-
-                        End If
-                    Next
-
-                    Validate()
-                    StockBindingSource.EndEdit()
-                    StockTableAdapter.Update(DataSet1.stock)
-
+                    '''MOSTRAR TODO'''
+                    form_manager.productos2stock.Button1.PerformClick()
 
                 End If
-
-            Else ' si el codigo es vacio
-                'Dim cantidad_stock As Integer
-                cantidad_stock = DataSet1.Tables("stock").Rows.Count
-
-                For i As Integer = 0 To (cantidad_stock - 1)
-                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text Then
-
-                        DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxModificarNuevoCodigoDeBarras.Text
-                        DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxModificarNuevoCodigo.Text
-                        DataSet1.Tables("stock").Rows(i).Item("nombre") = TextBoxModificarNuevoNombre.Text
-                        DataSet1.Tables("stock").Rows(i).Item("descripcion") = TextBoxModificarNuevaDescripcion.Text
-                        DataSet1.Tables("stock").Rows(i).Item("precio_venta") = TextBoxModificarNuevoPrecioDeVenta.Text
-
-                    End If
-                Next
-
-                Validate()
-                StockBindingSource.EndEdit()
-                StockTableAdapter.Update(DataSet1.stock)
-
-            End If
-
-            LabelModificarProducto.Show()
-            LabelModificarProducto.Text = "Modificardo Correctamente"
-            LabelModificarProducto.ForeColor = Color.Green
-
-            Button3.Focus()
-
-            '''DESPUES DE MODIFICAR
-            '''UPDATEO
-            'TODO: esta línea de código carga datos en la tabla 'DataSet1.stock' Puede moverla o quitarla según sea necesario.
-            Me.StockTableAdapter.Fill(Me.DataSet1.stock)
-
-            '''MOSTRAR TODO'''
-            form_manager.productos2stock.Button1.PerformClick()
-
-        End If
     End Sub
 
     Private Sub TextBoxModificarNuevoCodigo_TextChanged(sender As Object, e As EventArgs)
@@ -796,6 +748,8 @@
         TextBoxModificarNuevoPrecioDeVenta.Clear()
 
         LabelModificarProducto.Visible = False
+
+        LabelIdQueNoSeVe.Text = "LabelIdQueNoSeVe"
     End Sub
 
     Private Sub ButtonInsertarProducto_LostFocus(sender As Object, e As EventArgs) Handles ButtonInsertarProducto.LostFocus
@@ -948,6 +902,22 @@
     End Sub
 
     Private Sub TextBoxPrecio_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecio.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxModificarNuevoCodigoDeBarras_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxModificarNuevoCodigoDeBarras.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxModificarNuevoCodigo_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxModificarNuevoCodigo.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxModificarNuevoNombre_TextChanged(sender As Object, e As EventArgs) Handles TextBoxModificarNuevoNombre.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxModificarNuevoPrecioDeVenta_TextChanged(sender As Object, e As EventArgs) Handles TextBoxModificarNuevoPrecioDeVenta.TextChanged
 
     End Sub
 End Class

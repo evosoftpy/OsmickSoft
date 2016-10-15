@@ -211,6 +211,40 @@
                 form_manager.stock.TextBoxModificarNuevoNombre.Text = varNombre
                 form_manager.stock.TextBoxModificarNuevaDescripcion.Text = varDescripcion
                 form_manager.stock.TextBoxModificarNuevoPrecioDeVenta.Text = varPrecioDeVenta
+
+
+                ''''ESTA ES LA PARTE PARA GUARDAR EL id_stock
+                Dim cantidad_stock As Integer
+                cantidad_stock = DataSet1.Tables("stock").Rows.Count
+
+                Dim es_la_fila_que_queremo As Integer
+                For i = 0 To (cantidad_stock - 1)
+                    es_la_fila_que_queremo = 1
+
+                    ''''''ACÁ LO QUE HACEMOS ES CONTROLAR QUE EL CODIGO, CODIGO DE BARRAS Y DESCRIPCION COINCIDAN CON LO QUE ACABAMOS DE INSERTAR, ESE ES NUESTRO PRODUCTO QUE BUSCAMOS
+                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False And IsDBNull(DataGridViewStock.Item(0, index).Value) = False Then
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo") <> DataGridViewStock.Item(0, index).Value Then
+                            es_la_fila_que_queremo = 0
+                        End If
+                    End If
+                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False And IsDBNull(DataGridViewStock.Item(1, index).Value) = False Then
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") <> DataGridViewStock.Item(1, index).Value Then
+                            es_la_fila_que_queremo = 0
+                        End If
+                    End If
+                    If DataSet1.Tables("stock").Rows(i).Item("descripcion") <> DataGridViewStock.Item(3, index).Value Then
+                        es_la_fila_que_queremo = 0
+                    End If
+
+
+                    '''SI LA FILA ACTUAL (en este recorrido) ES LA QUE QUEREMOS
+                    If es_la_fila_que_queremo = 1 Then
+                        form_manager.stock.LabelIdQueNoSeVe.Text = DataSet1.Tables("stock").Rows(i).Item("id_stock")
+                    End If
+                Next
+
+
+
             End If
         End If
 
