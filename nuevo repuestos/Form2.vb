@@ -503,6 +503,11 @@
 
         TextBoxCodigoDeBarras.Focus()
 
+        '''MOSTRAR TODO'''
+        form_manager.productos2stock.StockTableAdapter.Fill(Me.DataSet1.stock)
+        form_manager.productos2stock.Button1.PerformClick()
+
+
     End Sub
 
     Private Sub TextBoxModificarNuevoCodigoDeBarras_TextChanged(sender As Object, e As EventArgs)
@@ -824,29 +829,9 @@
     End Sub
 
     Private Sub TextBoxCantidad_GotFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.GotFocus
-
         '''MOSTRAR TODO'''
-        form_manager.productos2stock.DataGridViewStock.Rows.Clear()
-
-        Dim i As Integer
-        Dim j As Integer
-        j = 0
-        Dim cant_cont As Integer
-        cant_cont = DataSet1.Tables("stock").Rows.Count - 1
-
-
-        For i = 0 To cant_cont
-
-            form_manager.productos2stock.DataGridViewStock.Rows.Add()
-
-            form_manager.productos2stock.DataGridViewStock.Item(0, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
-            form_manager.productos2stock.DataGridViewStock.Item(1, i).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
-            form_manager.productos2stock.DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
-            form_manager.productos2stock.DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-            form_manager.productos2stock.DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
-
-        Next
-
+        form_manager.productos2stock.StockTableAdapter.Fill(Me.DataSet1.stock)
+        form_manager.productos2stock.Button1.PerformClick()
     End Sub
 
     Private Sub TextBoxCodigoDeBarras_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCodigoDeBarras.LostFocus
