@@ -145,58 +145,76 @@
 
     Private Sub DataGridViewStock_DoubleClick(sender As Object, e As EventArgs) Handles DataGridViewStock.DoubleClick
 
-        If DataGridViewStock.Rows.Count <> 0 Then
-            Dim index As Integer
-            index = DataGridViewStock.CurrentRow.Index
-
-        If form_manager.stock.GroupBoxIngresarProducto.Visible = True Then
-            '''EN CASO DE QUE SEA "INSERTAR PRODUCTO"
-            Dim varCodigoDeBarras As String
-            Dim varCodigo As String
-            Dim varNombre As String
-            Dim varDescripcion As String
-            Dim varPrecioDeVenta As Integer
-
-            varCodigoDeBarras = DataGridViewStock.Item(1, index).Value
-            varCodigo = DataGridViewStock.Item(0, index).Value
-            varNombre = DataGridViewStock.Item(2, index).Value
-            varDescripcion = DataGridViewStock.Item(3, index).Value
-            varPrecioDeVenta = DataGridViewStock.Item(4, index).Value
-
-            form_manager.stock.TextBoxCodigoDeBarras.Text = varCodigoDeBarras
-            form_manager.stock.TextBoxCodigo.Text = varCodigo
-            form_manager.stock.TextBoxNombre.Text = varNombre
-            form_manager.stock.TextBoxDescripcion.Text = varDescripcion
-            form_manager.stock.TextBoxPrecioDeVenta.Text = varPrecioDeVenta
-        Else
-            '''EN CASO DE QUE SEA "MODIFICAR PRODUCTO"
-            Dim varCodigoDeBarras As String
-            Dim varCodigo As String
-            Dim varNombre As String
-            Dim varDescripcion As String
-            Dim varPrecioDeVenta As Integer
-
-            varCodigoDeBarras = DataGridViewStock.Item(1, index).Value
-            varCodigo = DataGridViewStock.Item(0, index).Value
-            varNombre = DataGridViewStock.Item(2, index).Value
-            varDescripcion = DataGridViewStock.Item(3, index).Value
-            varPrecioDeVenta = DataGridViewStock.Item(4, index).Value
-
-            form_manager.stock.TextBoxModificarNuevoCodigoDeBarras.Text = varCodigoDeBarras
-            form_manager.stock.TextBoxModificarNuevoCodigo.Text = varCodigo
-            form_manager.stock.TextBoxModificarNuevoNombre.Text = varNombre
-            form_manager.stock.TextBoxModificarNuevaDescripcion.Text = varDescripcion
-            form_manager.stock.TextBoxModificarNuevoPrecioDeVenta.Text = varPrecioDeVenta
-        End If
-
-        End If
-
-
     End Sub
 
     Private Sub TextBoxBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBuscar.TextChanged
 
         Button2.PerformClick()
+
+    End Sub
+
+    Private Sub DataGridViewStock_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewStock.CellDoubleClick
+
+        If DataGridViewStock.Rows.Count <> 0 Then
+            Dim index As Integer
+            index = DataGridViewStock.CurrentRow.Index
+
+            If form_manager.stock.GroupBoxIngresarProducto.Visible = True Then
+                '''EN CASO DE QUE SEA "INSERTAR PRODUCTO"
+                Dim varCodigoDeBarras As String
+                Dim varCodigo As String
+                Dim varNombre As String
+                Dim varDescripcion As String
+                Dim varPrecioDeVenta As Integer
+
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataGridViewStock.Item(1, index).Value) = False Then
+                    varCodigoDeBarras = DataGridViewStock.Item(1, index).Value
+                End If
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataGridViewStock.Item(0, index).Value) = False Then
+                    varCodigo = DataGridViewStock.Item(0, index).Value
+                End If
+                varNombre = DataGridViewStock.Item(2, index).Value
+                varDescripcion = DataGridViewStock.Item(3, index).Value
+                varPrecioDeVenta = DataGridViewStock.Item(4, index).Value
+
+                form_manager.stock.TextBoxCodigoDeBarras.Text = varCodigoDeBarras
+                form_manager.stock.TextBoxCodigo.Text = varCodigo
+                form_manager.stock.TextBoxNombre.Text = varNombre
+                form_manager.stock.TextBoxDescripcion.Text = varDescripcion
+                form_manager.stock.TextBoxPrecioDeVenta.Text = varPrecioDeVenta
+
+                form_manager.stock.TextBoxCantidad.Focus()
+            Else
+                '''EN CASO DE QUE SEA "MODIFICAR PRODUCTO"
+                Dim varCodigoDeBarras As String
+                Dim varCodigo As String
+                Dim varNombre As String
+                Dim varDescripcion As String
+                Dim varPrecioDeVenta As Integer
+
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataGridViewStock.Item(1, index).Value) = False Then
+                    varCodigoDeBarras = DataGridViewStock.Item(1, index).Value
+                End If
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataGridViewStock.Item(0, index).Value) = False Then
+                    varCodigo = DataGridViewStock.Item(0, index).Value
+                End If
+                varNombre = DataGridViewStock.Item(2, index).Value
+                varDescripcion = DataGridViewStock.Item(3, index).Value
+                varPrecioDeVenta = DataGridViewStock.Item(4, index).Value
+
+                form_manager.stock.TextBoxModificarNuevoCodigoDeBarras.Text = varCodigoDeBarras
+                form_manager.stock.TextBoxModificarNuevoCodigo.Text = varCodigo
+                form_manager.stock.TextBoxModificarNuevoNombre.Text = varNombre
+                form_manager.stock.TextBoxModificarNuevaDescripcion.Text = varDescripcion
+                form_manager.stock.TextBoxModificarNuevoPrecioDeVenta.Text = varPrecioDeVenta
+            End If
+        End If
+
+
 
     End Sub
 End Class

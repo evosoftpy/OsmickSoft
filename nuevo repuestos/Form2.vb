@@ -100,12 +100,19 @@
         ''' SI LOS CAMPOS IMPORTANTES NO ESTAN VACIOS, SE PROCEDE AL INGRESO
         If habilitado = 1 Then
 
-            '''''''''' ESTA ES LA PARTE DE AÑADIR A LA TABLA STOCK ''''''''''
+            ''''''''''''''''''''''''''''''''''''''''''''''' ESTA ES LA PARTE DE AÑADIR A LA TABLA STOCK ''''''''''
             Dim codigo_existe As Integer
             codigo_existe = 0
 
+            Dim ya_se_inserto_nueva_fila As Integer
+            ya_se_inserto_nueva_fila = 0
+
+            Dim codigo_con_descripcion_existe As Integer
+            codigo_con_descripcion_existe = 0
+
             Dim i As Integer
 
+            '''''''''''''''''''''''''''''''''''''PARTE DEL CÓDIGO es no nulo y NO EXISTE'''''''''''''''''''''''''''''''''''''
             ''' BUSCA SI EXISTE PRODUCTO CON "CODIGO" YA INGRESADO
             For i = 0 To (cantidad_stock - 1)
                 '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
@@ -116,18 +123,12 @@
                     End If
                 End If
             Next
-            MsgBox(codigo_existe)
             'SI EL CODIGO ES NO NULO, Y NO EXISTE EN LA BASE DE DATOS, SE INSERTA UNA NUEVA FILA
             If codigo_existe = 0 And TextBoxCodigo.Text <> "" Then
                 Dim nuevo_stock As DataRow = DataSet1.Tables("stock").NewRow()
 
                 nuevo_stock("codigo") = TextBoxCodigo.Text
-                If TextBoxCodigoDeBarras.Text <> "" Then
-                    nuevo_stock("codigo_barras") = TextBoxCodigoDeBarras.Text
-                Else
-                    nuevo_stock("codigo_barras") = "''"
-                End If
-
+                nuevo_stock("codigo_barras") = TextBoxCodigoDeBarras.Text
                 nuevo_stock("nombre") = TextBoxNombre.Text
                 nuevo_stock("descripcion") = TextBoxDescripcion.Text
                 nuevo_stock("precio_venta") = TextBoxPrecioDeVenta.Text
@@ -138,13 +139,59 @@
                 StockBindingSource.EndEdit()
                 StockTableAdapter.Update(DataSet1.stock)
 
-            Else
+                ya_se_inserto_nueva_fila = 1
+            End If
+            '''''''''''''''''''''''''''''''''''''/PARTE DEL CÓDIGO'''''''''''''''''''''''''''''''''''''
 
+
+            '''''''''''''''''''''''''''''''''''''PARTE DEL CÓDIGO es no nulo y  EXISTE'''''''''''''''''''''''''''''''''''''
+            If codigo_existe = 1 Then ''esto se toma de la función anterior
+                ''' BUSCA SI YA EXISTE CODIGO CON ESA DESCRIPCION
+                For i = 0 To (cantidad_stock - 1)
+                    '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                        'Si el CODIGO ingresado existe y YA EXISTE ESA DESCRIPCIÓN'
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text And DataSet1.Tables("stock").Rows(i).Item("descripcion") = TextBoxDescripcion.Text Then
+                            codigo_con_descripcion_existe = 1
+                        End If
+                    End If
+                Next
+
+                'SI EL CODIGO EXISTE EN LA BASE DE DATOS, PERO NO CON ESE COMENTARIO, SE INSERTA UNA NUEVA FILA'
+                If codigo_con_descripcion_existe = 0 Then
+
+                    Dim nuevo_stock As DataRow = DataSet1.Tables("stock").NewRow()
+
+                    nuevo_stock("codigo") = TextBoxCodigo.Text
+                    nuevo_stock("codigo_barras") = TextBoxCodigoDeBarras.Text
+                    nuevo_stock("nombre") = TextBoxNombre.Text
+                    nuevo_stock("descripcion") = TextBoxDescripcion.Text
+                    nuevo_stock("precio_venta") = TextBoxPrecioDeVenta.Text
+
+                    DataSet1.Tables("stock").Rows.Add(nuevo_stock)
+
+                    Validate()
+                    StockBindingSource.EndEdit()
+                    StockTableAdapter.Update(DataSet1.stock)
+
+                    ya_se_inserto_nueva_fila = 1
+
+                End If
+            End If
+
+            '''''''''''''''''''''''''''''''''''''/PARTE DEL CÓDIGO'''''''''''''''''''''''''''''''''''''
+
+
+            '''''''''''''''''''''''''''''''''''''PARTE DEL CÓDIGO DE BARRAS en no nulo y NO EXISTE'''''''''''''''''''''''''''''''''''''
+            If ya_se_inserto_nueva_fila = 0 Then 'si ya se inseró la fila, es innecesario esto, así que se pasa wexd
                 ''' BUSCA SI EXISTE PRODUCTO CON "CODIGO DE BARRAS" YA INGRESADO
                 For i = 0 To (cantidad_stock - 1)
-                    'Si el CODIGO DE BARRAS ingresado existe'
-                    If TextBoxCodigoDeBarras.Text <> "" And DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
-                        codigo_existe = 1
+                    '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
+                        'Si el CODIGO DE BARRAS ingresado existe'
+                        If TextBoxCodigoDeBarras.Text <> "" And DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
+                            codigo_existe = 1
+                        End If
                     End If
                 Next
 
@@ -163,12 +210,15 @@
                     Validate()
                     StockBindingSource.EndEdit()
                     StockTableAdapter.Update(DataSet1.stock)
+
+                    ya_se_inserto_nueva_fila = 1
                 End If
             End If
+            '''''''''''''''''''''''''''''''''''''/PARTE DEL CÓDIGO DE BARRAS'''''''''''''''''''''''''''''''''''''
 
 
 
-            '''''''''' ESTA ES LA PARTE DEL PROVEEDOR ''''''''''
+            ''''''''''''''''''''''''''''''''''''''''''''''' ESTA ES LA PARTE DEL PROVEEDOR ''''''''''
             If TextBoxRUCproveedor.Text <> "" Then
                 Dim proveedor_existe As Integer
                 proveedor_existe = 0
@@ -183,7 +233,7 @@
                     End If
                 Next
 
-                'si el proveedor insertado no existe, crea una fila en la tabla proveedor
+                'si el proveedor NO EXISTE, se INSERTA nuevo
                 If proveedor_existe = 0 Then
 
                     Dim nuevo_proveedor As DataRow = DataSet1.Tables("proveedor").NewRow()
@@ -208,18 +258,34 @@
             '''
 
 
-            '''''''''' ESTA ES LA PARTE DE ACTUALIZAR EN CASO DE QUE YA EXISTA Y HAYA ALGUN CAMBIO EN LOS CAMPOS DE STOCK ''''''''''
-            cantidad_stock = DataSet1.Tables("stock").Rows.Count
+            ''''''''''''''''''''''''''''''''''''''''''''''' ESTA ES LA PARTE DE ACTUALIZAR EN CASO DE QUE YA EXISTA Y HAYA ALGUN CAMBIO EN LOS CAMPOS DE STOCK ''''''''''
+            Dim es_la_fila_que_queremo As Integer
 
             For i = 0 To (cantidad_stock - 1)
-                'Si el CODIGO ingresado existe'
-                If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text And DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
+                es_la_fila_que_queremo = 1
+
+                ''''''ACÁ LO QUE HACEMOS ES CONTROLAR QUE EL CODIGO, CODIGO DE BARRAS Y DESCRIPCION COINCIDAN CON LO QUE ACABAMOS DE INSERTAR, ESE ES NUESTRO PRODUCTO QUE BUSCAMOS
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") <> TextBoxCodigo.Text Then
+                        es_la_fila_que_queremo = 0
+                    End If
+                End If
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") <> TextBoxCodigoDeBarras.Text Then
+                        es_la_fila_que_queremo = 0
+                    End If
+                End If
+                If DataSet1.Tables("stock").Rows(i).Item("descripcion") <> TextBoxDescripcion.Text Then
+                    es_la_fila_que_queremo = 0
+                End If
 
 
-                    DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text
-                    DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text
+                '''SI LA FILA ACTUAL (en este recorrido) ES LA QUE QUEREMOS
+                If es_la_fila_que_queremo = 1 Then
+                    'DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text
+                    'DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text
                     DataSet1.Tables("stock").Rows(i).Item("nombre") = TextBoxNombre.Text
-                    DataSet1.Tables("stock").Rows(i).Item("descripcion") = TextBoxDescripcion.Text
+                    'DataSet1.Tables("stock").Rows(i).Item("descripcion") = TextBoxDescripcion.Text
                     DataSet1.Tables("stock").Rows(i).Item("precio_venta") = TextBoxPrecioDeVenta.Text
 
                     Validate()
@@ -235,15 +301,33 @@
             Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
             Me.StockTableAdapter.Fill(Me.DataSet1.stock)
 
-
             cantidad_stock = DataSet1.Tables("stock").Rows.Count
 
-            '''''''''' ESTA ES LA PARTE PARA METER EN INGRESO ''''''''''
-            Dim bandera_encontro_codigo As Integer
-            bandera_encontro_codigo = 0
+
+            ''''''''''''''''''''''''''''''''''''''''''''''' ESTA ES LA PARTE PARA METER EN INGRESO ''''''''''
+            Dim es_la_fila_que_queremos As Integer
+
             For i = 0 To (cantidad_stock - 1)
-                'Si el PRODUCTO ingresado existe0'
-                If TextBoxCodigo.Text <> "" And DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+                es_la_fila_que_queremos = 1
+
+                ''''''ACÁ LO QUE HACEMOS ES CONTROLAR QUE EL CODIGO, CODIGO DE BARRAS Y DESCRIPCION COINCIDAN CON LO QUE ACABAMOS DE INSERTAR, ESE ES NUESTRO PRODUCTO QUE BUSCAMOS
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") <> TextBoxCodigo.Text Then
+                        es_la_fila_que_queremos = 0
+                    End If
+                End If
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") <> TextBoxCodigoDeBarras.Text Then
+                        es_la_fila_que_queremos = 0
+                    End If
+                End If
+                If DataSet1.Tables("stock").Rows(i).Item("descripcion") <> TextBoxDescripcion.Text Then
+                    es_la_fila_que_queremos = 0
+                End If
+
+
+                '''SI LA FILA ACTUAL (en este recorrido) ES LA QUE QUEREMOS
+                If es_la_fila_que_queremos = 1 Then
                     Dim nuevo_ingreso As DataRow = DataSet1.Tables("ingreso").NewRow()
 
                     nuevo_ingreso("id_stock") = DataSet1.Tables("stock").Rows(i).Item("id_stock")
@@ -257,43 +341,14 @@
                     Validate()
                     IngresoBindingSource.EndEdit()
                     IngresoTableAdapter.Update(DataSet1.ingreso)
-
-                    bandera_encontro_codigo = 1
                 End If
             Next
-
-            If bandera_encontro_codigo = 0 Then 'si no encontro CODIGO, necesariamente tiene que encontrar CODIGO DE BARRAS
-                For i = 0 To (cantidad_stock - 1)
-                    'Si el PRODUCTO ingresado existe'
-                    If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
-                        Dim nuevo_ingreso As DataRow = DataSet1.Tables("ingreso").NewRow()
-
-                        Dim cantidad_proveedores As Integer
-                        cantidad_proveedores = DataSet1.Tables("proveedor").Rows.Count
-
-                        nuevo_ingreso("id_stock") = DataSet1.Tables("stock").Rows(i).Item("id_stock")
-                        nuevo_ingreso("cantidad") = TextBoxCantidad.Text
-                        nuevo_ingreso("factura_compra") = TextBoxFactura.Text
-                        nuevo_ingreso("precio_compra") = TextBoxPrecio.Text
-                        nuevo_ingreso("fecha_ingreso") = TextBoxFecha.Text
-
-                        DataSet1.Tables("ingreso").Rows.Add(nuevo_ingreso)
-
-                        Validate()
-                        IngresoBindingSource.EndEdit()
-                        IngresoTableAdapter.Update(DataSet1.ingreso)
-
-                    End If
-                Next
-            End If
-
 
             LabelInsertarProducto.Show()
             LabelInsertarProducto.Text = "Insertado Correctamente"
             LabelInsertarProducto.ForeColor = Color.Green
 
             ButtonInsertarProducto.Focus()
-
 
             '''DESPUES DE INSERTAR, UPDATEO
             Me.StockTableAdapter.Fill(Me.DataSet1.stock)
@@ -320,27 +375,33 @@
         If TextBoxCodigo.Text <> "" Then
 
             For i As Integer = 0 To (cantidad_stock - 1)
-                '''SI EL CODIGO EXISTE
-                If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
-                    cantidad_de_codigo = cantidad_de_codigo + 1
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                    '''SI EL CODIGO EXISTE
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+                        cantidad_de_codigo = cantidad_de_codigo + 1
+                    End If
                 End If
             Next
 
             '''SOLO SI HAY UN PRODUCTO CON ESE CODIGO SE AUTOCOMPLETA (SINO HAY QUE DAR CLIC EN PRODUCTOS2)
             If cantidad_de_codigo = 1 Then
                 For i As Integer = 0 To (cantidad_stock - 1)
-                    'Si el PRODUCTO ingresado existe'
-                    If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+                    '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                    If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                        'Si el PRODUCTO ingresado existe'
+                        If DataSet1.Tables("stock").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
 
-                        LabelInsertarProducto.Hide()
+                            LabelInsertarProducto.Hide()
 
-                        TextBoxCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
-                        TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                        TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                        TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                            TextBoxCodigoDeBarras.Text = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                            TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                            TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                            TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
 
-                        TextBoxCantidad.Focus()
+                            TextBoxCantidad.Focus()
 
+                        End If
                     End If
                 Next
             End If
@@ -364,17 +425,20 @@
         For i = 0 To cant_cont
             '''SI LA CADENA EXISTE EN EL CODIGO
             If TextBoxCodigo.TextLength <= DataSet1.Tables("stock").Rows(i).Item("codigo").ToString.Length Then
-                If TextBoxCodigo.Text.ToString = DataSet1.Tables("stock").Rows(i).Item("codigo").Substring(0, TextBoxCodigo.TextLength) Then
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo")) = False Then
+                    If TextBoxCodigo.Text.ToString = DataSet1.Tables("stock").Rows(i).Item("codigo").Substring(0, TextBoxCodigo.TextLength) Then
 
-                    form_manager.productos2stock.DataGridViewStock.Rows.Add()
+                        form_manager.productos2stock.DataGridViewStock.Rows.Add()
 
-                    form_manager.productos2stock.DataGridViewStock.Item(0, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
-                    form_manager.productos2stock.DataGridViewStock.Item(1, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
-                    form_manager.productos2stock.DataGridViewStock.Item(2, j).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    form_manager.productos2stock.DataGridViewStock.Item(3, j).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                    form_manager.productos2stock.DataGridViewStock.Item(4, j).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
-                    j = j + 1
+                        form_manager.productos2stock.DataGridViewStock.Item(0, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                        form_manager.productos2stock.DataGridViewStock.Item(1, j).Value = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")
+                        form_manager.productos2stock.DataGridViewStock.Item(2, j).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                        form_manager.productos2stock.DataGridViewStock.Item(3, j).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                        form_manager.productos2stock.DataGridViewStock.Item(4, j).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                        j = j + 1
 
+                    End If
                 End If
             End If
         Next
@@ -842,18 +906,21 @@
 
         If TextBoxCodigoDeBarras.Text <> "" Then
             For i As Integer = 0 To (cantidad_stock - 1)
-                'Si el PRODUCTO ingresado existe'
-                If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
+                '''SE PONE ESTO PORQUE SI ES NULL EN LA BD EXPLOTA, ENTONCES SALTAMOS ESE DBNULL
+                If IsDBNull(DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) = False Then
+                    'Si el PRODUCTO ingresado existe'
+                    If DataSet1.Tables("stock").Rows(i).Item("codigo_barras") = TextBoxCodigoDeBarras.Text Then
 
-                    LabelInsertarProducto.Hide()
+                        LabelInsertarProducto.Hide()
 
-                    TextBoxCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
-                    TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
-                    TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
-                    TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                        TextBoxCodigo.Text = DataSet1.Tables("stock").Rows(i).Item("codigo")
+                        TextBoxNombre.Text = DataSet1.Tables("stock").Rows(i).Item("nombre")
+                        TextBoxDescripcion.Text = DataSet1.Tables("stock").Rows(i).Item("descripcion")
+                        TextBoxPrecioDeVenta.Text = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
 
 
-                    TextBoxCantidad.Focus()
+                        TextBoxCantidad.Focus()
+                    End If
                 End If
             Next
 
