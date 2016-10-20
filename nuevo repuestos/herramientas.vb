@@ -1,4 +1,6 @@
 ﻿Public Class herramientas
+    Public ban_modificar As Integer
+
     Public Function buscar_en_tablas(ByVal dataSet1 As DataSet, ByVal tabla As String, ByVal columna As String, ByVal buscado As String)
 
         'buscar 

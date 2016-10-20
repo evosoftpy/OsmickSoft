@@ -201,7 +201,8 @@ Public Class Venta
     End Sub
 
     Private Sub venta_guardar_Click(sender As Object, e As EventArgs) Handles venta_guardar.Click
-        Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        update_cache()
+
         Dim ban = 0
         'comprobar existencia del cliente
         Dim id_cliente
@@ -347,6 +348,33 @@ Public Class Venta
 
     End Function
 
+    Private Function cantidad_producto_disponible_modificacion(idproducto As Integer, nro_factura As String)
+        'funcion que devuelve la cantidad del producto seleccionado disponible
+        Dim ingresos As Integer
+        Dim salidas As Integer
+        Dim i As Integer
+        update_cache()
+
+
+        ingresos = 0
+        salidas = 0
+
+        For i = 0 To DataSet1.Tables("ingreso").Rows.Count - 1
+            If DataSet1.Tables("ingreso").Rows(i).Item("id_stock") = idproducto Then
+                ingresos = ingresos + DataSet1.Tables("ingreso").Rows(i).Item("cantidad")
+            End If
+        Next
+
+        For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
+            If DataSet1.Tables("venta").Rows(i).Item("id_stock") = idproducto And DataSet1.Tables("venta").Rows(i).Item("factura_venta") <> nro_factura Then
+                salidas = salidas + DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
+            End If
+        Next
+
+        Return ingresos - salidas
+
+    End Function
+
     Public Sub EnvioMail(mensaje As String)
 
         Dim correo As New MailMessage
@@ -435,22 +463,27 @@ Public Class Venta
 
         Else
             If DataGridView1.Item(4, curen).Value > -1 Then
-                cantidad_product = cantidad_producto_disponible(idproducto)
+                If moduloDatos.ban_modificar = 1 And n_factura_textbox.Text IsNot "" Then
+                    cantidad_product = cantidad_producto_disponible_modificacion(idproducto, n_factura_textbox.Text)
+                Else
+                    cantidad_product = cantidad_producto_disponible(idproducto)
+                End If
+
                 For i = 0 To DataGridView1.RowCount - 1
                     If DataGridView1.Item(0, i).Value IsNot "" Then
-                        If DataGridView1.Item(0, i).Value = 0 Then
-                            suma = suma + DataGridView1.Item(5, i).Value
-                            text_sub_total.Text = Puntos(suma.ToString)
-                            iva = suma * 0.1
-                            text_iva.Text = Puntos(iva.ToString)
-                            total = suma + iva
+                        If IsNumeric(DataGridView1.Item(0, i).Value) Then
+                            If DataGridView1.Item(0, i).Value = 0 Then
+                                suma = suma + DataGridView1.Item(5, i).Value
+                                text_sub_total.Text = Puntos(suma.ToString)
+                                iva = suma * 0.1
+                                text_iva.Text = Puntos(iva.ToString)
+                                total = suma + iva
 
-                            text_total.Text = Puntos(total.ToString)
+                                text_total.Text = Puntos(total.ToString)
 
-
-
-
+                            End If
                         End If
+
                     End If
 
 
@@ -524,7 +557,9 @@ Public Class Venta
     End Sub
 
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
-        Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        update_cache()
+
+
         Dim factura_buscada As String
         Dim pos As Integer
         Dim i As Integer
@@ -537,6 +572,8 @@ Public Class Venta
         Dim iva As Integer
         Dim total As Integer
         Dim cont As Integer
+        Dim ban_logrado As Integer
+        ban_logrado = 0
         cont = 0
         suma = 0
 
@@ -567,7 +604,8 @@ Public Class Venta
                     DataGridView1.Item(3, cont).Value = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "id_stock", DataSet1.Tables("venta").Rows(i).Item("id_stock"))).Item("precio_venta")
                     DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
                     DataGridView1.Item(5, cont).Value = DataSet1.Tables("venta").Rows(i).Item("precio_venta")
-
+                    moduloDatos.ban_modificar = 1
+                    ban_logrado = 1
 
                     cont = cont + 1
                 End If
@@ -589,8 +627,14 @@ Public Class Venta
 
                 End If
             Next
+
+            If ban_logrado = 1 Then
+                MsgBox("Factura cargada con exito")
+                ban_logrado = 0
+            End If
         Else
             MsgBox("Factura no existe")
+            moduloDatos.ban_modificar = 0
         End If
     End Sub
 
@@ -598,6 +642,8 @@ Public Class Venta
         text_ruc_venta.Clear()
         TextBox16.Clear()
         DataGridView1.Rows.Clear()
+        update_cache()
+        moduloDatos.ban_modificar = 0
     End Sub
 
     Private Function pos_ultimo_guion(n_factura As String)
@@ -873,7 +919,8 @@ Public Class Venta
         Return strAux
     End Function
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
-        Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        update_cache()
+        moduloDatos.ban_modificar = 0
         Dim factura As String
         Dim ruc_cliente As Integer
         Dim ban_operacion_realizada = 0
@@ -947,7 +994,7 @@ Public Class Venta
         DataGridView1.Rows.Clear()
         TextBox17.Clear()
 
-
+        moduloDatos.ban_modificar = 0
         MsgBox("Borrado exitosamente")
     End Sub
 
@@ -1061,6 +1108,7 @@ Public Class Venta
                         DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
                         DataGridView1.Item(5, cont).Value = DataSet1.Tables("venta").Rows(i).Item("precio_venta")
                         cont = cont + 1
+                        moduloDatos.ban_modificar = 1
                     End If
 
 
@@ -1182,6 +1230,7 @@ Public Class Venta
                         DataGridView1.Item(4, cont).Value = DataSet1.Tables("venta").Rows(i).Item("cantidad_venta")
                         DataGridView1.Item(5, cont).Value = DataSet1.Tables("venta").Rows(i).Item("precio_venta")
                         cont = cont + 1
+                        moduloDatos.ban_modificar = 1
                     End If
 
 

@@ -119,6 +119,9 @@ Public Class Form1
         form_manager.ban_venta = 1
         form_manager.sell.MdiParent = Me
         form_manager.sell.Show()
+        moduloDatos.ban_modificar = 0
+
+
 
 
         ProgressBar1.Value = 70
