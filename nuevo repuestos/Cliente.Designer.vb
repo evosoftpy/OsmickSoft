@@ -52,7 +52,6 @@ Partial Class Cliente
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesBusGroup.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,7 +91,7 @@ Partial Class Cliente
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteRucList, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -112,7 +111,7 @@ Partial Class Cliente
         'clienteRucList
         '
         Me.clienteRucList.FormattingEnabled = True
-        Me.clienteRucList.Location = New System.Drawing.Point(496, 23)
+        Me.clienteRucList.Location = New System.Drawing.Point(495, 23)
         Me.clienteRucList.Name = "clienteRucList"
         Me.clienteRucList.Size = New System.Drawing.Size(106, 251)
         Me.clienteRucList.TabIndex = 7
@@ -120,7 +119,7 @@ Partial Class Cliente
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(378, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(377, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(112, 251)
         Me.clienteNumeroList.TabIndex = 6
@@ -128,7 +127,7 @@ Partial Class Cliente
         'clienteApellidoList
         '
         Me.clienteApellidoList.FormattingEnabled = True
-        Me.clienteApellidoList.Location = New System.Drawing.Point(183, 23)
+        Me.clienteApellidoList.Location = New System.Drawing.Point(182, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
         Me.clienteApellidoList.Size = New System.Drawing.Size(189, 251)
         Me.clienteApellidoList.TabIndex = 5
@@ -136,7 +135,7 @@ Partial Class Cliente
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(496, 0)
+        Me.Label4.Location = New System.Drawing.Point(495, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 3
@@ -145,7 +144,7 @@ Partial Class Cliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(378, 0)
+        Me.Label3.Location = New System.Drawing.Point(377, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -154,7 +153,7 @@ Partial Class Cliente
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(183, 0)
+        Me.Label2.Location = New System.Drawing.Point(182, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 1
@@ -174,7 +173,7 @@ Partial Class Cliente
         Me.clienteNombreList.FormattingEnabled = True
         Me.clienteNombreList.Location = New System.Drawing.Point(3, 23)
         Me.clienteNombreList.Name = "clienteNombreList"
-        Me.clienteNombreList.Size = New System.Drawing.Size(174, 251)
+        Me.clienteNombreList.Size = New System.Drawing.Size(173, 251)
         Me.clienteNombreList.TabIndex = 4
         '
         'clienteAgreBtn
@@ -305,21 +304,15 @@ Partial Class Cliente
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(118, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 48)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'Cliente
         '
@@ -375,7 +368,6 @@ Partial Class Cliente
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button1 As Button
     Friend WithEvents clienteParTxt As TextBox
 End Class

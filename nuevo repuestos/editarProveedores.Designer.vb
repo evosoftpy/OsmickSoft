@@ -90,7 +90,7 @@ Partial Class editarProveedores
         'clienteRucLb
         '
         Me.clienteRucLb.AutoSize = True
-        Me.clienteRucLb.Location = New System.Drawing.Point(17, 84)
+        Me.clienteRucLb.Location = New System.Drawing.Point(17, 88)
         Me.clienteRucLb.Name = "clienteRucLb"
         Me.clienteRucLb.Size = New System.Drawing.Size(39, 13)
         Me.clienteRucLb.TabIndex = 7

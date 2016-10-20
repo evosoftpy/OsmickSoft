@@ -136,7 +136,7 @@
         End If
     End Sub
 
-    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dim d As DialogResult
         Dim i, j, k As Integer
         Dim t As New herramientas
@@ -197,6 +197,10 @@
             clienteNumeroList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("numero_cliente"))
             clienteRucList.Items.Add(DataSet1.Tables("cliente").Rows(j).Item("ruc_cliente"))
         Next
+
+    End Sub
+
+    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
 
     End Sub
 End Class

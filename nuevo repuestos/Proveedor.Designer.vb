@@ -49,7 +49,6 @@ Partial Class Proveedor
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesBusGroup.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +87,7 @@ Partial Class Proveedor
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92746!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.07254!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.clienteNumeroList, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.clienteApellidoList, 1, 1)
@@ -107,7 +106,7 @@ Partial Class Proveedor
         'clienteNumeroList
         '
         Me.clienteNumeroList.FormattingEnabled = True
-        Me.clienteNumeroList.Location = New System.Drawing.Point(367, 23)
+        Me.clienteNumeroList.Location = New System.Drawing.Point(366, 23)
         Me.clienteNumeroList.Name = "clienteNumeroList"
         Me.clienteNumeroList.Size = New System.Drawing.Size(190, 251)
         Me.clienteNumeroList.TabIndex = 3
@@ -117,13 +116,13 @@ Partial Class Proveedor
         Me.clienteApellidoList.FormattingEnabled = True
         Me.clienteApellidoList.Location = New System.Drawing.Point(177, 23)
         Me.clienteApellidoList.Name = "clienteApellidoList"
-        Me.clienteApellidoList.Size = New System.Drawing.Size(184, 251)
+        Me.clienteApellidoList.Size = New System.Drawing.Size(183, 251)
         Me.clienteApellidoList.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(367, 0)
+        Me.Label3.Location = New System.Drawing.Point(366, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 2
@@ -276,21 +275,15 @@ Partial Class Proveedor
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(118, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 48)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'Proveedor
         '
@@ -343,6 +336,5 @@ Partial Class Proveedor
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button1 As Button
 End Class

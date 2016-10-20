@@ -94,7 +94,7 @@
 
 
 
-    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) 
 
         Dim d As DialogResult
         Dim i, j, k As Integer

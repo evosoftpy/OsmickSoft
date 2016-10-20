@@ -8,6 +8,9 @@ Module moduloDatos
     Public correo As String = "ninguno"
     Public avisoEnviado As String = "false"
 
+    ''pastore**********
+    Public ban_modificar As Integer
+    ''fin pastore*********
     Public Sub crearArchivo()
 
 

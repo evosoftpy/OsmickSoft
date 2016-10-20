@@ -32,8 +32,8 @@
 
 
             DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor") = clienteNomTxt.Text
-            DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = clienteApTxt.Text
-            DataSet1.Tables("proveedor").Rows(i).Item("numero_proveedor") = clienteRucTxt.Text
+            DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = clienteRucTxt.Text
+            DataSet1.Tables("proveedor").Rows(i).Item("numero_proveedor") = clienteApTxt.Text
 
             Validate()
             ProveedorBindingSource.EndEdit()
