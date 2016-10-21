@@ -24,6 +24,8 @@ Partial Class editarProveedores
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.clienteAgreGroup = New System.Windows.Forms.GroupBox()
+        Me.clienteApLb = New System.Windows.Forms.Label()
+        Me.clienteApTxt = New System.Windows.Forms.TextBox()
         Me.clienteNomLb = New System.Windows.Forms.Label()
         Me.clienteNomTxt = New System.Windows.Forms.TextBox()
         Me.clienteRucLb = New System.Windows.Forms.Label()
@@ -38,8 +40,6 @@ Partial Class editarProveedores
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.clienteApLb = New System.Windows.Forms.Label()
-        Me.clienteApTxt = New System.Windows.Forms.TextBox()
         Me.clienteAgreGroup.SuspendLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +61,22 @@ Partial Class editarProveedores
         Me.clienteAgreGroup.TabIndex = 21
         Me.clienteAgreGroup.TabStop = False
         Me.clienteAgreGroup.Text = "Editar Proveedor"
+        '
+        'clienteApLb
+        '
+        Me.clienteApLb.AutoSize = True
+        Me.clienteApLb.Location = New System.Drawing.Point(17, 95)
+        Me.clienteApLb.Name = "clienteApLb"
+        Me.clienteApLb.Size = New System.Drawing.Size(47, 13)
+        Me.clienteApLb.TabIndex = 9
+        Me.clienteApLb.Text = "Numero:"
+        '
+        'clienteApTxt
+        '
+        Me.clienteApTxt.Location = New System.Drawing.Point(119, 54)
+        Me.clienteApTxt.Name = "clienteApTxt"
+        Me.clienteApTxt.Size = New System.Drawing.Size(108, 20)
+        Me.clienteApTxt.TabIndex = 8
         '
         'clienteNomLb
         '
@@ -98,7 +114,7 @@ Partial Class editarProveedores
         '
         'clienteRucTxt
         '
-        Me.clienteRucTxt.Location = New System.Drawing.Point(119, 54)
+        Me.clienteRucTxt.Location = New System.Drawing.Point(119, 92)
         Me.clienteRucTxt.Name = "clienteRucTxt"
         Me.clienteRucTxt.Size = New System.Drawing.Size(108, 20)
         Me.clienteRucTxt.TabIndex = 3
@@ -165,22 +181,6 @@ Partial Class editarProveedores
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "numero_proveedor"
         Me.DataGridViewTextBoxColumn4.HeaderText = "numero_proveedor"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'clienteApLb
-        '
-        Me.clienteApLb.AutoSize = True
-        Me.clienteApLb.Location = New System.Drawing.Point(17, 95)
-        Me.clienteApLb.Name = "clienteApLb"
-        Me.clienteApLb.Size = New System.Drawing.Size(47, 13)
-        Me.clienteApLb.TabIndex = 9
-        Me.clienteApLb.Text = "Numero:"
-        '
-        'clienteApTxt
-        '
-        Me.clienteApTxt.Location = New System.Drawing.Point(119, 88)
-        Me.clienteApTxt.Name = "clienteApTxt"
-        Me.clienteApTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteApTxt.TabIndex = 8
         '
         'editarProveedores
         '
