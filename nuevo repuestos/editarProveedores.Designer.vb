@@ -73,7 +73,7 @@ Partial Class editarProveedores
         '
         'clienteApTxt
         '
-        Me.clienteApTxt.Location = New System.Drawing.Point(119, 54)
+        Me.clienteApTxt.Location = New System.Drawing.Point(119, 92)
         Me.clienteApTxt.Name = "clienteApTxt"
         Me.clienteApTxt.Size = New System.Drawing.Size(108, 20)
         Me.clienteApTxt.TabIndex = 8
@@ -114,7 +114,7 @@ Partial Class editarProveedores
         '
         'clienteRucTxt
         '
-        Me.clienteRucTxt.Location = New System.Drawing.Point(119, 92)
+        Me.clienteRucTxt.Location = New System.Drawing.Point(119, 54)
         Me.clienteRucTxt.Name = "clienteRucTxt"
         Me.clienteRucTxt.Size = New System.Drawing.Size(108, 20)
         Me.clienteRucTxt.TabIndex = 3
