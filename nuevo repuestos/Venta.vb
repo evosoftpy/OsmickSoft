@@ -959,7 +959,7 @@ Public Class Venta
 
                             nueva_venta("id_cliente") = id_cliente
                             nueva_venta("id_stock") = id_producto
-                            nueva_venta("cantidad_venta") = DataGridView1.Item(3, i).Value
+                            nueva_venta("cantidad_venta") = DataGridView1.Item(4, i).Value
                             nueva_venta("factura_venta") = n_factura_textbox.Text
                             nueva_venta("fecha_venta") = TextBox17.Text
                             nueva_venta("precio_venta") = DataGridView1.Item(5, i).Value
