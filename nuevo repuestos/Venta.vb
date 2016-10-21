@@ -949,7 +949,13 @@ Public Class Venta
                             'cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
                             Dim nueva_venta As DataRow = DataSet1.Tables("venta").NewRow
                             Dim id_producto As Integer
-                            id_producto = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "codigo", DataGridView1.Item(0, i).Value)).Item("id_stock")
+                            Dim fila As Integer
+                            fila = buscar_en_tablas("stock", "codigo", DataGridView1.Item(0, i).Value)
+                            If fila = -1 Then
+                                fila = buscar_en_tablas("stock", "codigo_barras", DataGridView1.Item(0, i).Value)
+                            End If
+                            id_producto = DataSet1.Tables("stock").Rows(fila).Item("id_stock")
+
 
                             nueva_venta("id_cliente") = id_cliente
                             nueva_venta("id_stock") = id_producto
