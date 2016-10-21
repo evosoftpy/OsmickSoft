@@ -299,7 +299,7 @@ Public Class Venta
                                     VentaBindingSource.EndEdit()
                                     VentaTableAdapter.Update(DataSet1.venta)
                                     update_cache()
-
+                                    moduloDatos.ban_modificar = 1
 
                                 End If
                             End If
@@ -1095,11 +1095,11 @@ Public Class Venta
                 pos_cliente = buscar_en_tablas("cliente", "id_cliente", ruc)
                 ruc = DataSet1.Tables("cliente").Rows(pos_cliente).Item("ruc_cliente")
                 nom_cliente = DataSet1.Tables("cliente").Rows(pos_cliente).Item("nombre_cliente") + " " + DataSet1.Tables("cliente").Rows(pos_cliente).Item("apellido_cliente")
-                'fecha = DataSet1.Tables("venta_producto").Rows(pos).Item("fecha_venta")
+                fecha = DataSet1.Tables("venta").Rows(pos_cliente).Item("fecha_venta")
                 'agregar fecha
                 text_ruc_venta.Text = ruc
                 TextBox16.Text = nom_cliente
-                'TextBox17.Text = fecha
+                TextBox17.Text = fecha
 
                 For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
 
