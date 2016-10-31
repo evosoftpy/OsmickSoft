@@ -6,6 +6,14 @@
 
     End Sub
 
+    Public Function update_cache()
+
+        Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
+
+
+
+    End Function
+
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DataSet1.ingreso_proveedor' table. You can move, or remove it, as needed.
         Me.Ingreso_proveedorTableAdapter.Fill(Me.DataSet1.ingreso_proveedor)

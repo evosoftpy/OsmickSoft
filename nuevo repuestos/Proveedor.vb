@@ -50,7 +50,7 @@
                 End If
             Next
         Else
-            MsgBox("Favor ingrese el parámetro de busqueda")
+            MsgBox("Favor ingrese el parámetro de búsqueda")
         End If
     End Sub
 

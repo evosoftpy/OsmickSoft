@@ -167,10 +167,14 @@
             form_manager.stock.TextBoxCodigo.Text = varCodigo
             form_manager.stock.TextBoxNombre.Text = varNombre
             form_manager.stock.TextBoxDescripcion.Text = varDescripcion
-            form_manager.stock.TextBoxPrecioDeVenta.Text = varPrecioDeVenta
-        Else
-            '''EN CASO DE QUE SEA "MODIFICAR PRODUCTO"
-            Dim varCodigoDeBarras As String
+                form_manager.stock.TextBoxPrecioDeVenta.Text = varPrecioDeVenta
+
+                form_manager.stock.TextBoxCantidad.Focus()
+
+            Else
+
+                '''EN CASO DE QUE SEA "MODIFICAR PRODUCTO"
+                Dim varCodigoDeBarras As String
             Dim varCodigo As String
             Dim varNombre As String
             Dim varDescripcion As String

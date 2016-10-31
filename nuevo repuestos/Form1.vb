@@ -86,6 +86,8 @@ Public Class Form1
         form_manager.ban_venta = 0
         ProgressBar1.Value = 70
 
+        ''''UPDATE CACHE EN STOCK
+        form_manager.stock.update_cache()
 
         form_manager.stock.MdiParent = Me
         ''form_manager.stock.StartPosition = FormStartPosition.CenterScreen
@@ -100,6 +102,11 @@ Public Class Form1
 
         ProgressBar1.Value = 100
         Refresh()
+
+
+
+
+
 
         ' ProgressBar1.Value = 0
     End Sub

@@ -212,7 +212,7 @@ Public Class Venta
 
 
         If n_factura_textbox.Text = "" Then
-            MsgBox("Falta numero de factura")
+            MsgBox("Falta número de factura")
         Else
             For i = 0 To DataSet1.Tables("venta").Rows.Count - 1
                 If n_factura_textbox.Text = DataSet1.Tables("venta").Rows(i).Item("factura_venta") And ban = 0 Then
@@ -423,7 +423,7 @@ Public Class Venta
             If IsNumeric(DataGridView1.Item(3, curen).Value) Then
 
             Else
-                MsgBox("Ingrese un precio unitario numerico")
+                MsgBox("Ingrese un precio unitario numérico")
                 DataGridView1.Item(3, curen).Value = ""
             End If
         End If
@@ -524,7 +524,7 @@ Public Class Venta
                             End If
                         Next
                     Else
-                        MsgBox("Ingrese un precio unitario numerico")
+                        MsgBox("Ingrese un precio unitario numérico")
                         DataGridView1.Item(3, curen).Value = ""
                     End If
                 End If
@@ -629,7 +629,7 @@ Public Class Venta
             Next
 
             If ban_logrado = 1 Then
-                MsgBox("Factura cargada con exito")
+                MsgBox("Factura cargada con éxito")
                 ban_logrado = 0
             End If
         Else
@@ -1022,7 +1022,7 @@ Public Class Venta
         If IsDate(TextBox17.Text) Then
 
         Else
-            MsgBox("Por favor ingrese una fecha valida")
+            MsgBox("Por favor ingrese una fecha válida")
             TextBox17.Text = Date.Now.Date
 
         End If
