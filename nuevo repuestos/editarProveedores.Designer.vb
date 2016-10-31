@@ -76,7 +76,7 @@ Partial Class editarProveedores
         Me.clienteApTxt.Location = New System.Drawing.Point(119, 92)
         Me.clienteApTxt.Name = "clienteApTxt"
         Me.clienteApTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteApTxt.TabIndex = 8
+        Me.clienteApTxt.TabIndex = 2
         '
         'clienteNomLb
         '
@@ -92,7 +92,7 @@ Partial Class editarProveedores
         Me.clienteNomTxt.Location = New System.Drawing.Point(119, 23)
         Me.clienteNomTxt.Name = "clienteNomTxt"
         Me.clienteNomTxt.Size = New System.Drawing.Size(272, 20)
-        Me.clienteNomTxt.TabIndex = 1
+        Me.clienteNomTxt.TabIndex = 0
         '
         'clienteRucLb
         '
@@ -108,7 +108,7 @@ Partial Class editarProveedores
         Me.clienteEditarBtn.Location = New System.Drawing.Point(316, 133)
         Me.clienteEditarBtn.Name = "clienteEditarBtn"
         Me.clienteEditarBtn.Size = New System.Drawing.Size(75, 23)
-        Me.clienteEditarBtn.TabIndex = 4
+        Me.clienteEditarBtn.TabIndex = 3
         Me.clienteEditarBtn.Text = "Editar"
         Me.clienteEditarBtn.UseVisualStyleBackColor = True
         '
@@ -117,7 +117,7 @@ Partial Class editarProveedores
         Me.clienteRucTxt.Location = New System.Drawing.Point(119, 54)
         Me.clienteRucTxt.Name = "clienteRucTxt"
         Me.clienteRucTxt.Size = New System.Drawing.Size(108, 20)
-        Me.clienteRucTxt.TabIndex = 3
+        Me.clienteRucTxt.TabIndex = 1
         '
         'DataSet1
         '
