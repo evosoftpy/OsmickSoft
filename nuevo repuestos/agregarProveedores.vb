@@ -29,7 +29,7 @@
                     Validate()
                     ProveedorBindingSource.EndEdit()
                     ProveedorTableAdapter.Update(DataSet1.proveedor)
-                    MsgBox("Proveedor creado con exito")
+                    MsgBox("Proveedor creado con éxito")
                     clienteNomTxt.Text = ""
                     clienteApTxt.Text = ""
                     clienteRucTxt.Text = ""
@@ -43,7 +43,7 @@
                     MsgBox("El proveedor ya existe")
                 End If
             Else
-                MsgBox("Favor complete con el Nombre o el RUC como minimo")
+                MsgBox("Favor complete con el Nombre o el RUC como mínimo")
 
             End If
         Catch ex As Exception

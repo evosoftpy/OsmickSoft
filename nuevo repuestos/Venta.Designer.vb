@@ -110,7 +110,7 @@ Partial Class Venta
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(97, 409)
+        Me.Button1.Location = New System.Drawing.Point(97, 405)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 6
@@ -148,7 +148,7 @@ Partial Class Venta
         '
         'Button29
         '
-        Me.Button29.Location = New System.Drawing.Point(15, 438)
+        Me.Button29.Location = New System.Drawing.Point(15, 434)
         Me.Button29.Name = "Button29"
         Me.Button29.Size = New System.Drawing.Size(156, 23)
         Me.Button29.TabIndex = 7
@@ -165,7 +165,7 @@ Partial Class Venta
         'label_n_factura
         '
         Me.label_n_factura.AutoSize = True
-        Me.label_n_factura.Location = New System.Drawing.Point(422, 58)
+        Me.label_n_factura.Location = New System.Drawing.Point(429, 57)
         Me.label_n_factura.Name = "label_n_factura"
         Me.label_n_factura.Size = New System.Drawing.Size(66, 13)
         Me.label_n_factura.TabIndex = 68
@@ -202,7 +202,7 @@ Partial Class Venta
         'label_total
         '
         Me.label_total.AutoSize = True
-        Me.label_total.Location = New System.Drawing.Point(385, 472)
+        Me.label_total.Location = New System.Drawing.Point(411, 469)
         Me.label_total.Name = "label_total"
         Me.label_total.Size = New System.Drawing.Size(42, 13)
         Me.label_total.TabIndex = 64
@@ -220,7 +220,7 @@ Partial Class Venta
         'label_iva
         '
         Me.label_iva.AutoSize = True
-        Me.label_iva.Location = New System.Drawing.Point(385, 436)
+        Me.label_iva.Location = New System.Drawing.Point(411, 433)
         Me.label_iva.Name = "label_iva"
         Me.label_iva.Size = New System.Drawing.Size(24, 13)
         Me.label_iva.TabIndex = 62
@@ -228,7 +228,7 @@ Partial Class Venta
         '
         'text_sub_total
         '
-        Me.text_sub_total.Location = New System.Drawing.Point(486, 390)
+        Me.text_sub_total.Location = New System.Drawing.Point(486, 393)
         Me.text_sub_total.Name = "text_sub_total"
         Me.text_sub_total.ReadOnly = True
         Me.text_sub_total.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -239,7 +239,7 @@ Partial Class Venta
         'label_subtotal
         '
         Me.label_subtotal.AutoSize = True
-        Me.label_subtotal.Location = New System.Drawing.Point(385, 397)
+        Me.label_subtotal.Location = New System.Drawing.Point(411, 397)
         Me.label_subtotal.Name = "label_subtotal"
         Me.label_subtotal.Size = New System.Drawing.Size(67, 13)
         Me.label_subtotal.TabIndex = 60
@@ -247,7 +247,7 @@ Partial Class Venta
         '
         'venta_guardar
         '
-        Me.venta_guardar.Location = New System.Drawing.Point(15, 409)
+        Me.venta_guardar.Location = New System.Drawing.Point(15, 405)
         Me.venta_guardar.Name = "venta_guardar"
         Me.venta_guardar.Size = New System.Drawing.Size(75, 23)
         Me.venta_guardar.TabIndex = 5
@@ -300,7 +300,7 @@ Partial Class Venta
         '
         'TextBox17
         '
-        Me.TextBox17.Location = New System.Drawing.Point(502, 17)
+        Me.TextBox17.Location = New System.Drawing.Point(502, 14)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(109, 20)
         Me.TextBox17.TabIndex = 57
@@ -308,7 +308,7 @@ Partial Class Venta
         'label_fecha
         '
         Me.label_fecha.AutoSize = True
-        Me.label_fecha.Location = New System.Drawing.Point(451, 22)
+        Me.label_fecha.Location = New System.Drawing.Point(458, 18)
         Me.label_fecha.Name = "label_fecha"
         Me.label_fecha.Size = New System.Drawing.Size(37, 13)
         Me.label_fecha.TabIndex = 56
@@ -316,7 +316,7 @@ Partial Class Venta
         '
         'TextBox16
         '
-        Me.TextBox16.Location = New System.Drawing.Point(54, 55)
+        Me.TextBox16.Location = New System.Drawing.Point(54, 53)
         Me.TextBox16.Name = "TextBox16"
         Me.TextBox16.Size = New System.Drawing.Size(335, 20)
         Me.TextBox16.TabIndex = 55
@@ -324,7 +324,7 @@ Partial Class Venta
         'label_venta_cliente
         '
         Me.label_venta_cliente.AutoSize = True
-        Me.label_venta_cliente.Location = New System.Drawing.Point(9, 60)
+        Me.label_venta_cliente.Location = New System.Drawing.Point(9, 57)
         Me.label_venta_cliente.Name = "label_venta_cliente"
         Me.label_venta_cliente.Size = New System.Drawing.Size(39, 13)
         Me.label_venta_cliente.TabIndex = 54
@@ -332,7 +332,7 @@ Partial Class Venta
         '
         'text_ruc_venta
         '
-        Me.text_ruc_venta.Location = New System.Drawing.Point(45, 15)
+        Me.text_ruc_venta.Location = New System.Drawing.Point(54, 14)
         Me.text_ruc_venta.Name = "text_ruc_venta"
         Me.text_ruc_venta.Size = New System.Drawing.Size(100, 20)
         Me.text_ruc_venta.TabIndex = 0
@@ -340,7 +340,7 @@ Partial Class Venta
         'label_ruc
         '
         Me.label_ruc.AutoSize = True
-        Me.label_ruc.Location = New System.Drawing.Point(9, 20)
+        Me.label_ruc.Location = New System.Drawing.Point(18, 18)
         Me.label_ruc.Name = "label_ruc"
         Me.label_ruc.Size = New System.Drawing.Size(30, 13)
         Me.label_ruc.TabIndex = 52

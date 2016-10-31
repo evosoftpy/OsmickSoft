@@ -42,7 +42,7 @@
                     Validate()
                     ClienteBindingSource.EndEdit()
                     ClienteTableAdapter.Update(DataSet1.cliente)
-                    MsgBox("Cliente creado con exito")
+                    MsgBox("Cliente creado con éxito")
 
 
                     ''''ESTO ES CODIGO DE PASTORE NO TOCAR'''
@@ -68,7 +68,7 @@
                     MsgBox("El cliente ya existe")
                 End If
             Else
-                MsgBox("Favor complete con el Nombre o el apellido y el RUC como minimo")
+                MsgBox("Favor complete con el Nombre o el apellido y el RUC como mínimo")
 
             End If
 

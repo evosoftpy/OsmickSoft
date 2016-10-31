@@ -149,7 +149,7 @@
 
         If DataGridViewStock.Item(0, index).Value = "" Then
             If DataGridViewStock.Item(1, index).Value = "" Then
-                MsgBox("Producto invalido")
+                MsgBox("Producto inválido")
             Else
                 form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(1, index).Value
             End If

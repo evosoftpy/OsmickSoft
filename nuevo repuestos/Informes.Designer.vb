@@ -485,7 +485,7 @@ Partial Class Informes
         Me.DateTimePicker2gasto.Name = "DateTimePicker2gasto"
         Me.DateTimePicker2gasto.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker2gasto.TabIndex = 18
-        Me.DateTimePicker2gasto.Value = New Date(2016, 7, 15, 0, 0, 0, 0)
+        Me.DateTimePicker2gasto.Value = New Date(2017, 1, 1, 0, 0, 0, 0)
         '
         'Label111
         '
@@ -531,6 +531,7 @@ Partial Class Informes
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StockBindingNavigator)
         Me.Controls.Add(Me.informe_ventas)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Informes"
         Me.Text = "Informes"
         CType(Me.informe_ventas, System.ComponentModel.ISupportInitialize).EndInit()
