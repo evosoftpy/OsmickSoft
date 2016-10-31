@@ -117,6 +117,7 @@ Partial Class Form2
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelIdQueNoSeVe = New System.Windows.Forms.Label()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IngresoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -861,12 +862,23 @@ Partial Class Form2
         Me.DataGridViewTextBoxColumn24.HeaderText = "precio_venta"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         '
+        'LabelIdQueNoSeVe
+        '
+        Me.LabelIdQueNoSeVe.AutoSize = True
+        Me.LabelIdQueNoSeVe.Location = New System.Drawing.Point(12, 466)
+        Me.LabelIdQueNoSeVe.Name = "LabelIdQueNoSeVe"
+        Me.LabelIdQueNoSeVe.Size = New System.Drawing.Size(102, 13)
+        Me.LabelIdQueNoSeVe.TabIndex = 60
+        Me.LabelIdQueNoSeVe.Text = "LabelIdQueNoSeVe"
+        Me.LabelIdQueNoSeVe.Visible = False
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(524, 488)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LabelIdQueNoSeVe)
         Me.Controls.Add(Me.ButtonModificarProducto)
         Me.Controls.Add(Me.ButtonIngresarProducto)
         Me.Controls.Add(Me.VentaDataGridView)
@@ -900,6 +912,7 @@ Partial Class Form2
         CType(Me.VentaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -998,4 +1011,5 @@ Partial Class Form2
     Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents LabelIdQueNoSeVe As Label
 End Class
