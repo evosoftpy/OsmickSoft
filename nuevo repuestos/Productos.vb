@@ -83,6 +83,7 @@
             DataGridViewStock.Item(2, i).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
             DataGridViewStock.Item(3, i).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
             DataGridViewStock.Item(4, i).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+            DataGridViewStock.Item(5, i).Value = DataSet1.Tables("stock").Rows(i).Item("id_stock")
 
         Next
 
@@ -156,7 +157,8 @@
         Else
             form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(0, index).Value
         End If
-        'form_manager.sell.DataGridView1.Item(0, j).Value = DataGridViewStock.Item(0, index).Value
+
+        form_manager.sell.DataGridView1.Item(6, j).Value = DataGridViewStock.Item(5, index).Value
         form_manager.sell.DataGridView1.Item(1, j).Value = DataGridViewStock.Item(2, index).Value
         form_manager.sell.DataGridView1.Item(2, j).Value = DataGridViewStock.Item(3, index).Value
         form_manager.sell.DataGridView1.Item(3, j).Value = DataGridViewStock.Item(4, index).Value

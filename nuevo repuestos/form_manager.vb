@@ -9,6 +9,7 @@
     Public p_falta As New info_p_falta
     Public config As New confAvisos
     Public ban_venta As Integer
+    Public ban_misma_descripcion As Integer
 
 
 End Module

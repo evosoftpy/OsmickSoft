@@ -287,6 +287,7 @@ Public Class Venta
                                     Else
                                         id_producto = DataSet1.Tables("stock").Rows(buscar_en_tablas("stock", "codigo_barras", DataGridView1.Item(0, i).Value)).Item("id_stock")
                                     End If
+                                    id_producto = DataGridView1.Item(6, i).Value
                                     nueva_venta("id_cliente") = id_cliente
                                     nueva_venta("id_stock") = id_producto
                                     nueva_venta("cantidad_venta") = DataGridView1.Item(4, i).Value
@@ -440,11 +441,13 @@ Public Class Venta
             For i = 0 To DataSet1.Tables("stock").Rows.Count - 1
 
 
-                If cod = DataSet1.Tables("stock").Rows(i).Item("codigo") Or cod = DataSet1.Tables("stock").Rows(i).Item("codigo_barras") Then
+                If (cod = DataSet1.Tables("stock").Rows(i).Item("codigo") Or cod = DataSet1.Tables("stock").Rows(i).Item("codigo_barras")) And IsNothing(DataGridView1.Item(6, curen).Value) Then
+
 
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("stock").Rows(i).Item("nombre")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("stock").Rows(i).Item("descripcion")
                     DataGridView1.Item(3, curen).Value = DataSet1.Tables("stock").Rows(i).Item("precio_venta")
+                    DataGridView1.Item(6, curen).Value = DataSet1.Tables("stock").Rows(i).Item("id_stock")
 
 
                     idproducto = DataSet1.Tables("stock").Rows(i).Item("id_stock")
@@ -453,8 +456,12 @@ Public Class Venta
 
             Next
             If ban_exist_product = 0 Then
-                DataGridView1.Item(0, curen).Value = ""
-                MsgBox("Codigo de producto no existe")
+                If IsNothing(DataGridView1.Item(6, curen).Value) Then
+                    DataGridView1.Item(0, curen).Value = ""
+                    MsgBox("Codigo de producto no existe")
+                End If
+
+
             End If
 
         End If
@@ -464,9 +471,10 @@ Public Class Venta
         Else
             If DataGridView1.Item(4, curen).Value > -1 Then
                 If moduloDatos.ban_modificar = 1 And n_factura_textbox.Text IsNot "" Then
-                    cantidad_product = cantidad_producto_disponible_modificacion(idproducto, n_factura_textbox.Text)
+                    cantidad_product = cantidad_producto_disponible_modificacion(DataGridView1.Item(6, curen).Value, n_factura_textbox.Text)
                 Else
-                    cantidad_product = cantidad_producto_disponible(idproducto)
+                    cantidad_product = cantidad_producto_disponible(DataGridView1.Item(6, curen).Value)
+
                 End If
 
                 For i = 0 To DataGridView1.RowCount - 1
@@ -495,7 +503,7 @@ Public Class Venta
                     DataGridView1.Item(4, curen).Value = ""
                 Else
 
-                    If cantidad_product - DataGridView1.Item(4, curen).Value < 0 Then
+                    If cantidad_product - DataGridView1.Item(4, curen).Value <0 Then
                         Dim mensaje As String
                         MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
 

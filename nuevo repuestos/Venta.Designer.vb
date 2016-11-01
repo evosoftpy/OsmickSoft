@@ -95,6 +95,7 @@ Partial Class Venta
         Me.factura = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.id_stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -257,7 +258,7 @@ Partial Class Venta
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Codigo, Me.Producto, Me.Descripcion, Me.Punit, Me.cant, Me.Importe})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Codigo, Me.Producto, Me.Descripcion, Me.Punit, Me.cant, Me.Importe, Me.id_stock})
         Me.DataGridView1.Location = New System.Drawing.Point(12, 115)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(644, 236)
@@ -629,6 +630,12 @@ Partial Class Venta
         Me.Button3.Text = "Anterior"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'id_stock
+        '
+        Me.id_stock.HeaderText = "id_stock"
+        Me.id_stock.Name = "id_stock"
+        Me.id_stock.Visible = False
+        '
         'Venta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -758,4 +765,5 @@ Partial Class Venta
     Friend WithEvents factura As DataGridViewTextBoxColumn
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents id_stock As DataGridViewTextBoxColumn
 End Class
