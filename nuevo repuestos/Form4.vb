@@ -1,18 +1,26 @@
 ﻿Public Class info_p_falta
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
-        Me.StockTableAdapter.Fill(Me.DataSet1.stock)
-        'TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
-        Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
-        'TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
-        Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
+        '''TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
+        ''Me.StockTableAdapter.Fill(Me.DataSet1.stock)
+        '''TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
+        ''Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        '''TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
+        ''Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
 
-        'TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
-        Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
+
+    End Sub
+
+    Public Function update_cache()
         'TODO: This line of code loads data into the 'DataSet1.stock' table. You can move, or remove it, as needed.
         Me.StockTableAdapter.Fill(Me.DataSet1.stock)
         'TODO: This line of code loads data into the 'DataSet1.venta' table. You can move, or remove it, as needed.
         Me.VentaTableAdapter.Fill(Me.DataSet1.venta)
+        'TODO: This line of code loads data into the 'DataSet1.ingreso' table. You can move, or remove it, as needed.
+        Me.IngresoTableAdapter.Fill(Me.DataSet1.ingreso)
+    End Function
+
+    Public Function mostrar()
+        DataGridViewFalta.Rows.Clear()
 
         Dim string_salida As String
         string_salida = "CANTIDAD" + vbTab + vbTab + "NOMBRE" + vbTab + vbTab + vbTab + "DESCRIPCIÓN" + vbCr
@@ -72,7 +80,7 @@
         Next
         'MsgBox(string_salida)
 
-    End Sub
+    End Function
 
     Private Sub IngresoBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles IngresoBindingNavigatorSaveItem.Click
         Me.Validate()
