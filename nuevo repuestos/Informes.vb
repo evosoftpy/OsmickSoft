@@ -208,6 +208,8 @@
         Me.Hide()
 
         form_manager.p_falta.Show()
+        form_manager.p_falta.update_cache()
+        form_manager.p_falta.mostrar()
 
     End Sub
 End Class
